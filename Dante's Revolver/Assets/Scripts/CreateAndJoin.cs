@@ -9,10 +9,9 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
     public TMP_InputField input_create;
     public TMP_InputField input_join;
-
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input_create.text, new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true } , TypedLobby.Default , null);
+        PhotonNetwork.CreateRoom(input_create.text , new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true} , TypedLobby.Default);
     }
     public void JoinRoom()
     {
