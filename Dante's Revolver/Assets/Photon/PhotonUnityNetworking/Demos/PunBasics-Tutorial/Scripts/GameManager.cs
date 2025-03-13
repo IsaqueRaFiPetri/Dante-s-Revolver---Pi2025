@@ -41,7 +41,7 @@ namespace Photon.Pun.Demo.PunBasics
         [SerializeField]
         private GameObject playerPrefab;
 		[SerializeField]
-        private SceneAsset startLevel;
+        private SceneAsset levelToLoad;
 
 
         #endregion
@@ -183,11 +183,16 @@ namespace Photon.Pun.Demo.PunBasics
 			Debug.LogFormat( "PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount );
 
 			//PhotonNetwork.LoadLevel("PunBasics-Room for "+PhotonNetwork.CurrentRoom.PlayerCount);
-			PhotonNetwork.LoadLevel(startLevel.name);
+			PhotonNetwork.LoadLevel("SampleSCene");
 
 		}
 
 		#endregion
+
+		public void ChangeLevel()
+		{
+            PhotonNetwork.LoadLevel(levelToLoad.name);
+        }
 
 	}
 
