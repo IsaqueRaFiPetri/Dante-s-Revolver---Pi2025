@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Realtime;
+using UnityEditor;
 
 namespace Photon.Pun.Demo.PunBasics
 {
@@ -39,6 +40,9 @@ namespace Photon.Pun.Demo.PunBasics
         [Tooltip("The prefab to use for representing the player")]
         [SerializeField]
         private GameObject playerPrefab;
+		[SerializeField]
+        private SceneAsset startLevel;
+
 
         #endregion
 
@@ -179,7 +183,7 @@ namespace Photon.Pun.Demo.PunBasics
 			Debug.LogFormat( "PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount );
 
 			//PhotonNetwork.LoadLevel("PunBasics-Room for "+PhotonNetwork.CurrentRoom.PlayerCount);
-			PhotonNetwork.LoadLevel("SampleScene");
+			PhotonNetwork.LoadLevel(startLevel.name);
 
 		}
 
