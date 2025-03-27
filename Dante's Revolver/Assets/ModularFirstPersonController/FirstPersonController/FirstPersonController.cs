@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -17,6 +18,7 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    PhotonView photonView;
 
     #region Camera Movement Variables
 
@@ -147,6 +149,12 @@ public class FirstPersonController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
+        photonView = GetComponent<PhotonView>();
+        if (photonView.IsMine)
+        {
+
+        }
+
     }
 
     void Start()
