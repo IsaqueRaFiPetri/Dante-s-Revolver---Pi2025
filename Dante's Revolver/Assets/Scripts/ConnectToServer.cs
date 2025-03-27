@@ -4,7 +4,7 @@ using Photon.Pun;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    void Start()
+    public void LoadingScreen()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
