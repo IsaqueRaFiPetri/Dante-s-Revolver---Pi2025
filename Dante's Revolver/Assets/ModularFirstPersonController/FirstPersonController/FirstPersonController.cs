@@ -57,7 +57,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Movement Variables
 
-    public bool playerCanMove = true;
+    public bool playerCanMove = false;
     public float walkSpeed = 5f;
     public float maxVelocityChange = 10f;
 
@@ -152,7 +152,7 @@ public class FirstPersonController : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         if (photonView.IsMine)
         {
-
+            playerCanMove = true;
         }
 
     }
