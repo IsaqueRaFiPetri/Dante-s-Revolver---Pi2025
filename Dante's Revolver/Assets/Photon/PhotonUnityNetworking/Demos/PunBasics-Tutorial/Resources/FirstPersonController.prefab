@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 7584674699166681800}
   - component: {fileID: 2724790559010220362}
   - component: {fileID: 5534300421450411407}
-  - component: {fileID: -7728837984841259673}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -276,7 +275,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5534300421450411407}
-  - {fileID: -7728837984841259673}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -313,22 +311,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-7728837984841259673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459864850019384750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0
