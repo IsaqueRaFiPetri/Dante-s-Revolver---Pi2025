@@ -87,6 +87,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             PlayerMovementAdvanced.LocalPlayerInstance = gameObject;
+            print(PlayerMovementAdvanced.LocalPlayerInstance.name);
         }
     }
 
@@ -113,100 +114,107 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (photonView.IsMine)
         {
-            readyToJump = false;
 
-            Jump();
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
 
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
+            // when to jump
+            if (Input.GetKey(jumpKey) && readyToJump && grounded)
+            {
+                readyToJump = false;
 
-        // start crouch
-        if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+                Jump();
 
-            crouching = true;
-        }
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
 
-        // stop crouch
-        if (Input.GetKeyUp(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            // start crouch
+            if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+                rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
-            crouching = false;
+                crouching = true;
+            }
+
+            // stop crouch
+            if (Input.GetKeyUp(crouchKey))
+            {
+                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+
+                crouching = false;
+            }
         }
     }
 
     private void StateHandler()
     {
-        // Mode - Wallrunning
-        if (wallrunning)
+        if (photonView.IsMine)
         {
-            state = MovementState.wallrunning;
-            desiredMoveSpeed = wallrunSpeed;
-        }
+            // Mode - Wallrunning
+            if (wallrunning)
+            {
+                state = MovementState.wallrunning;
+                desiredMoveSpeed = wallrunSpeed;
+            }
 
-        // Mode - Sliding
-        else if (sliding)
-        {
-            state = MovementState.sliding;
+            // Mode - Sliding
+            else if (sliding)
+            {
+                state = MovementState.sliding;
 
-            // increase speed by one every second
-            if (OnSlope() && rb.linearVelocity.y < 0.1f)
-                desiredMoveSpeed = slideSpeed;
+                // increase speed by one every second
+                if (OnSlope() && rb.linearVelocity.y < 0.1f)
+                    desiredMoveSpeed = slideSpeed;
 
-            else
+                else
+                    desiredMoveSpeed = sprintSpeed;
+            }
+
+            // Mode - Crouching
+            else if (crouching)
+            {
+                state = MovementState.crouching;
+                desiredMoveSpeed = crouchSpeed;
+            }
+
+            // Mode - Sprinting
+            else if (grounded && Input.GetKey(sprintKey))
+            {
+                state = MovementState.sprinting;
                 desiredMoveSpeed = sprintSpeed;
-        }
+            }
 
-        // Mode - Crouching
-        else if (crouching)
-        {
-            state = MovementState.crouching;
-            desiredMoveSpeed = crouchSpeed;
-        }
+            // Mode - Walking
+            else if (grounded)
+            {
+                state = MovementState.walking;
+                desiredMoveSpeed = walkSpeed;
+            }
 
-        // Mode - Sprinting
-        else if (grounded && Input.GetKey(sprintKey))
-        {
-            state = MovementState.sprinting;
-            desiredMoveSpeed = sprintSpeed;
-        }
+            // Mode - Air
+            else
+            {
+                state = MovementState.air;
+            }
 
-        // Mode - Walking
-        else if (grounded)
-        {
-            state = MovementState.walking;
-            desiredMoveSpeed = walkSpeed;
-        }
+            // check if desired move speed has changed drastically
+            if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
 
-        // Mode - Air
-        else
-        {
-            state = MovementState.air;
-        }
+                print("Lerp Started!");
+            }
+            else
+            {
+                moveSpeed = desiredMoveSpeed;
+            }
 
-        // check if desired move speed has changed drastically
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
-        {
-            StopAllCoroutines();
-            StartCoroutine(SmoothlyLerpMoveSpeed());
-
-            print("Lerp Started!");
+            lastDesiredMoveSpeed = desiredMoveSpeed;
         }
-        else
-        {
-            moveSpeed = desiredMoveSpeed;
-        }
-
-        lastDesiredMoveSpeed = desiredMoveSpeed;
     }
 
     private IEnumerator SmoothlyLerpMoveSpeed()
@@ -238,28 +246,31 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
 
     private void MovePlayer()
     {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // on slope
-        if (OnSlope() && !exitingSlope)
+        if (photonView.IsMine)
         {
-            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+            // calculate movement direction
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            if (rb.linearVelocity.y > 0)
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            // on slope
+            if (OnSlope() && !exitingSlope)
+            {
+                rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+
+                if (rb.linearVelocity.y > 0)
+                    rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
+
+            // on ground
+            else if (grounded)
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+            // in air
+            else if (!grounded)
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+
+            // turn gravity off while on slope
+            if (!wallrunning) rb.useGravity = !OnSlope();
         }
-
-        // on ground
-        else if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        // in air
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-
-        // turn gravity off while on slope
-        if (!wallrunning) rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()
