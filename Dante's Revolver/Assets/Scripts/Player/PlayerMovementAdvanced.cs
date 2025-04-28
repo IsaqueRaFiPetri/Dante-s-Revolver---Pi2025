@@ -6,15 +6,16 @@ using Photon.Pun;
 public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
 {
     public static GameObject LocalPlayerInstance;
+    [SerializeField] Stats stats;
 
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
-    public float walkSpeed;
-    public float sprintSpeed;
-    public float slideSpeed;
-    public float wallrunSpeed;
+    //public float walkSpeed;
+    //public float sprintSpeed;
+    //public float slideSpeed;
+    //public float wallrunSpeed;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -157,7 +158,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
             if (wallrunning)
             {
                 state = MovementState.wallrunning;
-                desiredMoveSpeed = wallrunSpeed;
+                desiredMoveSpeed = stats.wallrunSpeed;
             }
 
             // Mode - Sliding
@@ -167,10 +168,10 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
 
                 // increase speed by one every second
                 if (OnSlope() && rb.linearVelocity.y < 0.1f)
-                    desiredMoveSpeed = slideSpeed;
+                    desiredMoveSpeed = stats.slideSpeed;
 
                 else
-                    desiredMoveSpeed = sprintSpeed;
+                    desiredMoveSpeed = stats.sprintSpeed;
             }
 
             // Mode - Crouching
@@ -184,14 +185,14 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
             else if (grounded && Input.GetKey(sprintKey))
             {
                 state = MovementState.sprinting;
-                desiredMoveSpeed = sprintSpeed;
+                desiredMoveSpeed = stats.sprintSpeed;
             }
 
             // Mode - Walking
             else if (grounded)
             {
                 state = MovementState.walking;
-                desiredMoveSpeed = walkSpeed;
+                desiredMoveSpeed = stats.moveSpeed;
             }
 
             // Mode - Air
