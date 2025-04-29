@@ -3,7 +3,11 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks
+public interface IPlayable
+{
+
+}
+public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 {
     public static GameObject LocalPlayerInstance;
     [SerializeField] Stats stats;
