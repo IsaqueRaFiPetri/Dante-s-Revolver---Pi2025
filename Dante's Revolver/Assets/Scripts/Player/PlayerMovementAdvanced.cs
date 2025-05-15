@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using UnityEngine.InputSystem;
 
 public interface IPlayable
 {
@@ -16,10 +17,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     private float moveSpeed;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
-    //public float walkSpeed;
-    //public float sprintSpeed;
-    //public float slideSpeed;
-    //public float wallrunSpeed;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -76,9 +73,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     public bool sliding;
     public bool crouching;
     public bool wallrunning;
-
-    public TextMeshProUGUI text_speed;
-    public TextMeshProUGUI text_mode;
 
     private void Start()
     {
