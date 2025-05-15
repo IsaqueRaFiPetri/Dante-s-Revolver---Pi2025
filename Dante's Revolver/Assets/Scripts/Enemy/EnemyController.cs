@@ -6,10 +6,12 @@ public interface ISeeker
     public void OnTargetDetect();
     public void OnTargetMiss();
 }
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, ISeeker
 {
     [SerializeField]protected NavMeshAgent enemyAgent;
+    Transform eyePoints;
     Transform playerTarget;
+    Ray ray;
 
     protected Transform SetTarget(Transform target)
     {
@@ -22,5 +24,19 @@ public class EnemyController : MonoBehaviour
     protected Transform GetTarget()
     {
         return playerTarget;
+    }
+    public void OnTargetDetect()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnTargetMiss()
+    {
+        throw new System.NotImplementedException();
+    }
+    private void Start()
+    {
+        ray = new Ray(eyePoints.transform.position, transform.forward);
+        OnTargetDetect();
     }
 }
