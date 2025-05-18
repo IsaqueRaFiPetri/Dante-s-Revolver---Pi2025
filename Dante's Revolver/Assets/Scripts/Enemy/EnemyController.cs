@@ -5,6 +5,7 @@ public interface ISeeker
 {
     public void OnTargetDetect();
     public void OnTargetMiss();
+    public void DetectCollision();
 }
 public class EnemyController : MonoBehaviour, ISeeker
 {
@@ -12,6 +13,8 @@ public class EnemyController : MonoBehaviour, ISeeker
     Transform eyePoints;
     Transform playerTarget;
     Ray ray;
+    RaycastHit hit;
+    [SerializeField] float maxDistance;
 
     protected Transform SetTarget(Transform target)
     {
@@ -34,9 +37,19 @@ public class EnemyController : MonoBehaviour, ISeeker
     {
         throw new System.NotImplementedException();
     }
-    private void Start()
+
+    public void DetectCollision()
     {
-        ray = new Ray(eyePoints.transform.position, transform.forward);
-        OnTargetDetect();
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.GetComponent<IPlayable>() != null)
+            {
+                SetTarget(hit.collider.transform);
+            }
+        }
+    }
+    private void FixedUpdate()
+    {
+        DetectCollision();
     }
 }
