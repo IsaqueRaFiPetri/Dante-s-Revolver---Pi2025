@@ -3,7 +3,7 @@ using TMPro;
 
 public class Room : MonoBehaviour
 {
-    public TMP_Text r_name;
+    [SerializeField] TMP_Text r_name;
 
     public void JoinRoom()
     {

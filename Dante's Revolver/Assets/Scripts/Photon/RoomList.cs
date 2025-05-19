@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class RoomList : MonoBehaviourPunCallbacks
 {
-    public GameObject roomPrefab;
-    public GameObject[] allRooms;
+    [SerializeField] GameObject roomPrefab;
+    [SerializeField] GameObject[] allRooms;
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
