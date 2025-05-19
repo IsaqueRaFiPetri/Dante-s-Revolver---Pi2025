@@ -7,15 +7,21 @@ using TMPro;
 
 public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField input_create;
-    public TMP_InputField input_join;
+    [SerializeField] TMP_InputField input;
+    [SerializeField] string roomBaseName;
+
+    private void Awake()
+    {
+        input.text = roomBaseName;
+    }
+
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input_create.text , new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true} , TypedLobby.Default);
+        PhotonNetwork.CreateRoom(input.text , new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true} , TypedLobby.Default);
     }
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(input_join.text);
+        PhotonNetwork.JoinRoom(input.text);
     }
     public void JoinRoomInList(string RoomName)
     {
