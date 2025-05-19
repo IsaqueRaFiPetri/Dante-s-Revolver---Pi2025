@@ -43,7 +43,7 @@ namespace Photon.Pun.Demo.PunBasics
 		private LoaderAnime loaderAnime;
 
         [SerializeField]
-        private SceneAsset startLevel;
+        //private SceneAsset startLevel;
 
         #endregion
 
@@ -220,7 +220,7 @@ namespace Photon.Pun.Demo.PunBasics
 				// #Critical
 				// Load the Room Level. 
 				//PhotonNetwork.LoadLevel("PunBasics-Room for 1");
-				PhotonNetwork.LoadLevel(startLevel.name);
+				//PhotonNetwork.LoadLevel(startLevel.name);
 
 
 			}

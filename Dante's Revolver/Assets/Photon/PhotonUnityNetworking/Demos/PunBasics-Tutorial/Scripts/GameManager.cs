@@ -41,7 +41,7 @@ namespace Photon.Pun.Demo.PunBasics
         [SerializeField]
         private GameObject playerPrefab;
 		[SerializeField]
-        private SceneAsset levelToLoad;
+        //private SceneAsset levelToLoad;
 
 
         #endregion
@@ -192,10 +192,10 @@ namespace Photon.Pun.Demo.PunBasics
 
 		#endregion
 
-		public void ChangeLevel()
+		/*public void ChangeLevel()
 		{
             PhotonNetwork.LoadLevel(levelToLoad.name);
-        }
+        }*/
 
 	}
 
