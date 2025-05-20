@@ -2,10 +2,16 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviourPunCallbacks
+public interface IKillable
+{
+    public void TakeDamage(int damage);
+}
+
+public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 {
     [SerializeField]private Transform target;
     [SerializeField]private NavMeshAgent agent;
+    [SerializeField] Stats enemyStats;
 
     private void FixedUpdate()
     {
@@ -36,5 +42,10 @@ public class EnemyController : MonoBehaviourPunCallbacks
 
         Quaternion rotation = (agent.desiredVelocity).normalized != Vector3.zero ? Quaternion.LookRotation((agent.desiredVelocity).normalized) : transform.rotation;
         transform.rotation = rotation;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        enemyStats.lifeValue -= damage;
     }
 }
