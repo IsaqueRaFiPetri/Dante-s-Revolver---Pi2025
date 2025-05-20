@@ -1,55 +1,40 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.AI;
 
-public interface ISeeker
+public class EnemyController : MonoBehaviourPunCallbacks
 {
-    public void OnTargetDetect();
-    public void OnTargetMiss();
-    public void DetectCollision();
-}
-public class EnemyController : MonoBehaviour, ISeeker
-{
-    [SerializeField]protected NavMeshAgent enemyAgent;
-    Transform eyePoints;
-    Transform playerTarget;
-    Ray ray;
-    RaycastHit hit;
-    [SerializeField] float maxDistance;
+    [SerializeField]private Transform target;
+    [SerializeField]private NavMeshAgent agent;
 
-    protected Transform SetTarget(Transform target)
-    {
-        return playerTarget = target;
-    }
-    protected Transform MissTarget()
-    {
-        return playerTarget = null;
-    }
-    protected Transform GetTarget()
-    {
-        return playerTarget;
-    }
-    public void OnTargetDetect()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnTargetMiss()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void DetectCollision()
-    {
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider.GetComponent<IPlayable>() != null)
-            {
-                SetTarget(hit.collider.transform);
-            }
-        }
-    }
     private void FixedUpdate()
     {
-        DetectCollision();
+        MoveToTarget();
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.GetComponent<IPlayable>() != null)
+        {
+            target = collider.transform;
+        }
+    }
+    public void MoveToTarget()
+    {
+        if (target != null)
+        {
+            agent.SetDestination(target.transform.position);
+            agent.isStopped = false;
+        }
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, -transform.up);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector3 incomingVector = hit.point - transform.position;
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        }
+
+        Quaternion rotation = (agent.desiredVelocity).normalized != Vector3.zero ? Quaternion.LookRotation((agent.desiredVelocity).normalized) : transform.rotation;
+        transform.rotation = rotation;
     }
 }
