@@ -6,31 +6,41 @@ public interface IKillable
 {
     public void TakeDamage(int damage);
 }
+public interface ISeekable
+{
+    public void OnTargetLocked();
+    public void OntargetAlmostMissing();
+    public void OnTargetMiss();
+}
 
-public class EnemyController : MonoBehaviourPunCallbacks, IKillable
+public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
 {
     [SerializeField]private Transform target;
     [SerializeField]private NavMeshAgent agent;
     [SerializeField] Stats enemyStats;
 
-    private void FixedUpdate()
+    public enum EnemyState
     {
-        MoveToTarget();
+        Patrolling, Seeking, Running
     }
-
-    private void OnTriggerEnter(Collider collider)
+    public EnemyState enemyState;
+    private void Start()
+    {
+        agent.speed = enemyStats.moveSpeed;
+    }
+    protected void OnTriggerEnter(Collider collider)
     {
         if(collider.GetComponent<IPlayable>() != null)
         {
             target = collider.transform;
         }
     }
-    public void MoveToTarget()
+
+    protected void MoveToTarget()
     {
         if (target != null)
         {
-            agent.SetDestination(target.transform.position);
-            agent.isStopped = false;
+            OnTargetLocked();
         }
         RaycastHit hit;
         Ray ray = new Ray(transform.position, -transform.up);
@@ -47,5 +57,21 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     public void TakeDamage(int damage)
     {
         enemyStats.lifeValue -= damage;
+    }
+
+    public void OnTargetLocked()
+    {
+        agent.SetDestination(target.transform.position);
+        agent.isStopped = false;
+    }
+
+    public void OntargetAlmostMissing()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnTargetMiss()
+    {
+        throw new System.NotImplementedException();
     }
 }
