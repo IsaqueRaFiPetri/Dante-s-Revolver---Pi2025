@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 804703751}
   - component: {fileID: 804703752}
   m_Layer: 0
-  m_Name: CreateAndJoin
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1242,11 +1242,11 @@ Transform:
   m_GameObject: {fileID: 804703750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.353073, z: -841.7767}
-  m_LocalScale: {x: 9.353073, y: 9.353073, z: 9.353073}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000015258789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1915998211}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &804703752
 MonoBehaviour:
@@ -2847,7 +2847,6 @@ RectTransform:
   - {fileID: 2017541977}
   - {fileID: 109166570}
   - {fileID: 1607572047}
-  - {fileID: 804703751}
   m_Father: {fileID: 674142602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3156,3 +3155,4 @@ SceneRoots:
   - {fileID: 1816804425}
   - {fileID: 674142602}
   - {fileID: 454735536}
+  - {fileID: 804703751}
