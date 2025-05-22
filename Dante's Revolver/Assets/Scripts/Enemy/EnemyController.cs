@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,22 +19,18 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
 {
     [SerializeField]private Transform target;
     [SerializeField]private NavMeshAgent agent;
-    [SerializeField] Stats enemyStats;
+    [SerializeField]Stats enemyStats;
 
-    public enum EnemyState
-    {
-        Patrolling, Seeking, Running
-    }
-    public EnemyState enemyState;
     private void Start()
     {
         agent.speed = enemyStats.moveSpeed;
     }
-    protected void OnTriggerEnter(Collider collider)
+
+    public void DetectNearPlayer()
     {
-        if(collider.GetComponent<IPlayable>() != null)
+        if (GetComponent<Collider>().GetComponent<IPlayable>() != null)
         {
-            target = collider.transform;
+            target = GetComponent<Collider>().transform;
         }
     }
 
