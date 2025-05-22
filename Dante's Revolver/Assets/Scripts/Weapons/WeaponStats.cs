@@ -4,4 +4,7 @@ using UnityEngine;
 public class WeaponStats : ScriptableObject
 {
     public int weaponDamage;
+    public float maxDistance;
+    public int ammoValue;
+    public int ammoTotal;
 }

@@ -115,7 +115,7 @@ namespace InputPlayer
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""91998743-e241-4707-8bc2-78affb8dc88d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false

@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public interface IKillable
 {
+    [PunRPC]
     public void TakeDamage(int damage);
 }
 public interface ISeekable
@@ -53,10 +54,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
         Quaternion rotation = (agent.desiredVelocity).normalized != Vector3.zero ? Quaternion.LookRotation((agent.desiredVelocity).normalized) : transform.rotation;
         transform.rotation = rotation;
     }
-
+    [PunRPC]
     public void TakeDamage(int damage)
     {
         enemyStats.lifeValue -= damage;
+        print(enemyStats.lifeValue);
     }
 
     public void OnTargetLocked()
