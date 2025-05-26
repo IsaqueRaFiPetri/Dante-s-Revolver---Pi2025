@@ -21,9 +21,12 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
     [SerializeField]private NavMeshAgent agent;
     [SerializeField]Stats enemyStats;
 
+    float lifeValue;
+
     private void Start()
     {
         agent.speed = enemyStats.moveSpeed;
+        lifeValue = enemyStats.lifeValue;
     }
 
     public void DetectNearPlayer()
@@ -54,8 +57,13 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
     [PunRPC]
     public void TakeDamage(int damage)
     {
-        enemyStats.lifeValue -= damage;
-        print(enemyStats.lifeValue);
+        lifeValue -= damage;
+        print(lifeValue);
+
+        if(lifeValue <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTargetLocked()
