@@ -29,20 +29,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
         lifeValue = enemyStats.lifeValue;
     }
 
-    public void DetectNearPlayer()
-    {
-        if (GetComponent<Collider>().GetComponent<IPlayable>() != null)
-        {
-            target = GetComponent<Collider>().transform;
-        }
-    }
-
     protected void MoveToTarget()
     {
-        if (target != null)
-        {
-            OnTargetLocked();
-        }
         RaycastHit hit;
         Ray ray = new Ray(transform.position, -transform.up);
         if (Physics.Raycast(ray, out hit))
@@ -53,6 +41,15 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
 
         Quaternion rotation = (agent.desiredVelocity).normalized != Vector3.zero ? Quaternion.LookRotation((agent.desiredVelocity).normalized) : transform.rotation;
         transform.rotation = rotation;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.GetComponent<IPlayable>() != null)
+        {
+            print("entered");
+            target = collision.transform;
+        }
     }
     [PunRPC]
     public void TakeDamage(int damage)

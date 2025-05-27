@@ -3,6 +3,6 @@ public class BasicEnemy : EnemyController
 {
     private void FixedUpdate()
     {
-        MoveToTarget();
+        OnTargetLocked();
     }
 }
