@@ -106,7 +106,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         MyInput();
         SpeedControl();
         StateHandler();
-        MovePlayer();
+
 
         // handle drag
         if (grounded)
@@ -116,7 +116,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     }
     private void FixedUpdate()
     {
-
+        MovePlayer();
     }
 
     private void MyInput()

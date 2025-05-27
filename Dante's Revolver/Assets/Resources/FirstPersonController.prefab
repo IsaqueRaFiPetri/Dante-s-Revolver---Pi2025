@@ -5375,11 +5375,11 @@ MonoBehaviour:
   slideSpeed: 14
   wallrunSpeed: 16
   speedIncreaseMultiplier: 10
-  slopeIncreaseMultiplier: 2
+  slopeIncreaseMultiplier: 1
   groundDrag: 5
-  jumpForce: 5
-  jumpCooldown: 1
-  airMultiplier: 2
+  jumpForce: 6
+  jumpCooldown: 0
+  airMultiplier: 1
   crouchSpeed: 8
   crouchYScale: 0.75
   jumpKey: 32
@@ -5388,7 +5388,7 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   maxSlopeAngle: 40
   orientation: {fileID: 5724968560126500847}
   state: 0
@@ -5564,7 +5564,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459864850019384750}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf4031ebf6a68104588f5d76e9b7e7a1, type: 3}
   m_Name: 
