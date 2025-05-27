@@ -2,21 +2,22 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using UnityEngine.InputSystem;
-
 public interface IPlayable
 {
 
 }
 public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 {
-    public static GameObject LocalPlayerInstance;
-    [SerializeField] Stats stats;
 
+    public static GameObject LocalPlayerInstance;
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
+    public float slideSpeed;
+    public float wallrunSpeed;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -74,6 +75,9 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     public bool crouching;
     public bool wallrunning;
 
+    public TextMeshProUGUI text_speed;
+    public TextMeshProUGUI text_mode;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -87,6 +91,10 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         {
             PlayerMovementAdvanced.LocalPlayerInstance = gameObject;
             print(PlayerMovementAdvanced.LocalPlayerInstance.name);
+
+            MyInput();
+            SpeedControl();
+            StateHandler();
         }
     }
 
@@ -98,6 +106,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         MyInput();
         SpeedControl();
         StateHandler();
+        MovePlayer();
 
         // handle drag
         if (grounded)
@@ -105,115 +114,107 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         else
             rb.linearDamping = 0;
     }
-
     private void FixedUpdate()
     {
-        MovePlayer();
+
     }
 
     private void MyInput()
     {
-        if (photonView.IsMine)
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        // when to jump
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
+            readyToJump = false;
 
-            horizontalInput = Input.GetAxisRaw("Horizontal");
-            verticalInput = Input.GetAxisRaw("Vertical");
+            Jump();
 
-            // when to jump
-            if (Input.GetKey(jumpKey) && readyToJump && grounded)
-            {
-                readyToJump = false;
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
 
-                Jump();
+        // start crouch
+        if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
-                Invoke(nameof(ResetJump), jumpCooldown);
-            }
+            crouching = true;
+        }
 
-            // start crouch
-            if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
-            {
-                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-                rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        // stop crouch
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
 
-                crouching = true;
-            }
-
-            // stop crouch
-            if (Input.GetKeyUp(crouchKey))
-            {
-                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-
-                crouching = false;
-            }
+            crouching = false;
         }
     }
 
     private void StateHandler()
     {
-        if (photonView.IsMine)
+        // Mode - Wallrunning
+        if (wallrunning)
         {
-            // Mode - Wallrunning
-            if (wallrunning)
-            {
-                state = MovementState.wallrunning;
-                desiredMoveSpeed = stats.wallrunSpeed;
-            }
-
-            // Mode - Sliding
-            else if (sliding)
-            {
-                state = MovementState.sliding;
-
-                // increase speed by one every second
-                if (OnSlope() && rb.linearVelocity.y < 0.1f)
-                    desiredMoveSpeed = stats.slideSpeed;
-
-                else
-                    desiredMoveSpeed = stats.sprintSpeed;
-            }
-
-            // Mode - Crouching
-            else if (crouching)
-            {
-                state = MovementState.crouching;
-                desiredMoveSpeed = crouchSpeed;
-            }
-
-            // Mode - Sprinting
-            else if (grounded && Input.GetKey(sprintKey))
-            {
-                state = MovementState.sprinting;
-                desiredMoveSpeed = stats.sprintSpeed;
-            }
-
-            // Mode - Walking
-            else if (grounded)
-            {
-                state = MovementState.walking;
-                desiredMoveSpeed = stats.moveSpeed;
-            }
-
-            // Mode - Air
-            else
-            {
-                state = MovementState.air;
-            }
-
-            // check if desired move speed has changed drastically
-            if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
-            {
-                StopAllCoroutines();
-                StartCoroutine(SmoothlyLerpMoveSpeed());
-
-                print("Lerp Started!");
-            }
-            else
-            {
-                moveSpeed = desiredMoveSpeed;
-            }
-
-            lastDesiredMoveSpeed = desiredMoveSpeed;
+            state = MovementState.wallrunning;
+            desiredMoveSpeed = wallrunSpeed;
         }
+
+        // Mode - Sliding
+        else if (sliding)
+        {
+            state = MovementState.sliding;
+
+            // increase speed by one every second
+            if (OnSlope() && rb.linearVelocity.y < 0.1f)
+                desiredMoveSpeed = slideSpeed;
+
+            else
+                desiredMoveSpeed = sprintSpeed;
+        }
+
+        // Mode - Crouching
+        else if (crouching)
+        {
+            state = MovementState.crouching;
+            desiredMoveSpeed = crouchSpeed;
+        }
+
+        // Mode - Sprinting
+        else if (grounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            desiredMoveSpeed = sprintSpeed;
+        }
+
+        // Mode - Walking
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            desiredMoveSpeed = walkSpeed;
+        }
+
+        // Mode - Air
+        else
+        {
+            state = MovementState.air;
+        }
+
+        // check if desired move speed has changed drastically
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SmoothlyLerpMoveSpeed());
+
+            print("Lerp Started!");
+        }
+        else
+        {
+            moveSpeed = desiredMoveSpeed;
+        }
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
     }
 
     private IEnumerator SmoothlyLerpMoveSpeed()
@@ -245,31 +246,31 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 
     private void MovePlayer()
     {
+        // calculate movement direction
         if (photonView.IsMine)
         {
-            // calculate movement direction
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-            // on slope
-            if (OnSlope() && !exitingSlope)
-            {
-                rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
-
-                if (rb.linearVelocity.y > 0)
-                    rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-            }
-
-            // on ground
-            else if (grounded)
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-            // in air
-            else if (!grounded)
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-
-            // turn gravity off while on slope
-            if (!wallrunning) rb.useGravity = !OnSlope();
         }
+
+        // on slope
+        if (OnSlope() && !exitingSlope)
+        {
+            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+
+            if (rb.linearVelocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+        }
+
+        // on ground
+        else if (grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+        // in air
+        else if (!grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+
+        // turn gravity off while on slope
+        if(!wallrunning) rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()
