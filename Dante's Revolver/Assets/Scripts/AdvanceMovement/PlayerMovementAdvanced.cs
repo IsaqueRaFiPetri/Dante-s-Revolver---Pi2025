@@ -87,14 +87,25 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 
         startYScale = transform.localScale.y;
 
-        if (photonView.IsMine)
+        PlayerMovementAdvanced.LocalPlayerInstance = gameObject;
+        print(PlayerMovementAdvanced.LocalPlayerInstance.name);
+
+        MyInput();
+        SpeedControl();
+        StateHandler();
+
+        if (!photonView.IsMine)
         {
+            /*
             PlayerMovementAdvanced.LocalPlayerInstance = gameObject;
             print(PlayerMovementAdvanced.LocalPlayerInstance.name);
 
             MyInput();
             SpeedControl();
             StateHandler();
+            */
+
+            this.enabled = false;
         }
     }
 
@@ -249,9 +260,9 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // calculate movement direction
         if (photonView.IsMine)
         {
-            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         }
-
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         // on slope
         if (OnSlope() && !exitingSlope)
         {
