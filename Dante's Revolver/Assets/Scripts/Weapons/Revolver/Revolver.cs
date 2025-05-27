@@ -13,9 +13,9 @@ public class Revolver : DamageInteraction
 
             if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
             {
-                if (hit.collider.GetComponent<IKillable>() != null)
+                if (hit.collider.TryGetComponent(out PlayerMovementAdvanced target))
                 {
-                    DoDamage(hit.collider.gameObject);
+                    DoDamage(target.gameObject);
                 }
             }
         }
