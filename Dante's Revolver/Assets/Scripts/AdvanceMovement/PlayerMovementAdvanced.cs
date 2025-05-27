@@ -258,10 +258,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     private void MovePlayer()
     {
         // calculate movement direction
-        if (photonView.IsMine)
-        {
-            //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        }
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         // on slope
         if (OnSlope() && !exitingSlope)
