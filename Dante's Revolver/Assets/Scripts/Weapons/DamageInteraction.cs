@@ -6,10 +6,10 @@ public interface IDamaging
 }
 public class DamageInteraction : MonoBehaviour, IDamaging
 {
-    [SerializeField] protected WeaponStats weaponsStats;
+    //[SerializeField] protected WeaponStats weaponsStats;
 
     public void DoDamage(GameObject target)
     {
-        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, weaponsStats.weaponDamage);
+        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered /*, weaponsStats.weaponDamage*/);
     }
 }
