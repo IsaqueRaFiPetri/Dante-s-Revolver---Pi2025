@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sliding : MonoBehaviour
+public class Sliding : MonoBehaviourPunCallbacks
 {
     [Header("References")]
     public Transform orientation;
@@ -29,6 +30,8 @@ public class Sliding : MonoBehaviour
         pm = GetComponent<PlayerMovementAdvanced>();
 
         startYScale = playerObj.localScale.y;
+
+        Destroy(this);
     }
 
     private void Update()
