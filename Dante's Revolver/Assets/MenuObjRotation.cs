@@ -5,10 +5,14 @@ using UnityEngine;
 public class MenuObjRotation : MonoBehaviour
 {
     [SerializeField] Vector3 objRotation;
+    [SerializeField] bool randomRotation;
 
     private void Start()
     {
-        StartCoroutine(RandomizeValues());
+        if (randomRotation)
+        {
+            StartCoroutine(RandomizeValues());
+        }
     }
     private void FixedUpdate()
     {
