@@ -10,6 +10,6 @@ public class DamageInteraction : MonoBehaviour, IDamaging
 
     public void DoDamage(GameObject target)
     {
-        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered /*, weaponsStats.weaponDamage*/);
+        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered , weaponsStats.weaponDamage);
     }
 }
