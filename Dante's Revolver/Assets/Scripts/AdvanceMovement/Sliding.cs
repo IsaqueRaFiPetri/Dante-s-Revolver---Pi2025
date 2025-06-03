@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sliding : MonoBehaviourPunCallbacks
@@ -31,7 +29,10 @@ public class Sliding : MonoBehaviourPunCallbacks
 
         startYScale = playerObj.localScale.y;
 
-        Destroy(this);
+        if (!photonView.IsMine)
+        {
+            Destroy(this);
+        }
     }
 
     private void Update()
