@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 using System.Collections;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Revolver : DamageInteraction
 {
@@ -11,7 +12,8 @@ public class Revolver : DamageInteraction
     bool canReload = true;
     int ammo;
     int maxAmmo;
-    public TMP_Text ammoText;
+    [SerializeField] List<Image> bulletImage;
+    int bulletCount;
 
     private void Start()
     {
@@ -23,8 +25,9 @@ public class Revolver : DamageInteraction
         if (context.canceled)
         {
             ammo--;
+            bulletImage[bulletCount].enabled = false;
+            bulletCount++;
             print("ammo: " + ammo);
-            ammoText.text = ammo.ToString() + "/" + maxAmmo.ToString();
             Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             RaycastHit hit;
 
@@ -52,7 +55,8 @@ public class Revolver : DamageInteraction
         print("reloading");
         canReload = false;
         ammo++;
-        ammoText.text = ammo.ToString() + "/" + maxAmmo.ToString();
+        bulletCount--;
+        bulletImage[bulletCount].enabled = true;
         yield return new WaitForSeconds(.5f);
         canReload = true;
         print("can reload: " + canReload);
