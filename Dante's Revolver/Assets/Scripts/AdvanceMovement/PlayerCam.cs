@@ -49,4 +49,8 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
     }
+    public void MoveYCamera(float yPos)
+    {
+        transform.DOLocalMoveY(yPos, 0.25f);
+    }
 }

@@ -19,6 +19,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     public float slideSpeed;
     public float wallrunSpeed;
 
+    public PlayerCam cam;
+
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
 
@@ -168,6 +170,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Wallrunning
         if (wallrunning)
         {
+            cam.DoFov(90f);
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
         }
@@ -177,6 +180,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         {
             state = MovementState.sliding;
 
+            cam.DoFov(90f);
+            cam.MoveYCamera(-.75f);
             // increase speed by one every second
             if (OnSlope() && rb.linearVelocity.y < 0.1f)
                 desiredMoveSpeed = slideSpeed;
@@ -188,6 +193,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Crouching
         else if (crouching)
         {
+            cam.DoFov(80f);
+            cam.MoveYCamera(-.75f);
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
         }
@@ -195,6 +202,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Sprinting
         else if (grounded && Input.GetKey(sprintKey))
         {
+            cam.DoFov(90f);
+            cam.MoveYCamera(0f);
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
         }
@@ -202,6 +211,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Walking
         else if (grounded)
         {
+            cam.DoFov(85f);
+            cam.MoveYCamera(0f);
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
         }
@@ -209,6 +220,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Air
         else
         {
+            cam.DoFov(85f);
             state = MovementState.air;
         }
 
