@@ -130,13 +130,13 @@ namespace InputPlayer
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MenuMouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""8ced9e0a-d03b-4e01-bd05-b01e0b307063"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""13577c2b-2b53-41cc-9644-8263cea40b1c"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -384,12 +384,12 @@ namespace InputPlayer
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7d394e10-a992-4a56-8d85-928257c8cffb"",
-                    ""path"": """",
+                    ""id"": ""e60981db-6482-4868-9464-0b9501b415f3"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MenuMouse"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -981,7 +981,7 @@ namespace InputPlayer
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
-            m_Player_MenuMouse = m_Player.FindAction("MenuMouse", throwIfNotFound: true);
+            m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1079,7 +1079,7 @@ namespace InputPlayer
         private readonly InputAction m_Player_Look;
         private readonly InputAction m_Player_Fire;
         private readonly InputAction m_Player_Crouch;
-        private readonly InputAction m_Player_MenuMouse;
+        private readonly InputAction m_Player_Reload;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1108,9 +1108,9 @@ namespace InputPlayer
             /// </summary>
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             /// <summary>
-            /// Provides access to the underlying input action "Player/MenuMouse".
+            /// Provides access to the underlying input action "Player/Reload".
             /// </summary>
-            public InputAction @MenuMouse => m_Wrapper.m_Player_MenuMouse;
+            public InputAction @Reload => m_Wrapper.m_Player_Reload;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1149,9 +1149,9 @@ namespace InputPlayer
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
-                @MenuMouse.started += instance.OnMenuMouse;
-                @MenuMouse.performed += instance.OnMenuMouse;
-                @MenuMouse.canceled += instance.OnMenuMouse;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
 
             /// <summary>
@@ -1175,9 +1175,9 @@ namespace InputPlayer
                 @Crouch.started -= instance.OnCrouch;
                 @Crouch.performed -= instance.OnCrouch;
                 @Crouch.canceled -= instance.OnCrouch;
-                @MenuMouse.started -= instance.OnMenuMouse;
-                @MenuMouse.performed -= instance.OnMenuMouse;
-                @MenuMouse.canceled -= instance.OnMenuMouse;
+                @Reload.started -= instance.OnReload;
+                @Reload.performed -= instance.OnReload;
+                @Reload.canceled -= instance.OnReload;
             }
 
             /// <summary>
@@ -1507,12 +1507,12 @@ namespace InputPlayer
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnCrouch(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "MenuMouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Reload" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnMenuMouse(InputAction.CallbackContext context);
+            void OnReload(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
