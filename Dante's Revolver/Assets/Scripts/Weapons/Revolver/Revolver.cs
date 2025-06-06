@@ -12,6 +12,7 @@ public class Revolver : DamageInteraction
     bool canReload = true;
     int ammo;
     int maxAmmo;
+    [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     int bulletCount;
 
@@ -46,6 +47,7 @@ public class Revolver : DamageInteraction
         if (context.canceled && ammo < maxAmmo && canReload)
         {
             print("reload");
+            bulletHolder.rotation = Quaternion.Lerp(bulletHolder.rotation, Quaternion.Euler(bulletHolder.rotation.x, bulletHolder.rotation.y, 60f), Time.deltaTime * 0.01f);
             StartCoroutine(Reloading());
         }
     }
