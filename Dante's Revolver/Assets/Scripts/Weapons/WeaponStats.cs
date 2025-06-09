@@ -7,5 +7,4 @@ public class WeaponStats : ScriptableObject
     public float maxDistance;
     public float shootCooldown;
     public float reloadCooldown;
-    public int ammoTotal;
 }
