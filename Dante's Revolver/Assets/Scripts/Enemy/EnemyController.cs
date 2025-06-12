@@ -1,54 +1,67 @@
 using Photon.Pun;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public interface IKillable
 {
     [PunRPC]
     public void TakeDamage(int damage);
 }
-public interface ISeekable
-{
-    public void OnTargetLocked();
-    public void OntargetAlmostMissing();
-    public void OnTargetMiss();
-}
 
-public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
+[RequireComponent(typeof(Rigidbody))]
+public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 {
-    [SerializeField]private Transform target;
-    [SerializeField]private NavMeshAgent agent;
+    Transform player;
+    Rigidbody body;
+    Vector3 moveDirection;
     [SerializeField]Stats enemyStats;
 
     float lifeValue;
 
     private void Start()
     {
-        agent.speed = enemyStats.moveSpeed;
         lifeValue = enemyStats.lifeValue;
+        body = GetComponent<Rigidbody>();
     }
-
-    protected void MoveToTarget()
+    void OnTriggerEnter(Collider collision)
     {
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, -transform.up);
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 incomingVector = hit.point - transform.position;
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        }
-
-        Quaternion rotation = (agent.desiredVelocity).normalized != Vector3.zero ? Quaternion.LookRotation((agent.desiredVelocity).normalized) : transform.rotation;
-        transform.rotation = rotation;
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.GetComponent<IPlayable>() != null)
+        if (collision.GetComponent<IPlayable>() != null)
         {
             print("entered");
-            target = collision.transform;
+            player = collision.transform;
+        }
+    }
+    void FixedUpdate()
+    {
+        if (player == null)
+            return;
+
+        moveDirection = Vector3.zero;
+
+        float direction = Vector3.Distance(player.position, this.transform.position);
+
+        Vector3 dir = player.position - this.transform.position;
+        dir.y = 0;
+
+        if (direction < 15)
+        {
+            body.linearVelocity = transform.forward * enemyStats.moveSpeed;
+
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+
+            print("following");
+        }
+        else if (direction >= 15 && direction < 30)
+        {
+            body.linearVelocity = transform.forward * (enemyStats.moveSpeed * 5);
+
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+
+            print("trying to escape");
+        }
+        else
+        {
+            body.linearVelocity = transform.forward * enemyStats.moveSpeed * 0;
+            print("bye");
         }
     }
     [PunRPC]
@@ -61,21 +74,5 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ISeekable
         {
             Destroy(gameObject);
         }
-    }
-
-    public void OnTargetLocked()
-    {
-        agent.SetDestination(target.transform.position);
-        agent.isStopped = false;
-    }
-
-    public void OntargetAlmostMissing()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnTargetMiss()
-    {
-        throw new System.NotImplementedException();
     }
 }
