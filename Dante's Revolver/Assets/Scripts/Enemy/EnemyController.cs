@@ -72,7 +72,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 
         if(lifeValue <= 0)
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
+
         }
     }
 }
