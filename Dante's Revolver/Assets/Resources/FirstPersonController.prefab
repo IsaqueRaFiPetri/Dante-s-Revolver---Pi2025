@@ -654,7 +654,6 @@ GameObject:
   - component: {fileID: 2187200831567775510}
   - component: {fileID: 3081058054848721306}
   - component: {fileID: 6306161940942995160}
-  - component: {fileID: 2957678558693162309}
   m_Layer: 0
   m_Name: RevolverModel
   m_TagString: Untagged
@@ -710,7 +709,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9d0baf968655648478720ea98b9af1d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -770,7 +769,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2957678558693162309}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -794,28 +793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0040af8c662eb0c4798381809dc70829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2957678558693162309
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385765722038920899}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e219ba278a29e774fad8ed3494039d03, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &413905351379907249
 GameObject:
   m_ObjectHideFlags: 0
