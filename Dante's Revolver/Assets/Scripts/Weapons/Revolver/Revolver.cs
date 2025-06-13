@@ -70,6 +70,7 @@ public class Revolver : DamageInteraction
             if (hit.collider.TryGetComponent(out EnemyController target))
             {
                 DoDamage(target?.gameObject);
+                target.BloodParticle(hit.point);
             }
         }
         yield return new WaitForSeconds(shootCooldown);

@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     Rigidbody body;
     Vector3 moveDirection;
     [SerializeField]Stats enemyStats;
+    [SerializeField] ParticleSystem bloodParticle;
 
     float lifeValue;
 
@@ -63,6 +64,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
             body.linearVelocity = transform.forward * enemyStats.moveSpeed * 0;
             print("bye");
         }
+    }
+    public void BloodParticle(Vector3 hitPosition)
+    {
+        bloodParticle.Play();
+        bloodParticle.transform.position = hitPosition;
     }
     [PunRPC]
     public void TakeDamage(int damage)
