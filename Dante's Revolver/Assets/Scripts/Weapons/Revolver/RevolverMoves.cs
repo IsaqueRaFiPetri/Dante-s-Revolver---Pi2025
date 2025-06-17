@@ -13,16 +13,24 @@ public class RevolverMoves : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0, 90, 0f), 0.25f);
         transform.DOLocalMoveZ(.55f, 0.25f);
     }
-    public void ResetTranform(Transform transform)
+    public void SetTransform(Transform transformObj, Vector3 rotation, float time)
     {
-        transform.DOLocalRotate(new Vector3(0, 0, 0), 0.25f);
+        transformObj.DOLocalRotate(rotation, time);
     }
-    public IEnumerator Taunting(Transform bulletHolder)
+    public IEnumerator Taunting(float interval)
     {
         transform.DOLocalRotate(new Vector3(0, 90, 270), 0.25f);
         transform.DOLocalRotate(new Vector3(0, 90, -270), 0.25f);
-        bulletHolder.DOLocalRotate(new Vector3(0, 0, 0), 0.25f);
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(interval);
         transform.DOLocalRotate(new Vector3(0, 90, 0), 0.25f);
+    }
+    public IEnumerator InfiniteTaunting(float interval, float time)
+    {
+        transform.DOLocalRotate(new Vector3(0, 90, 270), time);
+        transform.DOLocalRotate(new Vector3(0, 90, -270), time);
+        yield return new WaitForSeconds(interval);
+        transform.DOLocalRotate(new Vector3(0, 90, 0), time);
+        yield return new WaitForSeconds(interval);
+        StartCoroutine(InfiniteTaunting(interval, time));
     }
 }

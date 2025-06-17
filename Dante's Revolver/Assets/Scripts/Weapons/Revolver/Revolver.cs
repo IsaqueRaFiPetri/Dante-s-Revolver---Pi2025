@@ -36,15 +36,6 @@ public class Revolver : DamageInteraction
     {
         return canShoot = setCanShoot;
     }
-    public void ResetBullets()
-    {
-        for (int i = 0; i < bulletImage.Count; i++)
-        {
-            bulletImage[i].enabled = false;
-            bulletCount = bulletImage.Count;
-            canShoot = false;
-        }
-    }
     public void Fire(InputAction.CallbackContext context)
     {
         if (context.performed && canShoot)
@@ -52,30 +43,9 @@ public class Revolver : DamageInteraction
             StartCoroutine(Shooting());
         }
     }
-    public void Reload(InputAction.CallbackContext context)
+    public void FireRay()
     {
-        if (context.performed && canReload)
-        {
-            StartCoroutine(Reloading());
-        }
-    }
-    IEnumerator Reloading()
-    {
-        canShoot = false;
-        canReload = false;
-        bulletCount = 0;
-        for (int i = 0; i < bulletImage.Count; i++)
-        {
-            bulletImage[i].enabled = true;
-        }
-        StartCoroutine(revolverMoves.Taunting(bulletHolder));
-        yield return new WaitForSeconds(reloadCooldown); //.2f
-        canShoot = true;
-        canReload = true;
-    }
-    IEnumerator Shooting()
-    {
-        if(bulletCount >= 6)
+        if (bulletCount >= 6)
         {
             canShoot = false;
             StopCoroutine(Shooting());
@@ -99,6 +69,32 @@ public class Revolver : DamageInteraction
                 target.BloodParticle(hit.point);
             }
         }
+    }
+    public void Reload(InputAction.CallbackContext context)
+    {
+        if (context.performed && canReload)
+        {
+            StartCoroutine(Reloading());
+        }
+    }
+    IEnumerator Reloading()
+    {
+        canShoot = false;
+        canReload = false;
+        bulletCount = 0;
+        for (int i = 0; i < bulletImage.Count; i++)
+        {
+            bulletImage[i].enabled = true;
+        }
+        StartCoroutine(revolverMoves.Taunting(.1f));
+        revolverMoves.SetTransform(bulletHolder, new Vector3(0, 0, 0), .25f);
+        yield return new WaitForSeconds(reloadCooldown); //.2f
+        canShoot = true;
+        canReload = true;
+    }
+    IEnumerator Shooting()
+    {
+        FireRay();
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
         canReload = true;
