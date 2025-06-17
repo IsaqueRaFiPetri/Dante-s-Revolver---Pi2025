@@ -27,11 +27,23 @@ public class RevolverUlt : MonoBehaviour
     {
         if (rotateGun)
         {
-            barrelImage.rectTransform.Rotate(barrelRotation);
+            switch (charging)
+            {
+                case Charging.Charged:
+                    barrelImage.rectTransform.Rotate(barrelRotation * 3);
+                    break;
+                case Charging.IsCharging:
+                    barrelImage.rectTransform.Rotate(barrelRotation);
+                    break;
+            }
         }
     }
     public void ChargeShoot(InputAction.CallbackContext context)
     {
+        if (!revolverClass.GetCanShoot())
+        {
+            return;
+        }
         switch (charging)
         {
             case Charging.Charged:
@@ -40,6 +52,7 @@ public class RevolverUlt : MonoBehaviour
                     print("ChargedShoot");
                     rotateGun = false;
                     revolverMoves.ResetTranform(barrelImage.transform);
+                    revolverClass.ResetBullets();
                     charging = Charging.IsCharging;
                 }
                 break;

@@ -28,6 +28,23 @@ public class Revolver : DamageInteraction
         revolverMoves = GetComponent<RevolverMoves>();
     }
 
+    public bool GetCanShoot()
+    {
+        return canShoot;
+    }
+    public bool SetCanShoot(bool setCanShoot)
+    {
+        return canShoot = setCanShoot;
+    }
+    public void ResetBullets()
+    {
+        for (int i = 0; i < bulletImage.Count; i++)
+        {
+            bulletImage[i].enabled = false;
+            bulletCount = bulletImage.Count;
+            canShoot = false;
+        }
+    }
     public void Fire(InputAction.CallbackContext context)
     {
         if (context.performed && canShoot)
