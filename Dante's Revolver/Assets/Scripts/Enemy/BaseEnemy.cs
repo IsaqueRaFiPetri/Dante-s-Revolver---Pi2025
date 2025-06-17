@@ -4,31 +4,26 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     Transform player;
+    RaycastHit hit;
     Rigidbody body;
     Vector3 moveDirection;
+
     [SerializeField] float moveSpeed;
-    
+    [SerializeField] Transform vision;
+
     void Start()
     {
         body = GetComponent<Rigidbody>();
     }
 
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.GetComponent<IPlayable>() != null)
-        {
-            print("entered");
-            player = collision.transform;
-        }
-    }
     void FixedUpdate()
     {
         if (player == null) return;
 
         moveDirection = Vector3.zero;
-        
+
         float direction = Vector3.Distance(player.position, this.transform.position);
-        
+
         Vector3 dir = player.position - this.transform.position;
         dir.y = 0;
 
@@ -52,6 +47,17 @@ public class BaseEnemy : MonoBehaviour
         {
             body.linearVelocity = transform.forward * moveSpeed * 0;
             print("bye");
+        }
+
+        if (Physics.Linecast(vision.position, player.position, out hit))
+        {
+            if (hit.distance >= 35) 
+                return;
+            
+            if (hit.collider.GetComponent<IPlayable>() != null)
+            {
+                player = hit.collider.transform;
+            }
         }
     }
 }
