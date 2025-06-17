@@ -11,6 +11,7 @@ public class Revolver : DamageInteraction
     [SerializeField]WeaponStats weaponStats;
 
     bool canShoot = true;
+    bool canReload = true;
     float shootCooldown;
     float reloadCooldown;
 
@@ -26,16 +27,17 @@ public class Revolver : DamageInteraction
         reloadCooldown = weaponsStats.reloadCooldown;
         revolverMoves = GetComponent<RevolverMoves>();
     }
+
     public void Fire(InputAction.CallbackContext context)
     {
-        if (!context.canceled && canShoot)
+        if (context.performed && canShoot)
         {
             StartCoroutine(Shooting());
         }
     }
     public void Reload(InputAction.CallbackContext context)
     {
-        if (!context.canceled)
+        if (context.performed && canReload)
         {
             StartCoroutine(Reloading());
         }
@@ -43,6 +45,7 @@ public class Revolver : DamageInteraction
     IEnumerator Reloading()
     {
         canShoot = false;
+        canReload = false;
         bulletCount = 0;
         for (int i = 0; i < bulletImage.Count; i++)
         {
@@ -51,14 +54,20 @@ public class Revolver : DamageInteraction
         StartCoroutine(revolverMoves.Taunting(bulletHolder));
         yield return new WaitForSeconds(reloadCooldown); //.2f
         canShoot = true;
-        
+        canReload = true;
     }
     IEnumerator Shooting()
     {
+        if(bulletCount >= 6)
+        {
+            canShoot = false;
+            StopCoroutine(Shooting());
+        }
         OnShoot.Invoke();
         bulletImage[bulletCount].enabled = false;
         bulletCount++;
         canShoot = false;
+        canReload = false;
 
         StartCoroutine(revolverMoves.Rebound(bulletHolder));
 
@@ -75,5 +84,6 @@ public class Revolver : DamageInteraction
         }
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
+        canReload = true;
     }
 }

@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Fire1",
+                    "type": "Button",
+                    "id": "a41d067b-642f-45fd-ad33-d716b0956cd0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "cbf5ee2b-457f-4edd-8d8c-cdab10dbd33e",
@@ -322,6 +331,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Taunt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b86cd23-0a52-4d03-925b-db4e522d64b0",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Fire1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1793b5b-b9f6-4bc6-87a7-0c6cd742f65b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

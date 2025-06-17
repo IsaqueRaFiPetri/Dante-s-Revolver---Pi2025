@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 2187200831567775510}
   - component: {fileID: 3081058054848721306}
   - component: {fileID: 6306161940942995160}
+  - component: {fileID: 6935550651734354141}
   m_Layer: 0
   m_Name: RevolverModel
   m_TagString: Untagged
@@ -793,6 +794,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0040af8c662eb0c4798381809dc70829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6935550651734354141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385765722038920899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbedcca32a74de74cb579a14193be11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 1
+  barrelImage: {fileID: 5677363966088234279}
+  barrelRotation: {x: 0, y: 0, z: 15}
+  charging: 1
 --- !u!1 &413905351379907249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,10 +6629,14 @@ MonoBehaviour:
     m_ActionId: 13577c2b-2b53-41cc-9644-8263cea40b1c
     m_ActionName: 'Player/Reload[/Keyboard/r]'
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c8f0bb6-b84d-44d8-b8b4-2a847441baf3
+    m_ActionName: 'Player/Taunt[/Keyboard/g]'
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3081058054848721306}
-        m_TargetAssemblyTypeName: Revolver, Assembly-CSharp
-        m_MethodName: Taunt
+      - m_Target: {fileID: 6935550651734354141}
+        m_TargetAssemblyTypeName: RevolverUlt, Assembly-CSharp
+        m_MethodName: ChargeShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6625,8 +6646,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7c8f0bb6-b84d-44d8-b8b4-2a847441baf3
-    m_ActionName: 'Player/Taunt[/Keyboard/g]'
+    m_ActionId: a41d067b-642f-45fd-ad33-d716b0956cd0
+    m_ActionName: 'Player/Fire1[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

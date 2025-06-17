@@ -13,6 +13,10 @@ public class RevolverMoves : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0, 90, 0f), 0.25f);
         transform.DOLocalMoveZ(.55f, 0.25f);
     }
+    public void ResetTranform(Transform transform)
+    {
+        transform.DOLocalRotate(new Vector3(0, 0, 0), 0.25f);
+    }
     public IEnumerator Taunting(Transform bulletHolder)
     {
         transform.DOLocalRotate(new Vector3(0, 90, 270), 0.25f);
