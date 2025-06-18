@@ -68,7 +68,7 @@ public class RevolverUlt : MonoBehaviour
                 {
                     print("CanceledCharging");
                     canRotate = false;
-                    revolverMoves.Taunting(.25f);
+                    revolverMoves.SetTransform(barrelImage.rectTransform, new Vector3(0, 0, 0), .25f);
                     charging = Charging.IsCharging;
                     StopAllCoroutines();
                 }
