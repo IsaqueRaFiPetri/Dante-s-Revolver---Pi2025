@@ -24,13 +24,4 @@ public class RevolverMoves : MonoBehaviour
         yield return new WaitForSeconds(interval);
         transform.DOLocalRotate(new Vector3(0, 90, 0), 0.25f);
     }
-    public IEnumerator InfiniteTaunting(float interval, float time)
-    {
-        transform.DOLocalRotate(new Vector3(0, 90, 270), time);
-        transform.DOLocalRotate(new Vector3(0, 90, -270), time);
-        yield return new WaitForSeconds(interval);
-        transform.DOLocalRotate(new Vector3(0, 90, 0), time);
-        yield return new WaitForSeconds(interval);
-        StartCoroutine(InfiniteTaunting(interval, time));
-    }
 }

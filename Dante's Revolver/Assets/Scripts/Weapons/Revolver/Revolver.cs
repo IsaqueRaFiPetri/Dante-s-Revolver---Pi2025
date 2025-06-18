@@ -19,7 +19,7 @@ public class Revolver : DamageInteraction
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
-    int bulletCount;
+    [HideInInspector]public int bulletCount;
 
     private void Start()
     {
@@ -77,7 +77,7 @@ public class Revolver : DamageInteraction
             StartCoroutine(Reloading());
         }
     }
-    IEnumerator Reloading()
+    public IEnumerator Reloading()
     {
         canShoot = false;
         canReload = false;

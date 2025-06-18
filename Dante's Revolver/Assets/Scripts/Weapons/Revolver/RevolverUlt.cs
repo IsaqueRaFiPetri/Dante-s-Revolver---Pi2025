@@ -14,12 +14,32 @@ public class RevolverUlt : MonoBehaviour
     RevolverMoves revolverMoves;
     [SerializeField] float chargeTime;
     [SerializeField] float shootingTime;
+    [SerializeField] float restartTime;
 
+    [SerializeField] Image barrelImage;
+    [SerializeField] Vector3 barrelRotation;
+    [SerializeField]bool canRotate;
     public Charging charging;
     private void Start()
     {
         revolverClass = GetComponent<Revolver>();
         revolverMoves = GetComponent<RevolverMoves>();
+    }
+    private void FixedUpdate()
+    {
+        if (!canRotate)
+        {
+            return;
+        }
+        switch (charging)
+        {
+            case Charging.Charged:
+                barrelImage.rectTransform.Rotate(barrelRotation * 3);
+                break;
+            case Charging.IsCharging:
+                barrelImage.rectTransform.Rotate(barrelRotation);
+                break;
+        }
     }
     public void ChargeShoot(InputAction.CallbackContext context)
     {
@@ -33,7 +53,6 @@ public class RevolverUlt : MonoBehaviour
                 if (context.canceled)
                 {
                     print("ChargedShoot");
-                    transform.DOLocalRotate(new Vector3(transform.rotation.x, transform.rotation.y, 0), .25f);
                     StartCoroutine(ChargeShooting());
                     charging = Charging.IsCharging;
                 }
@@ -42,13 +61,16 @@ public class RevolverUlt : MonoBehaviour
                 if (context.performed)
                 {
                     print("StartedCharging");
+                    canRotate = true;
                     StartCoroutine(IsCharging());
                 }
                 if(context.canceled)
                 {
                     print("CanceledCharging");
-                    StopCoroutine(IsCharging());
-                    revolverMoves.SetTransform(transform, new Vector3(transform.rotation.x, transform.rotation.y, 0), .25f);
+                    canRotate = false;
+                    revolverMoves.Taunting(.25f);
+                    charging = Charging.IsCharging;
+                    StopAllCoroutines();
                 }
                 break;
         }
@@ -56,21 +78,30 @@ public class RevolverUlt : MonoBehaviour
     IEnumerator IsCharging()
     {
         print("Charging");
-        StartCoroutine(revolverMoves.InfiniteTaunting(.25f, .25f));
         yield return new WaitForSeconds(chargeTime);
         print("Charged");
-        StopCoroutine(revolverMoves.InfiniteTaunting(.25f, .25f));
         charging = Charging.Charged;
     }
     IEnumerator ChargeShooting()
     {
         if (!revolverClass.GetCanShoot())
         {
-            StopCoroutine(ChargeShooting());
             print("ended");
+            StopCoroutine(ChargeShooting());
+            StartCoroutine(RestartGun());
+            charging = Charging.IsCharging;
+            canRotate = false;
         }
         revolverClass.FireRay();
         yield return new WaitForSeconds(shootingTime);
         StartCoroutine(ChargeShooting());
+    }
+    IEnumerator RestartGun()
+    {
+        yield return new WaitForSeconds(restartTime);
+        if(revolverClass.bulletCount == 6)
+        {
+            StartCoroutine(revolverClass.Reloading());
+        }
     }
 }
