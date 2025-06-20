@@ -155,6 +155,15 @@ namespace InputPlayer
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d593c64-2c6f-4d4b-93bf-0704f7e6f71c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -441,6 +450,17 @@ namespace InputPlayer
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Fire1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9240b53-ceeb-4017-b9a2-dd27fe7d398a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Melee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1035,6 +1055,7 @@ namespace InputPlayer
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
             m_Player_Taunt = m_Player.FindAction("Taunt", throwIfNotFound: true);
+            m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1135,6 +1156,7 @@ namespace InputPlayer
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Reload;
         private readonly InputAction m_Player_Taunt;
+        private readonly InputAction m_Player_Melee;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1174,6 +1196,10 @@ namespace InputPlayer
             /// Provides access to the underlying input action "Player/Taunt".
             /// </summary>
             public InputAction @Taunt => m_Wrapper.m_Player_Taunt;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Melee".
+            /// </summary>
+            public InputAction @Melee => m_Wrapper.m_Player_Melee;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1221,6 +1247,9 @@ namespace InputPlayer
                 @Taunt.started += instance.OnTaunt;
                 @Taunt.performed += instance.OnTaunt;
                 @Taunt.canceled += instance.OnTaunt;
+                @Melee.started += instance.OnMelee;
+                @Melee.performed += instance.OnMelee;
+                @Melee.canceled += instance.OnMelee;
             }
 
             /// <summary>
@@ -1253,6 +1282,9 @@ namespace InputPlayer
                 @Taunt.started -= instance.OnTaunt;
                 @Taunt.performed -= instance.OnTaunt;
                 @Taunt.canceled -= instance.OnTaunt;
+                @Melee.started -= instance.OnMelee;
+                @Melee.performed -= instance.OnMelee;
+                @Melee.canceled -= instance.OnMelee;
             }
 
             /// <summary>
@@ -1602,6 +1634,13 @@ namespace InputPlayer
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTaunt(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Melee" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnMelee(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -89,8 +89,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 
         if(lifeValue <= 0)
         {
-            PhotonNetwork.Destroy(gameObject);
-
+            BloodParticle(transform.position);
+            StartCoroutine(Diying());
         }
     }
 
@@ -103,5 +103,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         }
         yield return new WaitForSeconds(.2f);
         StartCoroutine(FindClose());
+    }
+    IEnumerator Diying()
+    {
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
     }
 }
