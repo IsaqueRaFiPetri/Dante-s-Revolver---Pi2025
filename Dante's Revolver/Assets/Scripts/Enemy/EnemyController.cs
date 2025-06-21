@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     }
     IEnumerator Diying()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
         yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }

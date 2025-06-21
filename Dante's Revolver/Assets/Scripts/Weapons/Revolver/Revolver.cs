@@ -19,6 +19,7 @@ public class Revolver : DamageInteraction
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
+    [SerializeField] GameObject shootParticle;
     [HideInInspector]public int bulletCount;
 
     private void Start()
@@ -35,6 +36,10 @@ public class Revolver : DamageInteraction
     public bool SetCanShoot(bool setCanShoot)
     {
         return canShoot = setCanShoot;
+    }
+    public void ShootParticle(GameObject shootParticle, RaycastHit raycast)
+    {
+        Instantiate(shootParticle, raycast.point + new Vector3(raycast.normal.x * 0.01f, raycast.normal.y * 0.01f, raycast.normal.z * 0.01f), Quaternion.LookRotation(raycast.normal));
     }
     public void Fire(InputAction.CallbackContext context)
     {
@@ -67,6 +72,10 @@ public class Revolver : DamageInteraction
             {
                 DoDamage(target?.gameObject);
                 target.BloodParticle(hit.point);
+            }
+            if (!hit.collider.GetComponent<EnemyController>())
+            {
+                ShootParticle(shootParticle, hit);
             }
         }
     }
