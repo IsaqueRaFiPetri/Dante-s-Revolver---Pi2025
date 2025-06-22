@@ -11,8 +11,13 @@ public class Knife : DamageInteraction, IPowerable
     [SerializeField] Image knifeImage;
 
     bool canAttack = true;
+
     public void MeleeAttack(InputAction.CallbackContext context)
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         if (!canAttack)
         {
             print("cant attack");
@@ -40,6 +45,10 @@ public class Knife : DamageInteraction, IPowerable
             {
                 DoDamage(target?.gameObject);
                 target.BloodParticle(hit.point);
+            }
+            if (!hit.collider.GetComponent<EnemyController>())
+            {
+                ShootParticle(shootParticle, hit);
             }
         }
         SetCanAttack(false);

@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 1802636600044992672}
   - component: {fileID: 2828827067016040984}
   - component: {fileID: 3999102647378783190}
+  - component: {fileID: 7697516433539980737}
   m_Layer: 0
   m_Name: knifeModel
   m_TagString: Untagged
@@ -344,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsStats: {fileID: 11400000, guid: 1266c73c11b0cf94aba215f41d59c005, type: 2}
+  shootParticle: {fileID: 437091390931342425, guid: e15a92552fd6b1e4899b1f2c5714cd7c, type: 3}
   playerCamera: {fileID: 4459864851310106426}
   OnAttack:
     m_PersistentCalls:
@@ -361,6 +363,22 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   knifeImage: {fileID: 4825427311172135087}
+--- !u!114 &7697516433539980737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145447933245069685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &151048007273685098
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +645,7 @@ GameObject:
   - component: {fileID: 5234819823094781937}
   - component: {fileID: 2050700870620841125}
   - component: {fileID: 4842568133518759623}
+  - component: {fileID: 9001944566475727306}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -717,6 +736,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9001944566475727306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299198126070955292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfc46ff937d28b489543ef0e7f90cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasToBeMine: 0
 --- !u!1 &340672894355601613
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +827,7 @@ GameObject:
   - component: {fileID: 3081058054848721306}
   - component: {fileID: 6306161940942995160}
   - component: {fileID: 6935550651734354141}
+  - component: {fileID: 6409847840739127538}
   m_Layer: 0
   m_Name: RevolverModel
   m_TagString: Untagged
@@ -885,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsStats: {fileID: 11400000, guid: 046a32006998f8248801c026f6de4442, type: 2}
+  shootParticle: {fileID: 437091390931342425, guid: e15a92552fd6b1e4899b1f2c5714cd7c, type: 3}
   playerCamera: {fileID: 4459864851310106426}
   weaponStats: {fileID: 11400000, guid: 046a32006998f8248801c026f6de4442, type: 2}
   bulletHolder: {fileID: 6504838458905636201}
@@ -910,7 +944,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  shootParticle: {fileID: 437091390931342425, guid: e15a92552fd6b1e4899b1f2c5714cd7c, type: 3}
   bulletCount: 0
 --- !u!114 &6306161940942995160
 MonoBehaviour:
@@ -943,6 +976,22 @@ MonoBehaviour:
   barrelRotation: {x: 0, y: 0, z: 10}
   canRotate: 0
   charging: 1
+--- !u!114 &6409847840739127538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385765722038920899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &413905351379907249
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +1004,7 @@ GameObject:
   - component: {fileID: 5091809437040896938}
   - component: {fileID: 7134769463214242499}
   - component: {fileID: 8862852396189358338}
+  - component: {fileID: 7027894552802758901}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1047,6 +1097,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 63
+--- !u!114 &7027894552802758901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413905351379907249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfc46ff937d28b489543ef0e7f90cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasToBeMine: 0
 --- !u!1 &420449060440548000
 GameObject:
   m_ObjectHideFlags: 0
@@ -6924,6 +6987,8 @@ MonoBehaviour:
   - {fileID: 2607364305855011607}
   - {fileID: 8269125650162595418}
   - {fileID: 5828514181869916060}
+  - {fileID: 6409847840739127538}
+  - {fileID: 7697516433539980737}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9238,13 +9303,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6595432391893378360}
   - component: {fileID: 3575111094434211477}
+  - component: {fileID: 3110420862136038806}
   m_Layer: 0
   m_Name: Teste_Rigged_WalkWithRevolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6595432391893378360
 Transform:
   m_ObjectHideFlags: 0
@@ -9284,6 +9350,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3110420862136038806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822167490940682114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfc46ff937d28b489543ef0e7f90cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasToBeMine: 1
 --- !u!1 &5888385672235350470
 GameObject:
   m_ObjectHideFlags: 0

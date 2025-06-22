@@ -85,9 +85,9 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     public void TakeDamage(int damage)
     {
         lifeValue -= damage;
-        print(lifeValue);
+        BloodParticle(transform.position);
 
-        if(lifeValue <= 0)
+        if (lifeValue <= 0)
         {
             BloodParticle(transform.position);
             StartCoroutine(Diying());

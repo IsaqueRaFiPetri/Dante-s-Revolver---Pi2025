@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class Revolver : DamageInteraction
 {
@@ -19,9 +20,15 @@ public class Revolver : DamageInteraction
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
-    [SerializeField] GameObject shootParticle;
     [HideInInspector]public int bulletCount;
 
+    private void Awake()
+    {
+        if (!photonView.IsMine)
+        {
+            this.enabled = false;
+        }
+    }
     private void Start()
     {
         shootCooldown = weaponsStats.shootCooldown;
@@ -36,10 +43,6 @@ public class Revolver : DamageInteraction
     public bool SetCanShoot(bool setCanShoot)
     {
         return canShoot = setCanShoot;
-    }
-    public void ShootParticle(GameObject shootParticle, RaycastHit raycast)
-    {
-        Instantiate(shootParticle, raycast.point + new Vector3(raycast.normal.x * 0.01f, raycast.normal.y * 0.01f, raycast.normal.z * 0.01f), Quaternion.LookRotation(raycast.normal));
     }
     public void Fire(InputAction.CallbackContext context)
     {
