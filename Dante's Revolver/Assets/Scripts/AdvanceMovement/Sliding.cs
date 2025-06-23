@@ -7,6 +7,7 @@ public class Sliding : MonoBehaviourPunCallbacks
     public Transform orientation;
     public Transform playerObj;
     private Rigidbody rb;
+    CapsuleCollider capsuleCollider;
     private PlayerMovementAdvanced pm;
 
     [Header("Sliding")]
@@ -27,6 +28,7 @@ public class Sliding : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovementAdvanced>();
 
+        capsuleCollider =GetComponent<CapsuleCollider>();
         startYScale = playerObj.localScale.y;
 
         if (!photonView.IsMine)
@@ -57,6 +59,8 @@ public class Sliding : MonoBehaviourPunCallbacks
     {
         pm.sliding = true;
 
+        capsuleCollider.height = 1;
+        capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - .5f, capsuleCollider.center.z);
         playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
@@ -93,6 +97,8 @@ public class Sliding : MonoBehaviourPunCallbacks
     {
         pm.sliding = false;
 
+        capsuleCollider.height = 2;
+        capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + .5f, capsuleCollider.center.z);
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }
 }

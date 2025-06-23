@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1802636600044992672}
   - component: {fileID: 2828827067016040984}
   - component: {fileID: 3999102647378783190}
-  - component: {fileID: 7697516433539980737}
+  - component: {fileID: 463639214029750090}
   m_Layer: 0
   m_Name: knifeModel
   m_TagString: Untagged
@@ -363,7 +363,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   knifeImage: {fileID: 4825427311172135087}
---- !u!114 &7697516433539980737
+--- !u!114 &463639214029750090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -372,13 +372,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 145447933245069685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &151048007273685098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6988,7 +6993,7 @@ MonoBehaviour:
   - {fileID: 8269125650162595418}
   - {fileID: 5828514181869916060}
   - {fileID: 6409847840739127538}
-  - {fileID: 7697516433539980737}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
