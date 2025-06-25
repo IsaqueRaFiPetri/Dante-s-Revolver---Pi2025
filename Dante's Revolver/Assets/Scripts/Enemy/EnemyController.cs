@@ -1,13 +1,11 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public interface IKillable
 {
-    [PunRPC]
-    public void TakeDamage(int damage);
+    void TakeDamage(int damage);
 }
 
 [RequireComponent(typeof(Rigidbody))]
@@ -20,69 +18,64 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     float moveSpeed;
 
     [SerializeField] Transform vision;
-    [SerializeField]Stats enemyStats;
+    [SerializeField] Stats enemyStats;
     [SerializeField] ParticleSystem bloodParticle;
+    [SerializeField] float range;
 
     float lifeValue;
-
-    [SerializeField]float range;
+    Transform player;
 
     private void Start()
     {
         lifeValue = enemyStats.lifeValue;
         body = GetComponent<Rigidbody>();
+        moveSpeed = enemyStats.moveSpeed;
     }
+
     void FixedUpdate()
     {
+        if (player == null) return;
 
-        if (players == null) return;
-
-        /*moveDirection = Vector3.zero;
-
-        float direction = Vector3.Distance(player.position, this.transform.position);
-
-        Vector3 dir = player.position - this.transform.position;
+        moveDirection = Vector3.zero;
+        float distance = Vector3.Distance(player.position, transform.position);
+        Vector3 dir = player.position - transform.position;
         dir.y = 0;
 
-        /if (direction < 15)
+        if (distance < 15)
         {
             body.linearVelocity = transform.forward * moveSpeed;
-
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
-
-            print("following");
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+            Debug.Log("following");
         }
-        else if (direction >= 15 && direction < 40)
+        else if (distance >= 15 && distance < 40)
         {
             body.linearVelocity = transform.forward * (moveSpeed * 5);
-
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
-
-            print("trying to escape");
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+            Debug.Log("trying to escape");
         }
         else
         {
-            body.linearVelocity = transform.forward * moveSpeed * 0;
-            print("bye");
+            body.linearVelocity = Vector3.zero;
+            Debug.Log("bye");
         }
 
-        if (hit.collider.GetComponent<IPlayable>() != null)
+        if (Physics.Raycast(vision.position, vision.forward, out hit, range))
         {
-            if (hit.distance >= 35)
-                return;
-
-            player = hit.collider.transform;            
-        }*/
+            if (hit.collider.GetComponent<IPlayable>() != null && hit.distance < 35)
+            {
+                player = hit.collider.transform;
+            }
+        }
     }
 
     public void BloodParticle(Vector3 hitPosition)
     {
-        bloodParticle.Play();
         bloodParticle.transform.position = hitPosition;
+        bloodParticle.Play();
     }
 
     [PunRPC]
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) 
     {
         lifeValue -= damage;
         BloodParticle(transform.position);
@@ -94,20 +87,21 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         }
     }
 
+    IEnumerator Diying()
+    {
+        GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
     IEnumerator FindClose()
     {
         List<float> playersTransform = new List<float>();
-        foreach(Transform player in players)
+        foreach (Transform player in players)
         {
             playersTransform.Add(Vector3.Distance(player.position, transform.position));
         }
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(0.2f);
         StartCoroutine(FindClose());
-    }
-    IEnumerator Diying()
-    {
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        yield return new WaitForSeconds(.5f);
-        Destroy(gameObject);
     }
 }
