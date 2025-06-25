@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsStats: {fileID: 11400000, guid: 1266c73c11b0cf94aba215f41d59c005, type: 2}
+  enemyController: {fileID: 0}
   shootParticle: {fileID: 437091390931342425, guid: e15a92552fd6b1e4899b1f2c5714cd7c, type: 3}
   playerCamera: {fileID: 4459864851310106426}
   OnAttack:
@@ -923,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsStats: {fileID: 11400000, guid: 046a32006998f8248801c026f6de4442, type: 2}
+  enemyController: {fileID: 0}
   shootParticle: {fileID: 437091390931342425, guid: e15a92552fd6b1e4899b1f2c5714cd7c, type: 3}
   playerCamera: {fileID: 4459864851310106426}
   weaponStats: {fileID: 11400000, guid: 046a32006998f8248801c026f6de4442, type: 2}
@@ -6963,6 +6965,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   maxSlopeAngle: 40
+  maxHealth: 0
+  healthText: {fileID: 0}
   orientation: {fileID: 5724968560126500847}
   state: 0
   sliding: 0

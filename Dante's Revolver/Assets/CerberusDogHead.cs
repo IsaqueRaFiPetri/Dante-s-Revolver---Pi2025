@@ -7,23 +7,13 @@ using UnityEngine;
 public class CerberusDogHead : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
-    [SerializeField] List<GameObject> allPlayers;
     private void Start()
     {
-        StartCoroutine(GetPlayers());
         StartCoroutine(DetectClosePlayer());
     }
     private void LateUpdate()
     {
          transform.LookAt(playerTransform.transform.position);
-    }
-    IEnumerator GetPlayers()
-    {
-        yield return new WaitForSeconds(1);
-        for (int i = 0; i < ServerSpawn.instance.playerList.Count; i++)
-        {
-            allPlayers.Add(ServerSpawn.instance.playerList[i]);
-        }
     }
     IEnumerator DetectClosePlayer()
     {
@@ -35,7 +25,7 @@ public class CerberusDogHead : MonoBehaviour
     {
         float closestDistance = Mathf.Infinity;
 
-        foreach (GameObject p in allPlayers)
+        foreach (GameObject p in ServerSpawn.instance.playerList)
         {
             float dist = Vector3.Distance(transform.position, p.transform.position);
             if (dist < closestDistance)
