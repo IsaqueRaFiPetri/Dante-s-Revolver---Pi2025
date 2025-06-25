@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public interface IKillable
 {
@@ -72,6 +73,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
                 player = hit.collider.transform;
             }
         }
+
+        transform.LookAt(player);
     }
 
     public void BloodParticle(Vector3 hitPosition)
