@@ -1,9 +1,10 @@
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CerberusDogHead : MonoBehaviour
+public class CerberusDogHead : MonoBehaviourPunCallbacks
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] List<GameObject> allPlayers;
@@ -27,10 +28,10 @@ public class CerberusDogHead : MonoBehaviour
     IEnumerator DetectClosePlayer()
     {
         yield return new WaitForSeconds(1);
-        FindClosestPlayer();
+        photonView.RPC("FindClosestPlayer", RpcTarget.AllBuffered);
         StartCoroutine(DetectClosePlayer());
     }
-    void FindClosestPlayer()
+    [PunRPC] void FindClosestPlayer()
     {
         float closestDistance = Mathf.Infinity;
 
