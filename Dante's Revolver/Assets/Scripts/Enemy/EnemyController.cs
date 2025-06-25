@@ -34,24 +34,28 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 
     void FixedUpdate()
     {
-        if (player == null) return;
+        if (player == null || Vector3.Distance(player.position, transform.position) > range)
+        {
+            FindClosestPlayer();
+        }
 
         moveDirection = Vector3.zero;
         float distance = Vector3.Distance(player.position, transform.position);
         Vector3 dir = player.position - transform.position;
         dir.y = 0;
 
-        if (distance < 15)
+        if (distance < range)
         {
-            body.linearVelocity = transform.forward * moveSpeed;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.1f);
-            Debug.Log("following");
+            Vector3 direction = (player.position - transform.position).normalized;
+            direction.y = 0;
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+            body.AddForce(direction * moveSpeed, ForceMode.VelocityChange);
         }
-        else if (distance >= 15 && distance < 40)
+
+        if (body.linearVelocity.magnitude > moveSpeed * 2)
         {
-            body.linearVelocity = transform.forward * (moveSpeed * 5);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.1f);
-            Debug.Log("trying to escape");
+            body.linearVelocity = body.linearVelocity.normalized * moveSpeed * 2;
         }
         else
         {
@@ -59,9 +63,10 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
             Debug.Log("bye");
         }
 
-        if (Physics.Raycast(vision.position, vision.forward, out hit, range))
+        if (Physics.SphereCast(vision.position, 10.5f, vision.forward, out hit, range))
         {
-            if (hit.collider.GetComponent<IPlayable>() != null && hit.distance < 35)
+            Debug.DrawRay(vision.position, vision.forward * hit.distance, Color.red);
+            if (hit.collider.GetComponent<IPlayable>() != null)
             {
                 player = hit.collider.transform;
             }
@@ -75,7 +80,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     }
 
     [PunRPC]
-    public void TakeDamage(int damage) 
+    public void TakeDamage(int damage)
     {
         lifeValue -= damage;
         BloodParticle(transform.position);
@@ -94,14 +99,20 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         Destroy(gameObject);
     }
 
-    IEnumerator FindClose()
+    void FindClosestPlayer()
     {
-        List<float> playersTransform = new List<float>();
-        foreach (Transform player in players)
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject p in allPlayers)
         {
-            playersTransform.Add(Vector3.Distance(player.position, transform.position));
+            float dist = Vector3.Distance(transform.position, p.transform.position);
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                player = p.transform;
+            }
         }
-        yield return new WaitForSeconds(0.2f);
-        StartCoroutine(FindClose());
+
     }
 }
