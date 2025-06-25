@@ -7,19 +7,14 @@ using UnityEngine;
 public class CerberusDogHead : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
-    private void Start()
+
+    private void FixedUpdate()
     {
-        StartCoroutine(DetectClosePlayer());
+        FindClosestPlayer();
     }
     private void LateUpdate()
     {
          transform.LookAt(playerTransform.transform.position);
-    }
-    IEnumerator DetectClosePlayer()
-    {
-        yield return new WaitForSeconds(1);
-        FindClosestPlayer();
-        StartCoroutine(DetectClosePlayer());
     }
     void FindClosestPlayer()
     {
