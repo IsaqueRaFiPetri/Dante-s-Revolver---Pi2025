@@ -60,7 +60,6 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         else
         {
             body.linearVelocity = Vector3.zero;
-            Debug.Log("bye");
         }
 
         if (Physics.SphereCast(vision.position, 10.5f, vision.forward, out hit, range))
