@@ -1,37 +1,48 @@
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CerberusDogHead : MonoBehaviour
 {
-    [SerializeField] GameObject playerTransform;
-    [SerializeField] ServerSpawn serverSpawn;
-    [SerializeField] List<GameObject> players;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] List<GameObject> allPlayers;
     private void Start()
     {
-        serverSpawn = FindFirstObjectByType<ServerSpawn>();
         StartCoroutine(GetPlayers());
         StartCoroutine(DetectClosePlayer());
     }
     private void FixedUpdate()
     {
-         //transform.LookAt(playerTransform.transform.position);
+         transform.LookAt(playerTransform.transform.position);
     }
     IEnumerator GetPlayers()
     {
         yield return new WaitForSeconds(1);
-        for (int i = 0; i < serverSpawn.playerList.Count; i++)
+        for (int i = 0; i < ServerSpawn.instance.playerList.Count; i++)
         {
-            players.Add(serverSpawn.playerList[i]);
+            allPlayers.Add(ServerSpawn.instance.playerList[i]);
         }
     }
     IEnumerator DetectClosePlayer()
     {
         yield return new WaitForSeconds(1);
-        for (int i = 0; i < players.Count; i++)
-        {
-            print(Vector3.Distance(players[i].transform.position, transform.position) + players[i].name);
-        }
+        FindClosestPlayer();
         StartCoroutine(DetectClosePlayer());
+    }
+    void FindClosestPlayer()
+    {
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject p in allPlayers)
+        {
+            float dist = Vector3.Distance(transform.position, p.transform.position);
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                playerTransform = p.transform;
+            }
+        }
+
     }
 }

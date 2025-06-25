@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     [SerializeField] ParticleSystem bloodParticle;
     [SerializeField] float range;
 
+    ServerSpawn serverSpawn;
+
     float lifeValue;
     Transform player;
 
@@ -100,10 +102,9 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 
     void FindClosestPlayer()
     {
-        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
         float closestDistance = Mathf.Infinity;
 
-        foreach (GameObject p in allPlayers)
+        foreach (GameObject p in ServerSpawn.instance.playerList)
         {
             float dist = Vector3.Distance(transform.position, p.transform.position);
             if (dist < closestDistance)
