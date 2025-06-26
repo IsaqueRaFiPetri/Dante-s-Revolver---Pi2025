@@ -18,9 +18,10 @@ public class CerberusDogHead : MonoBehaviour
     }
     void FindClosestPlayer()
     {
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
         float closestDistance = Mathf.Infinity;
 
-        foreach (GameObject p in ServerSpawn.instance.playerList)
+        foreach (GameObject p in allPlayers)
         {
             float dist = Vector3.Distance(transform.position, p.transform.position);
             if (dist < closestDistance)
