@@ -1,9 +1,11 @@
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Events;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject lobby;
+    [SerializeField] UnityEvent OnLobbyLoaded;
+
     public void LoadingScreen()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -14,6 +16,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedLobby()
     {
-        lobby.SetActive(true);
+        OnLobbyLoaded.Invoke();
     }
 }
