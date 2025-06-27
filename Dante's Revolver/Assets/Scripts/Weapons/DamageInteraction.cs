@@ -3,21 +3,15 @@ using UnityEngine;
 public interface IDamaging
 {
     public void DoDamage(GameObject target);
-    public void KillPlayer(GameObject target);
 }
 public class DamageInteraction : MonoBehaviourPunCallbacks, IDamaging
 {
     [SerializeField] protected WeaponStats weaponsStats;
-    [SerializeField] protected BasicEnemy enemyController;
     [SerializeField] protected GameObject shootParticle;
 
     public void DoDamage(GameObject target)
     {
         target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered , weaponsStats.weaponDamage);
-    }
-    public void KillPlayer(GameObject target)
-    {
-        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, enemyController);
     }
     public void ShootParticle(GameObject shootParticle, RaycastHit raycast)
     {

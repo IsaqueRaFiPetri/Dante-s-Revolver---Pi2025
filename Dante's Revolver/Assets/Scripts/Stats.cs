@@ -10,4 +10,5 @@ public class Stats : ScriptableObject
     public float wallrunSpeed;
     [Header("Stats")]
     public int lifeValue;
+    public int damage;
 }

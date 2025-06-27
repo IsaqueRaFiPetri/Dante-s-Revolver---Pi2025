@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface IKillable
 {
@@ -21,9 +22,12 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     [SerializeField] Stats enemyStats;
     [SerializeField] ParticleSystem bloodParticle;
     [SerializeField] float range;
+    [SerializeField] UnityEvent OnAttack;
+    [SerializeField] float cooldown = 2f;
 
     ServerSpawn serverSpawn;
 
+    float currentCooldown;
     float lifeValue;
     Transform player;
 
@@ -74,7 +78,19 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         }
 
         transform.LookAt(player);
+
+
+        if (distance <= 2f)
+        {
+            currentCooldown -= Time.deltaTime;
+
+            if (currentCooldown <= 0f)
+            {
+                Attack();
+            }
+        }
     }
+
 
     public void BloodParticle(Vector3 hitPosition)
     {
@@ -118,4 +134,17 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         }
 
     }
+
+    void Attack()
+    {
+        if (player == null) return;
+
+        if (player.TryGetComponent<PhotonView>(out var pv))
+        {
+            pv.RPC("TakeDamage", RpcTarget.AllBuffered, (int)enemyStats.damage);
+            OnAttack?.Invoke();
+            currentCooldown = cooldown;
+        }
+    }
+
 }

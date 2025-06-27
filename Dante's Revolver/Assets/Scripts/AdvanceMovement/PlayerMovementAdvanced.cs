@@ -4,7 +4,7 @@ using TMPro;
 using Photon.Pun;
 public interface IPlayable
 {
-    void TakeDamage(int damage);
+
 }
 public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 {
@@ -51,11 +51,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
-
-    [Header("Health")]
-    [SerializeField] int maxHealth;
-    private int currentHealth;
-    [SerializeField] private TextMeshProUGUI healthText;
 
     public Transform orientation;
 
@@ -113,8 +108,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 
             this.enabled = false;
         }
-
-        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -357,24 +350,4 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
     }
-
-    [PunRPC]
-    public void TakeDamage(int damage)
-    {
-        if (!photonView.IsMine) return;
-
-        currentHealth -= damage;
-        Debug.Log($"{gameObject.name} levou {damage} de dano. Vida restante: {currentHealth}");
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-    void Die()
-    {
-        Debug.Log($"{gameObject.name} morreu.");
-        gameObject.SetActive(false);
-    }
-
 }

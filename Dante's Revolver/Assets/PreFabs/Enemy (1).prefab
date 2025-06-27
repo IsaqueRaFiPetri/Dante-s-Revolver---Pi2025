@@ -5044,6 +5044,9 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 78341e5ef70efa0458952117c2412e77, type: 2}
   bloodParticle: {fileID: 8153603770613856018}
   range: 15
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2040057050751780873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5065,6 +5068,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: -8264001546652561581}
   - {fileID: -1830913598173337026}
+  - {fileID: 7030528669535658983}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -5081,7 +5085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsStats: {fileID: 0}
-  enemyController: {fileID: 0}
   shootParticle: {fileID: 0}
 --- !u!54 &7358497227993807351
 Rigidbody:
