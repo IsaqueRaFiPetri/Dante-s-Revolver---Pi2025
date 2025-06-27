@@ -9,6 +9,6 @@ public class Stats : ScriptableObject
     public float slideSpeed;
     public float wallrunSpeed;
     [Header("Stats")]
-    public int lifeValue;
-    public int damage;
+    public float lifeValue;
+    public float damage;
 }

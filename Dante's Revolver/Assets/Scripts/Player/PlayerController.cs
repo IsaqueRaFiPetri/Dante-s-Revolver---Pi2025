@@ -2,7 +2,6 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IKillable
 {
@@ -10,30 +9,32 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
     [SerializeField] Image lifeBarSprite;
     [SerializeField] TextMeshProUGUI lifeText;
 
-    int lifeValue;
-    int maxLife;
+    [SerializeField]float currentLife;
+    [SerializeField]float maxLife;
 
     private void Start()
     {
         maxLife = playerStats.lifeValue;
-        lifeValue = maxLife;
+        currentLife = maxLife;
     }
 
     [PunRPC]
     public void TakeDamage(int damage)
     {
-        lifeValue -= damage;
+        Debug.Log("inimigo atacando");
+        
+        currentLife -= damage;
+        LifeBar();
 
-        if (lifeValue <= 0)
+        if (currentLife <= 0)
         {
             gameObject.SetActive(false);
-            LifeBar();
         }
     }
 
     public void LifeBar()
     {
-        lifeText.text = lifeValue + "/100";
-        lifeBarSprite.fillAmount = (float)lifeValue / (float)maxLife;
+        lifeText.text = currentLife + "/" + maxLife;
+        lifeBarSprite.fillAmount = currentLife / maxLife;
     }
 }

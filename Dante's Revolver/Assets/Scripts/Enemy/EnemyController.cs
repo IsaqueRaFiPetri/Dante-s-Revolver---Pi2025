@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         if (player == null || Vector3.Distance(player.position, transform.position) > range)
         {
             FindClosestPlayer();
+            return;
         }
 
         moveDirection = Vector3.zero;
@@ -145,6 +146,12 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
             OnAttack?.Invoke();
             currentCooldown = cooldown;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2f);
     }
 
 }
