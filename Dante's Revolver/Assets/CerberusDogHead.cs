@@ -1,19 +1,28 @@
 using Photon.Pun;
-using Photon.Realtime;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CerberusDogHead : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
+    [SerializeField] GameObject projectil;
+    bool canShoot = true;
+    bool hasFoundPlayer;
 
+    private void Start()
+    {
+        StartCoroutine(Shooting());
+    }
     private void FixedUpdate()
     {
         FindClosestPlayer();
     }
     private void LateUpdate()
     {
+        if (!hasFoundPlayer)
+        {
+            return;
+        }
          transform.LookAt(playerTransform.transform.position);
     }
     void FindClosestPlayer()
@@ -30,6 +39,19 @@ public class CerberusDogHead : MonoBehaviour
                 playerTransform = p.transform;
             }
         }
-
+        if (playerTransform != null)
+        {
+            hasFoundPlayer = true;
+        }
+    }
+    public void Shoot(GameObject projectilPrefab)
+    {
+        PhotonNetwork.Instantiate(projectilPrefab.name, transform.position, Quaternion.identity);
+    }
+    IEnumerator Shooting()
+    {
+        Shoot(projectil);
+        yield return new WaitForSeconds(1);
+        StartCoroutine(Shooting());
     }
 }
