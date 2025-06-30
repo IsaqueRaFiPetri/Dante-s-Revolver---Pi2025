@@ -2,11 +2,16 @@ using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
-public class CerberusDogHead : MonoBehaviour
+public interface ILauncher
+{
+    public void Shoot(GameObject projectilPrefab);
+}
+public class CerberusDogHead : MonoBehaviour, ILauncher
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectil;
-    bool canShoot = true;
+    WeaponStats weaponsStats;
+    GameObject lastProjectil;
     bool hasFoundPlayer;
 
     private void Start()
@@ -44,14 +49,22 @@ public class CerberusDogHead : MonoBehaviour
             hasFoundPlayer = true;
         }
     }
+
     public void Shoot(GameObject projectilPrefab)
     {
-        PhotonNetwork.Instantiate(projectilPrefab.name, transform.position, Quaternion.identity);
+        lastProjectil = PhotonNetwork.Instantiate(projectilPrefab.name, transform.position, Quaternion.identity);
+        lastProjectil.GetComponent<Rigidbody>().AddForce(transform.up * 5, ForceMode.Impulse);
+        lastProjectil.GetComponent<Rigidbody>().AddForce(transform.forward * 35, ForceMode.Impulse);
     }
+
     IEnumerator Shooting()
     {
-        Shoot(projectil);
-        yield return new WaitForSeconds(1);
+        if (hasFoundPlayer)
+        {
+            Shoot(projectil);
+        }
+        yield return new WaitForSeconds(weaponsStats.shootCooldown);
+
         StartCoroutine(Shooting());
     }
 }
