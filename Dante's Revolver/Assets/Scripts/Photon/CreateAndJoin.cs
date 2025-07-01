@@ -8,7 +8,7 @@ using TMPro;
 public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField input;
-    [SerializeField] string roomBaseName;
+    [SerializeField] string roomBaseName, sceneToLoad;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SampleScene");
+        PhotonNetwork.LoadLevel(sceneToLoad);
         print(PhotonNetwork.CountOfPlayersInRooms);
     }
 }
