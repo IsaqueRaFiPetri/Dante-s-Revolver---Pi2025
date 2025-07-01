@@ -10,7 +10,7 @@ public class CerberusDogHead : MonoBehaviour, ILauncher
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectil;
-    WeaponStats weaponsStats;
+    [SerializeField] WeaponStats weaponsStats;
     GameObject lastProjectil;
     bool hasFoundPlayer;
 

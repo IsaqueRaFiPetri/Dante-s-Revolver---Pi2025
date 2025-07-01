@@ -81,10 +81,10 @@ public class Revolver : DamageInteraction
             {
                 ShootParticle(shootParticle, hit);
             }
-            if(hit.collider.TryGetComponent(out IWeakeable headshot))
+            if(hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 ShootParticle(headshot.HeadshotParticle(), hit);
-                Destroy(hit.collider.gameObject);
+                headshot.GetEnemyController().TakeDamage(20000);
             }
         }
     }

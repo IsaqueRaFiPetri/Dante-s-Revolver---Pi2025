@@ -12,4 +12,8 @@ public class WeakPoint : MonoBehaviour, IWeakeable
     {
         return weakPointParticle.gameObject;
     }
+    public EnemyController GetEnemyController()
+    {
+        return gameObject.GetComponentInParent<EnemyController>();
+    }
 }
