@@ -92,31 +92,15 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         }
     }
 
-
-    public void BloodParticle(Vector3 hitPosition)
-    {
-        bloodParticle.transform.position = hitPosition;
-        bloodParticle.Play();
-    }
-
     [PunRPC]
     public void TakeDamage(int damage)
     {
         lifeValue -= damage;
-        BloodParticle(transform.position);
 
         if (lifeValue <= 0)
         {
-            BloodParticle(transform.position);
-            StartCoroutine(Diying());
+            Destroy(gameObject);
         }
-    }
-
-    IEnumerator Diying()
-    {
-        GetComponent<MeshRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
     }
 
     void FindClosestPlayer()

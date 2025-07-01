@@ -8,6 +8,8 @@ public class DamageInteraction : MonoBehaviourPunCallbacks, IDamaging
 {
     [SerializeField] protected WeaponStats weaponsStats;
     [SerializeField] protected GameObject shootParticle;
+    [SerializeField] protected ParticleSystem damageParticle;
+    [SerializeField] protected ParticleSystem bloodParticle;
 
     public void DoDamage(GameObject target)
     {

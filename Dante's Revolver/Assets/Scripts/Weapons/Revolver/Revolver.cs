@@ -74,11 +74,17 @@ public class Revolver : DamageInteraction
             if (hit.collider.TryGetComponent(out EnemyController target))
             {
                 DoDamage(target?.gameObject);
-                target.BloodParticle(hit.point);
+                ShootParticle(bloodParticle.gameObject ,hit);
+                ShootParticle(damageParticle.gameObject, hit);
             }
             if (!hit.collider.GetComponent<EnemyController>())
             {
                 ShootParticle(shootParticle, hit);
+            }
+            if(hit.collider.TryGetComponent(out IWeakeable headshot))
+            {
+                ShootParticle(headshot.HeadshotParticle(), hit);
+                Destroy(hit.collider.gameObject);
             }
         }
     }

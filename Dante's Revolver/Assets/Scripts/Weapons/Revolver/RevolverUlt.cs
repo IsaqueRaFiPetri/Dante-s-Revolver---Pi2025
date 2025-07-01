@@ -8,7 +8,7 @@ public enum Charging
 {
     Charged, IsCharging
 }
-public class RevolverUlt : MonoBehaviour
+public class RevolverUlt : MonoBehaviour, IPowerable
 {
     Revolver revolverClass;
     RevolverMoves revolverMoves;
@@ -19,6 +19,7 @@ public class RevolverUlt : MonoBehaviour
     [SerializeField] Image barrelImage;
     [SerializeField] Vector3 barrelRotation;
     [SerializeField]bool canRotate;
+    [SerializeField] Image ultFeedback;
     public Charging charging;
     private void Start()
     {
@@ -62,12 +63,14 @@ public class RevolverUlt : MonoBehaviour
                 {
                     print("StartedCharging");
                     canRotate = true;
+                    PowerImage(ultFeedback, !canRotate);
                     StartCoroutine(IsCharging());
                 }
                 if(context.canceled)
                 {
                     print("CanceledCharging");
                     canRotate = false;
+                    PowerImage(ultFeedback, !canRotate);
                     revolverMoves.SetTransform(barrelImage.rectTransform, new Vector3(0, 0, 0), .25f);
                     charging = Charging.IsCharging;
                     StopAllCoroutines();
@@ -102,6 +105,12 @@ public class RevolverUlt : MonoBehaviour
         if(revolverClass.bulletCount == 6)
         {
             StartCoroutine(revolverClass.Reloading());
+            PowerImage(ultFeedback, !canRotate);
         }
+    }
+
+    public void PowerImage(Image image, bool active)
+    {
+        image.enabled = active;
     }
 }
