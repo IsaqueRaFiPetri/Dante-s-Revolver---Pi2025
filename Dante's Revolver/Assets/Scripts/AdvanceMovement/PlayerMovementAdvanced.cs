@@ -61,6 +61,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
 
     Rigidbody rb;
 
+    Animator animator;
     public MovementState state;
     public enum MovementState
     {
@@ -83,6 +84,10 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        animator = GetComponentInChildren<Animator>();
+        Debug.Log("Animator Found: " + (animator != null));
+
 
         readyToJump = true;
 
@@ -125,7 +130,12 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
             rb.linearDamping = groundDrag;
         else
             rb.linearDamping = 0;
+
+        // anim logic
+        animator.SetBool("IsWalking", true);
+        animator.SetBool("IsGrounded", grounded);
     }
+
     private void FixedUpdate()
     {
         MovePlayer();
