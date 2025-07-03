@@ -1,14 +1,15 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public interface ILauncher
 {
     public void Shoot(GameObject projectilPrefab);
 }
-public class CerberusDogHead : MonoBehaviour, ILauncher
+public class CerberusDogHead : EnemyController, ILauncher
 {
-    [SerializeField] Transform playerTransform;
+    [SerializeField] Transform playerTransform, vision;
     [SerializeField] GameObject projectil;
     [SerializeField] WeaponStats weaponsStats;
     GameObject lastProjectil;
@@ -52,7 +53,7 @@ public class CerberusDogHead : MonoBehaviour, ILauncher
 
     public void Shoot(GameObject projectilPrefab)
     {
-        lastProjectil = PhotonNetwork.Instantiate(projectilPrefab.name, transform.position, Quaternion.identity);
+        lastProjectil = PhotonNetwork.Instantiate(projectilPrefab.name, vision.position, Quaternion.identity);
         lastProjectil.GetComponent<Rigidbody>().AddForce(transform.up * 5, ForceMode.Impulse);
         lastProjectil.GetComponent<Rigidbody>().AddForce(transform.forward * 35, ForceMode.Impulse);
     }

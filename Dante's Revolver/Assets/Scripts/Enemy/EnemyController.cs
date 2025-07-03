@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     ServerSpawn serverSpawn;
 
     float currentCooldown;
-    float lifeValue;
+    protected float lifeValue;
     Transform player;
 
     private void Start()
@@ -37,8 +37,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
         body = GetComponent<Rigidbody>();
         moveSpeed = enemyStats.moveSpeed;
     }
-
-    void FixedUpdate()
+    protected void Walk()
     {
         if (player == null || Vector3.Distance(player.position, transform.position) > range)
         {
@@ -91,8 +90,6 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
             }
         }
     }
-
-    [PunRPC]
     public void TakeDamage(int damage)
     {
         lifeValue -= damage;
