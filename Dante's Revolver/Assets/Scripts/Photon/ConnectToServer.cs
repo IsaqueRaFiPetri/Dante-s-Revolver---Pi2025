@@ -10,6 +10,10 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
     }
+    public void DisconnectFromLobby()
+    {
+        PhotonNetwork.Disconnect();
+    }
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();

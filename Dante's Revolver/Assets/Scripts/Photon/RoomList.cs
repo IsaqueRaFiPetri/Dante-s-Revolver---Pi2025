@@ -6,11 +6,11 @@ using System.Collections.Generic;
 public class RoomList : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject roomPrefab;
-    [SerializeField] GameObject[] allRooms;
+    public List<GameObject> allRooms;
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        for(int i = 0; i<allRooms.Length; i++)
+        for(int i = 0; i<allRooms.Count; i++)
         {
             if (allRooms[i] != null)
             {
@@ -29,6 +29,17 @@ public class RoomList : MonoBehaviourPunCallbacks
                 Room.GetComponent<Room>().r_name.text = roomList[i].Name;
 
                 allRooms[i] = Room;
+            }
+        }
+    }
+    public override void On
+    public override void OnJoinedLobby()
+    {
+        for (int i = 0; i < allRooms.Count; i++)
+        {
+            if (allRooms[i] != null)
+            {
+                Destroy(allRooms[i]);
             }
         }
     }
