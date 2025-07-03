@@ -9,7 +9,7 @@ public class Explosives : MonoBehaviourPunCallbacks
     {
         if (context.performed)
         {
-            PhotonNetwork.Instantiate(explosivePrefab.name, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+            PhotonNetwork.Instantiate(explosivePrefab.name, transform.position, Quaternion.identity);
         }
     }
 }

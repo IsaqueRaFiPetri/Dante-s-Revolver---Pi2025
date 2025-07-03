@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
-public class RocketLauncher : MonoBehaviour
+public class RocketLauncher : MonoBehaviourPunCallbacks
 {
     [SerializeField] UnityEvent OnStep;
+    [SerializeField] ParticleSystem explosionParticle;
     public float radius = 15.0F;
     public float power = 80.0F;
     private void OnCollisionEnter(Collision collision)
@@ -13,8 +15,14 @@ public class RocketLauncher : MonoBehaviour
         {
             print("collide");
             Knockback();
+            ExplosionParticle(transform.position);
             OnStep.Invoke();
+            Destroy(gameObject);
         }
+    }
+    void ExplosionParticle(Vector3 explosionPos)
+    {
+        PhotonNetwork.Instantiate(explosionParticle.name, explosionPos, Quaternion.identity);
     }
     void Knockback()
     {
