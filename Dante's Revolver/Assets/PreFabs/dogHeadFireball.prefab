@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 2866170048117662664}
   - component: {fileID: 185140093589033741}
   - component: {fileID: 4226985675084600621}
-  - component: {fileID: 3912130007412567968}
+  - component: {fileID: 1171345681619354640}
+  - component: {fileID: 7967208358253531128}
+  - component: {fileID: -4410703130026759923}
   m_Layer: 0
   m_Name: dogHeadFireball
   m_TagString: Untagged
@@ -102,7 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb078fc43419b3488e22e4eb0921116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cerberusStats: {fileID: 11400000, guid: 5e722fb39be6a0b4fa6a287837551da6, type: 2}
+  vision: {fileID: 301549413276744494}
+  enemyStats: {fileID: 11400000, guid: 5e722fb39be6a0b4fa6a287837551da6, type: 2}
+  range: 0
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  cooldown: 2
   playerTransform: {fileID: 0}
   vision: {fileID: 301549413276744494}
   projectil: {fileID: 0}
@@ -123,8 +131,58 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!64 &3912130007412567968
-MeshCollider:
+--- !u!54 &1171345681619354640
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355930098184927216}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &7967208358253531128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355930098184927216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 4226985675084600621}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!65 &-4410703130026759923
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,10 +199,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6610002199122090559, guid: 7b8d7828bc15a094b99329ce05356958, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.1726, y: 0.22534186, z: 0.22905438}
+  m_Center: {x: 0, y: 0.17517093, z: -0.03640219}
 --- !u!1 &6348457391019492591
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ using Photon.Pun;
 public class Revolver : DamageInteraction
 {
     [SerializeField]Camera playerCamera;
-    [SerializeField]WeaponStats weaponStats;
 
     bool canShoot = true;
     bool canReload = true;
@@ -73,18 +72,19 @@ public class Revolver : DamageInteraction
         {
             if (hit.collider.TryGetComponent(out EnemyController target))
             {
-                DoDamage(target?.gameObject);
+                DoDamage(target.gameObject);
                 ShootParticle(bloodParticle.gameObject ,hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }
-            if (!hit.collider.GetComponent<EnemyController>())
+            if (!hit.collider.GetComponent<EnemyController>() && !hit.collider.GetComponent<WeakPoint>())
             {
                 ShootParticle(shootParticle, hit);
             }
             if(hit.collider.TryGetComponent(out WeakPoint headshot))
             {
+                ShootParticle(bloodParticle.gameObject, hit);
                 ShootParticle(headshot.HeadshotParticle(), hit);
-                headshot.GetEnemyController().TakeDamage(20000);
+                headshot.Hitkill();
             }
         }
     }

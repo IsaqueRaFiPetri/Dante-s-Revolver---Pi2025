@@ -13,6 +13,7 @@ public class DamageInteraction : MonoBehaviourPunCallbacks, IDamaging
 
     public void DoDamage(GameObject target)
     {
+        print(target.name);
         target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered , weaponsStats.weaponDamage);
     }
     public void ShootParticle(GameObject shootParticle, RaycastHit raycast)

@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
 
     [SerializeField] Transform vision;
     [SerializeField] Stats enemyStats;
-    [SerializeField] ParticleSystem bloodParticle;
     [SerializeField] float range;
     [SerializeField] UnityEvent OnAttack;
     [SerializeField] float cooldown = 2f;
@@ -28,7 +27,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
     ServerSpawn serverSpawn;
 
     float currentCooldown;
-    protected float lifeValue;
+    float lifeValue;
     Transform player;
 
     private void Start()
@@ -90,10 +89,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable
             }
         }
     }
+
+    [PunRPC]
     public void TakeDamage(int damage)
     {
         lifeValue -= damage;
-
         if (lifeValue <= 0)
         {
             Destroy(gameObject);
