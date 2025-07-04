@@ -22,4 +22,9 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         OnLobbyLoaded.Invoke();
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
