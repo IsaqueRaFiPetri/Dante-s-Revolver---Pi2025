@@ -229,7 +229,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
         // Mode - Air
         else
         {
-            cam.MoveYCamera(.5f);
             cam.DoFov(85f);
             state = MovementState.air;
         }

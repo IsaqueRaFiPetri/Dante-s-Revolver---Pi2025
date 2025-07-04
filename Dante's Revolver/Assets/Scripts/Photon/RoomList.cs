@@ -7,7 +7,6 @@ public class RoomList : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject roomPrefab;
     public List<GameObject> allRooms;
-
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         for(int i = 0; i<allRooms.Count; i++)
@@ -20,6 +19,7 @@ public class RoomList : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < roomList.Count; i++)
         {
+            
             if (roomList.Count == 0)
                 return;
 
@@ -32,14 +32,16 @@ public class RoomList : MonoBehaviourPunCallbacks
             }
         }
     }
-    public override void On
-    public override void OnJoinedLobby()
+    public override void OnLeftLobby()
     {
-        for (int i = 0; i < allRooms.Count; i++)
+        foreach (GameObject room in allRooms)
         {
-            if (allRooms[i] != null)
+            for (int i = 0; i < allRooms.Count; i++)
             {
-                Destroy(allRooms[i]);
+                if (room.name == allRooms[i].name)
+                {
+                    Destroy(room);
+                }
             }
         }
     }
