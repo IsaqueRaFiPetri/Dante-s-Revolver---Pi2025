@@ -6,7 +6,7 @@ public interface IPlayable
 {
 
 }
-public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable
+public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILifeable
 {
 
     public static GameObject LocalPlayerInstance;

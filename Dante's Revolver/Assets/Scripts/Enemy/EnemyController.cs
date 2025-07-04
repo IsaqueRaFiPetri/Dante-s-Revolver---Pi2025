@@ -10,7 +10,7 @@ public interface IKillable
 }
 
 [RequireComponent(typeof(Rigidbody))]
-public class EnemyController : MonoBehaviourPunCallbacks, IKillable
+public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
     List<Transform> players;
     RaycastHit hit;

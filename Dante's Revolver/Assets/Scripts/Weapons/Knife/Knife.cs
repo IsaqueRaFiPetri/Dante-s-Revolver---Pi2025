@@ -47,7 +47,7 @@ public class Knife : DamageInteraction, IPowerable
                 ShootParticle(bloodParticle.gameObject ,hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }
-            if (!hit.collider.GetComponent<EnemyController>())
+            if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
                 ShootParticle(shootParticle, hit);
             }

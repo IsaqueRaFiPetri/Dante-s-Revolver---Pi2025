@@ -17,7 +17,7 @@ public class RocketLauncher : MonoBehaviourPunCallbacks
             Knockback();
             ExplosionParticle(transform.position);
             OnStep.Invoke();
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
     void ExplosionParticle(Vector3 explosionPos)

@@ -76,11 +76,11 @@ public class Revolver : DamageInteraction
                 ShootParticle(bloodParticle.gameObject ,hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }
-            if (!hit.collider.GetComponent<EnemyController>() && !hit.collider.GetComponent<WeakPoint>())
+            if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
                 ShootParticle(shootParticle, hit);
             }
-            if(hit.collider.TryGetComponent(out WeakPoint headshot))
+            if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 ShootParticle(bloodParticle.gameObject, hit);
                 ShootParticle(headshot.HeadshotParticle(), hit);

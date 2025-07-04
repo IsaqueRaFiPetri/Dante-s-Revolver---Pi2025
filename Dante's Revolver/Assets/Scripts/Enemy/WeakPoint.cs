@@ -6,7 +6,11 @@ public interface IWeakeable
 {
     public GameObject HeadshotParticle();
 }
-public class WeakPoint : MonoBehaviourPunCallbacks, IWeakeable
+public interface ILifeable
+{
+
+}
+public class WeakPoint : MonoBehaviourPunCallbacks, IWeakeable, ILifeable
 {
     [SerializeField] ParticleSystem weakPointParticle;
     public GameObject HeadshotParticle()
