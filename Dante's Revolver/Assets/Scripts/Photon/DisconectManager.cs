@@ -20,5 +20,11 @@ public class DisconectManager : MonoBehaviour
         while (PhotonNetwork.InRoom)
             yield return null;
         SceneManager.LoadScene(sceneName);
-    }   
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.GetComponents<PlayerMovementAdvanced>() != null)
+            Disconnect("Menu");
+    }
 }
