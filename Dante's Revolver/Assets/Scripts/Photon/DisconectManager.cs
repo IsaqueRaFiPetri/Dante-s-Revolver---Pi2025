@@ -26,5 +26,8 @@ public class DisconectManager : MonoBehaviour
     {
         if (collision.collider.GetComponents<PlayerMovementAdvanced>() != null)
             Disconnect("Menu");
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
