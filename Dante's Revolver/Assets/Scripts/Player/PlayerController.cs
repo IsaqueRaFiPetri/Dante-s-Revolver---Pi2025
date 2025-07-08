@@ -2,12 +2,14 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IKillable
 {
     [SerializeField] Stats playerStats;
     [SerializeField] Image lifeBarSprite;
     [SerializeField] TextMeshProUGUI lifeText;
+    [SerializeField] UnityEvent OnDeath;
 
     [SerializeField]float currentLife;
     [SerializeField]float maxLife;
@@ -28,7 +30,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
 
         if (currentLife <= 0)
         {
-            gameObject.SetActive(false);
+            OnDeath.Invoke();
+            DisconectManager.instance.Disconnect("Menu");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

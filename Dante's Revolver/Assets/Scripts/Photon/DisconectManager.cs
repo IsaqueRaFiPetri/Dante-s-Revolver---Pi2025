@@ -5,7 +5,16 @@ using System.Collections;
 
 public class DisconectManager : MonoBehaviour
 {
-    public IEnumerator DisconectAndLoad(string sceneName)
+    public static DisconectManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+    public void Disconnect(string sceneName)
+    {
+        StartCoroutine(DisconectAndLoad(sceneName));
+    }
+    IEnumerator DisconectAndLoad(string sceneName)
     {
         PhotonNetwork.Disconnect();
         while (PhotonNetwork.InRoom)
