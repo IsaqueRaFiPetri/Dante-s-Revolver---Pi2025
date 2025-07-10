@@ -1,16 +1,20 @@
 using UnityEngine;
-
+using Photon.Pun;
+using TMPro;
 public class SetCharacter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] TMP_Text cardText;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (PhotonNetwork.IsMasterClient)
+        {
+            cardText.text = "D - A - N - T - E";
+        }
+        else
+        {
+            cardText.text = "V I R G Í L I O";
+
+        }
     }
 }

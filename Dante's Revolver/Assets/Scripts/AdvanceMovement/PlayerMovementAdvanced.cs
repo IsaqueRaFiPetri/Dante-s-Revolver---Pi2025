@@ -75,7 +75,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
     }
 
     public bool sliding;
-    public bool crouching;
     public bool wallrunning;
 
     public TextMeshProUGUI text_speed;
@@ -142,7 +141,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && playerController.GetCanMove())
         {
             readyToJump = false;
 
@@ -150,24 +149,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 
             Invoke(nameof(ResetJump), jumpCooldown);
 
-            playerController.Action(15);
-        }
-
-        // start crouch
-        if (Input.GetKeyDown(crouchKey) && horizontalInput == 0 && verticalInput == 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-
-            crouching = true;
-        }
-
-        // stop crouch
-        if (Input.GetKeyUp(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-
-            crouching = false;
+            playerController.Action(5);
         }
     }
 
@@ -197,17 +179,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
                 desiredMoveSpeed = sprintSpeed;
         }
 
-        // Mode - Crouching
-        else if (crouching)
-        {
-            cam.DoFov(80f);
-            cam.MoveYCamera(-.75f);
-            state = MovementState.crouching;
-            desiredMoveSpeed = crouchSpeed;
-        }
-
         // Mode - Sprinting
-        else if (grounded && Input.GetKey(sprintKey))
+        else if (grounded && Input.GetKey(sprintKey) && playerController.GetCanMove())
         {
             cam.DoFov(90f);
             cam.MoveYCamera(0f);

@@ -2725,6 +2725,7 @@ GameObject:
   - component: {fileID: 1784038954350628423}
   - component: {fileID: 8416096785592265722}
   - component: {fileID: 3291268675313101288}
+  - component: {fileID: 4691230898589060301}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2779,7 +2780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: D - A - N - T - E
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 115bb2ee6a0e71743bdd5974f13131e8, type: 2}
   m_sharedMaterial: {fileID: 6910790096126078781, guid: 115bb2ee6a0e71743bdd5974f13131e8, type: 2}
@@ -2850,6 +2851,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4691230898589060301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498994847791302081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a54e76b48e44fe49ba9b264142066e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardText: {fileID: 3291268675313101288}
 --- !u!1 &1505493974545617509
 GameObject:
   m_ObjectHideFlags: 0
@@ -7401,7 +7415,6 @@ MonoBehaviour:
   orientation: {fileID: 5724968560126500847}
   state: 0
   sliding: 0
-  crouching: 0
   wallrunning: 0
   text_speed: {fileID: 0}
   text_mode: {fileID: 0}

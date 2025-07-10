@@ -57,7 +57,11 @@ public class Sliding : MonoBehaviourPunCallbacks
 
     public void StartSlide()
     {
-        pm.playerController.Action(15);
+        if (!pm.playerController.GetCanMove())
+        {
+            return;
+        }
+        pm.playerController.Action(5);
         pm.sliding = true;
 
         capsuleCollider.height = 1;
