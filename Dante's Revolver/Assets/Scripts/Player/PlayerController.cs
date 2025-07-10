@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
     [SerializeField] float currentStamina;
     [SerializeField] float maxStamina;
     [SerializeField] float staminaRegenCooldown;
-    bool canMakeActions = true;
     [Space(5)]
     [Header("Layout")]
     [SerializeField] Image lifeBarSprite;
@@ -46,16 +45,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
     }
     public void Action(float staminaDamage)
     {
-        if (!canMakeActions)
+        SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
+        if (currentStamina <= 0)
         {
             return;
         }
-        SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
         currentStamina -= staminaDamage;
-    }
-    bool SetCanMakeActions(bool canMove)
-    {
-        return canMakeActions = canMove;
     }
 
     [PunRPC]

@@ -187,7 +187,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             state = MovementState.sliding;
 
             cam.DoFov(90f);
-            cam.DoTilt(5f);
+            cam.DoTilt(-15f);
             cam.MoveYCamera(-.75f);
             // increase speed by one every second
             if (OnSlope() && rb.linearVelocity.y < 0.1f)

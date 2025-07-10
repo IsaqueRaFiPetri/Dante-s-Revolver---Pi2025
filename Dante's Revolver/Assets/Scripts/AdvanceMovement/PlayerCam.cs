@@ -24,7 +24,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         // get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
