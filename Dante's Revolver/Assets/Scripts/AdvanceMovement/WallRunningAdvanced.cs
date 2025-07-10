@@ -127,6 +127,7 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void StartWallRun()
     {
+        pm.playerController.Action(15);
         if (pm.sliding)
         {
             return;
@@ -182,6 +183,7 @@ public class WallRunningAdvanced : MonoBehaviour
 
     private void WallJump()
     {
+        pm.playerController.Action(15);
         // enter exiting wall state
         exitingWall = true;
         exitWallTimer = exitWallTime;

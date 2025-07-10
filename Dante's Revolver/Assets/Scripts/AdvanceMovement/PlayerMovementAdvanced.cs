@@ -10,6 +10,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 {
 
     public static GameObject LocalPlayerInstance;
+    [HideInInspector]public PlayerController playerController;
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
@@ -84,6 +85,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        playerController = GetComponent<PlayerController>();
 
         animator = GetComponentInChildren<Animator>();
         Debug.Log("Animator Found: " + (animator != null));
@@ -102,20 +104,11 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 
         if (!photonView.IsMine)
         {
-            /*
-            PlayerMovementAdvanced.LocalPlayerInstance = gameObject;
-            print(PlayerMovementAdvanced.LocalPlayerInstance.name);
-
-            MyInput();
-            SpeedControl();
-            StateHandler();
-            */
-
             this.enabled = false;
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -133,12 +126,15 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 
         // anim logic
         animator.SetBool("IsGrounded", grounded);
-    }
 
+        MovePlayer();
+    }
+    /*
     private void FixedUpdate()
     {
         MovePlayer();
     }
+    */
 
     private void MyInput()
     {
@@ -153,6 +149,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+
+            playerController.Action(15);
         }
 
         // start crouch
@@ -189,6 +187,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             state = MovementState.sliding;
 
             cam.DoFov(90f);
+            cam.DoTilt(5f);
             cam.MoveYCamera(-.75f);
             // increase speed by one every second
             if (OnSlope() && rb.linearVelocity.y < 0.1f)

@@ -3,21 +3,59 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
+using System.Collections;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IKillable
 {
     [SerializeField] Stats playerStats;
+    [Space(20)]
+    [Header("Life_Stats")]
+    [SerializeField] float currentLife;
+    [SerializeField] float maxLife;
+    [Space(5)]
+    [Header("Stamina_Stats")]
+    [SerializeField] float currentStamina;
+    [SerializeField] float maxStamina;
+    [SerializeField] float staminaRegenCooldown;
+    bool canMakeActions = true;
+    [Space(5)]
+    [Header("Layout")]
     [SerializeField] Image lifeBarSprite;
-    [SerializeField] TextMeshProUGUI lifeText;
+    TMP_Text lifeBarText;
+    [SerializeField] Image staminaBarSprite;
+    TMP_Text staminaBarText;
     [SerializeField] UnityEvent OnDeath;
 
-    [SerializeField]float currentLife;
-    [SerializeField]float maxLife;
-
+    private void Awake()
+    {
+        if (!photonView.IsMine)
+        {
+            Destroy(this);
+        }
+    }
     private void Start()
     {
         maxLife = playerStats.lifeValue;
+        lifeBarText = lifeBarSprite.GetComponentInChildren<TMP_Text>();
         currentLife = maxLife;
+
+        maxStamina = playerStats.staminaValue;
+        staminaBarText = staminaBarSprite.GetComponentInChildren<TMP_Text>();
+        currentStamina = maxStamina;
+    }
+    public void Action(float staminaDamage)
+    {
+        if (!canMakeActions)
+        {
+            return;
+        }
+        SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
+        currentStamina -= staminaDamage;
+    }
+    bool SetCanMakeActions(bool canMove)
+    {
+        return canMakeActions = canMove;
     }
 
     [PunRPC]
@@ -26,7 +64,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
         Debug.Log("inimigo atacando");
         
         currentLife -= damage;
-        LifeBar();
+        SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
 
         if (currentLife <= 0)
         {
@@ -36,10 +74,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
             Cursor.visible = true;
         }
     }
-
-    public void LifeBar()
+    void SetStatsBar(Image statsBarImage,TMP_Text statsBarText, float maxStats, float currentStats)
     {
-        lifeText.text = currentLife + "/" + maxLife;
-        lifeBarSprite.fillAmount = currentLife / maxLife;
+        statsBarText.text = currentStats + "/" + maxStats;
+        statsBarImage.fillAmount = currentStats / maxStats;
     }
 }
