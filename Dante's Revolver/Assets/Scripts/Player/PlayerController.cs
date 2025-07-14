@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 using System.Collections;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IKillable
 {
+    public PhotonView playerPhotonView;
     [SerializeField] Stats playerStats;
     [Space(20)]
     [Header("Life_Stats")]
