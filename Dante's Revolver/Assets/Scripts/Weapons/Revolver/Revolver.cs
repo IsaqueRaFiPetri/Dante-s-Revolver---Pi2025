@@ -89,7 +89,8 @@ public class Revolver : DamageInteraction
             if(hit.collider.TryGetComponent(out IDoubleableHeart doubleHeart))
             {
                 ShootParticle(bloodParticle.gameObject, hit);
-                doubleHeart.TakeDamage(gameObject.GetComponentInParent<PhotonView>());
+                print(gameObject.GetComponentInParent<PhotonView>().ViewID);
+                doubleHeart.TakeDamage(gameObject.GetComponentInParent<PhotonView>().ViewID);
             }
         }
     }

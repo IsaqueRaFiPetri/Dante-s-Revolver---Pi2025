@@ -3,28 +3,22 @@ using UnityEngine;
 
 public interface IDoubleableHeart
 {
-    public void TakeDamage(PhotonView playerId);
+    public void TakeDamage(int playerId);
 }
 public class DoubleHeadEnemy : MonoBehaviour, IDoubleableHeart
 {
-    [SerializeField] PhotonView lastPlayerId;
+    [SerializeField] int lastPlayerId;
 
-    [PunRPC]public void TakeDamage(PhotonView playerId)
+    [PunRPC]public void TakeDamage(int playerId)
     {
-        if(lastPlayerId == null)
+        print("================================================" + playerId);
+        if(lastPlayerId == 0)
         {
             lastPlayerId = playerId;
-            return;
         }
-        if(playerId == lastPlayerId)
+        if(playerId != lastPlayerId)
         {
-            print("alreadyShoot");
-            return;
-        }
-        else
-        {
-            PhotonNetwork.Destroy(gameObject);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
