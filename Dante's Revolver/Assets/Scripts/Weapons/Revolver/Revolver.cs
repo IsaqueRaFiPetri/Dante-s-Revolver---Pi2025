@@ -86,11 +86,11 @@ public class Revolver : DamageInteraction
                 ShootParticle(headshot.HeadshotParticle(), hit);
                 headshot.Hitkill();
             }
-            if(hit.collider.TryGetComponent(out IDoubleableHeart doubleHeart))
+            if(hit.collider.TryGetComponent(out DoubleHeadEnemy doubleLife))
             {
+                doubleLife.GetViewID(gameObject.GetComponentInParent<PhotonView>().ViewID);
                 ShootParticle(bloodParticle.gameObject, hit);
-                print(gameObject.GetComponentInParent<PhotonView>().ViewID);
-                doubleHeart.TakeDamage(gameObject.GetComponentInParent<PhotonView>().ViewID);
+                DoDamage(doubleLife.gameObject);
             }
         }
     }

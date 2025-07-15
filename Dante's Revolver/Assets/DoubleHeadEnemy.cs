@@ -1,24 +1,30 @@
 using Photon.Pun;
 using UnityEngine;
 
-public interface IDoubleableHeart
+public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
-    public void TakeDamage(int playerId);
-}
-public class DoubleHeadEnemy : MonoBehaviour, IDoubleableHeart
-{
-    [SerializeField] int lastPlayerId;
-
-    [PunRPC]public void TakeDamage(int playerId)
+    [SerializeField] int lastViewId;
+    public int GetViewID(int photonViewID)
     {
-        print("================================================" + playerId);
-        if(lastPlayerId == 0)
+        return photonViewID;
+    }
+    [PunRPC]public void TakeDamage(int damage)
+    {
+        if(lastViewId == 0)
         {
-            lastPlayerId = playerId;
+            lastViewId = GetViewID(damage);
         }
-        if(playerId != lastPlayerId)
+        else
         {
-            Destroy(gameObject);
+            if(lastViewId != GetViewID(damage))
+            {
+                print("===================== Killed by: " + damage);
+            }
+            else
+            {
+                print("Already Damaged =====================");
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 }
