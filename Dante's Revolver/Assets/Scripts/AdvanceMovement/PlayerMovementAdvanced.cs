@@ -87,9 +87,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         playerController = GetComponent<PlayerController>();
 
         animator = GetComponentInChildren<Animator>();
-        Debug.Log("Animator Found: " + (animator != null));
-
-
+        
         readyToJump = true;
 
         startYScale = transform.localScale.y;
@@ -128,12 +126,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 
         MovePlayer();
     }
-    /*
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-    */
 
     private void MyInput()
     {
@@ -161,6 +153,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.DoFov(90f);
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
+            animator.SetBool("IsWall-Running", wallrunning);
         }
 
         // Mode - Sliding
@@ -172,6 +165,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.DoTilt(-15f);
             cam.MoveYCamera(-.75f);
             // increase speed by one every second
+            animator.SetBool("IsSliding", sliding);
+
             if (OnSlope() && rb.linearVelocity.y < 0.1f)
                 desiredMoveSpeed = slideSpeed;
 
@@ -186,6 +181,9 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.MoveYCamera(0f);
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
+            Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+            float currentSpeed = flatVelocity.magnitude;
+            animator.SetFloat("speed", currentSpeed);
         }
 
         // Mode - Walking
@@ -193,9 +191,12 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         {
             cam.DoFov(85f);
             cam.MoveYCamera(0f);
-            animator.SetBool("IsWalking", true);
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
+
+            Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+            float currentSpeed = flatVelocity.magnitude;
+            animator.SetFloat("speed", currentSpeed);
         }
 
         // Mode - Air
@@ -203,6 +204,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         {
             cam.DoFov(85f);
             state = MovementState.air;
+            animator.SetBool("IsGrounded", grounded);
         }
 
         // check if desired move speed has changed drastically
