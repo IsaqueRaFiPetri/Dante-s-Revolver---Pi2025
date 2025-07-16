@@ -23,6 +23,8 @@ public class Sliding : MonoBehaviourPunCallbacks
     private float horizontalInput;
     private float verticalInput;
 
+    [SerializeField] Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -47,6 +49,8 @@ public class Sliding : MonoBehaviourPunCallbacks
 
         if (Input.GetKeyUp(slideKey) && pm.sliding)
             StopSlide();
+
+        anim.SetBool("IsSliding", pm.sliding);
     }
 
     private void FixedUpdate()

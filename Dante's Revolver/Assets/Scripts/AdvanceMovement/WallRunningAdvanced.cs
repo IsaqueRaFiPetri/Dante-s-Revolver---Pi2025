@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WallRunningAdvanced : MonoBehaviour
@@ -46,6 +44,8 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private Rigidbody rb;
 
+    [SerializeField] Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -60,6 +60,8 @@ public class WallRunningAdvanced : MonoBehaviour
         }
         CheckForWall();
         StateMachine();
+
+        anim.SetBool("IsWall-Running", pm.wallrunning);
     }
 
     private void FixedUpdate()

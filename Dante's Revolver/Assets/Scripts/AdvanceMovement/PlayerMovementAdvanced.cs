@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using NUnit.Framework.Constraints;
 public interface IPlayable
 {
 
@@ -62,7 +63,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
 
     Rigidbody rb;
 
-    Animator animator;
+    [SerializeField] Animator animator;
     public MovementState state;
     public enum MovementState
     {
@@ -84,10 +85,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        playerController = GetComponent<PlayerController>();
-
-        animator = GetComponentInChildren<Animator>();
-        
+        playerController = GetComponent<PlayerController>();       
         readyToJump = true;
 
         startYScale = transform.localScale.y;
@@ -121,11 +119,39 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         else
             rb.linearDamping = 0;
 
-        // anim logic
-        animator.SetBool("IsGrounded", grounded);
-
         MovePlayer();
+
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        float currentSpeed = flatVelocity.magnitude;
+        animator.SetFloat("speed", currentSpeed);
+
+
+        switch (state)
+        {
+            case MovementState.sliding:
+                {
+                    animator.SetBool("IsSliding", sliding);
+                    break;
+                }
+            case MovementState.walking:
+                {
+                    animator.SetFloat("speed", currentSpeed);
+                    break;
+                }
+            case MovementState.sprinting:
+                {
+                    animator.SetFloat("speed", currentSpeed);
+                    break;
+                }
+            case MovementState.wallrunning:
+                {
+                    animator.SetBool("IsWall-Running", wallrunning);
+                    break;
+                }
+        }
     }
+    
+
 
     private void MyInput()
     {
@@ -142,6 +168,8 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             Invoke(nameof(ResetJump), jumpCooldown);
 
             playerController.Action(5);
+
+            StartCoroutine(WaitForLandThenResetJump());
         }
     }
 
@@ -181,9 +209,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.MoveYCamera(0f);
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
-            Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-            float currentSpeed = flatVelocity.magnitude;
-            animator.SetFloat("speed", currentSpeed);
         }
 
         // Mode - Walking
@@ -193,10 +218,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.MoveYCamera(0f);
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
-
-            Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-            float currentSpeed = flatVelocity.magnitude;
-            animator.SetFloat("speed", currentSpeed);
         }
 
         // Mode - Air
@@ -204,7 +225,6 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         {
             cam.DoFov(85f);
             state = MovementState.air;
-            animator.SetBool("IsGrounded", grounded);
         }
 
         // check if desired move speed has changed drastically
@@ -321,13 +341,31 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        //animator.SetBool("IsGrounded", exitingSlope);
     }
+    private IEnumerator WaitForLandThenResetJump()
+    {
+        // Aguarda até o personagem estar no chão
+        yield return new WaitUntil(() => IsGrounded());
+
+        // Espera 0.1s extra para garantir que realmente pousou
+        yield return new WaitForSeconds(0.1f);
+
+        ResetJump();
+    }
+
     private void ResetJump()
     {
         readyToJump = true;
 
         exitingSlope = false;
     }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+    }
+
 
     public bool OnSlope()
     {
