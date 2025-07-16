@@ -19,6 +19,7 @@ public class Revolver : DamageInteraction
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
+    [SerializeField] UnityEvent OnReload;
     [HideInInspector]public int bulletCount;
 
     private void Awake()
@@ -105,6 +106,7 @@ public class Revolver : DamageInteraction
     {
         canShoot = false;
         canReload = false;
+        OnReload.Invoke();
         bulletCount = 0;
         for (int i = 0; i < bulletImage.Count; i++)
         {

@@ -6,8 +6,8 @@ public class RocketLauncher : MonoBehaviourPunCallbacks
 {
     [SerializeField] UnityEvent OnStep;
     [SerializeField] ParticleSystem explosionParticle;
-    public float radius = 15.0F;
-    public float power = 80.0F;
+    [SerializeField] float radius = 15.0F;
+    [SerializeField] float power = 80.0F;
     private void OnCollisionEnter(Collision collision)
     {
         print("hit");

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -18,8 +19,11 @@ public class RevolverUlt : MonoBehaviour, IPowerable
 
     [SerializeField] Image barrelImage;
     [SerializeField] Vector3 barrelRotation;
-    [SerializeField]bool canRotate;
+    [SerializeField] bool canRotate;
     [SerializeField] Image ultFeedback;
+    [SerializeField] UnityEvent OnUltStart;
+    [SerializeField] UnityEvent OnUltLoaded;
+    [SerializeField] UnityEvent OnUltCancel;
     public Charging charging;
     private void Start()
     {
@@ -56,6 +60,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                     print("ChargedShoot");
                     StartCoroutine(ChargeShooting());
                     charging = Charging.IsCharging;
+                    OnUltLoaded.Invoke();
                 }
                 break;
             case Charging.IsCharging:
@@ -63,6 +68,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                 {
                     print("StartedCharging");
                     canRotate = true;
+                    OnUltStart.Invoke();
                     PowerImage(ultFeedback, !canRotate);
                     StartCoroutine(IsCharging());
                 }
@@ -70,6 +76,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                 {
                     print("CanceledCharging");
                     canRotate = false;
+                    OnUltCancel.Invoke();
                     PowerImage(ultFeedback, !canRotate);
                     revolverMoves.SetTransform(barrelImage.rectTransform, new Vector3(0, 0, 0), .25f);
                     charging = Charging.IsCharging;

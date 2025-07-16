@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class BulletHoleEffect : MonoBehaviour
 {
     [SerializeField] UnityEvent OnFinishTimer;
+    [SerializeField] UnityEvent OnBulletHit;
     public void Start()
     {
         StartCoroutine(BulletHoleTimer());
@@ -16,6 +17,7 @@ public class BulletHoleEffect : MonoBehaviour
     }
     IEnumerator BulletHoleTimer()
     {
+        OnBulletHit.Invoke();
         yield return new WaitForSeconds(4);
         OnFinishTimer.Invoke();
     }

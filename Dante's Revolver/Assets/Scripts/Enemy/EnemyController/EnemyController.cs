@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     [SerializeField] Stats enemyStats;
     [SerializeField] float range;
     [SerializeField] UnityEvent OnAttack;
+    [SerializeField] UnityEvent OnDamageTake;
     [SerializeField] float cooldown = 2f;
 
     ServerSpawn serverSpawn;
@@ -94,6 +95,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     public void TakeDamage(int damage)
     {
         lifeValue -= damage;
+        OnDamageTake.Invoke();
         if (lifeValue <= 0)
         {
             Destroy(gameObject);
