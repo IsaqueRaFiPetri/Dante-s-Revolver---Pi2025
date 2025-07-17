@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1171345681619354640}
   - component: {fileID: 7967208358253531128}
   - component: {fileID: -4410703130026759923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dogHeadFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,9 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 5e722fb39be6a0b4fa6a287837551da6, type: 2}
   range: 0
   OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamageTake:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 2
@@ -211,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301549413276744494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

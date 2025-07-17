@@ -19,6 +19,7 @@ public class Revolver : DamageInteraction
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
+    [SerializeField] UnityEvent OnDryfire;
     [SerializeField] UnityEvent OnReload;
     [HideInInspector]public int bulletCount;
 
@@ -56,6 +57,7 @@ public class Revolver : DamageInteraction
         if (bulletCount >= 6)
         {
             canShoot = false;
+            OnDryfire.Invoke();
             StopCoroutine(Shooting());
         }
         OnShoot.Invoke();
