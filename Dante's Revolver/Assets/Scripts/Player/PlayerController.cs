@@ -5,7 +5,11 @@ using TMPro;
 using UnityEngine.Events;
 using System.Collections;
 
-public class PlayerController : MonoBehaviourPunCallbacks, IKillable
+public interface IRegenerable
+{
+    public void RegenLife(float regenValue);
+}
+public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerable
 {
     public PhotonView playerPhotonView;
     [SerializeField] Stats playerStats;
@@ -47,6 +51,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
     }
     public void Action(float staminaDamage)
     {
+        /*
+         * 
         StopCoroutine(StaminaRegen());
         SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
         if (currentStamina <= 0)
@@ -59,6 +65,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
         }
         currentStamina -= staminaDamage;
         StartCoroutine(StaminaRegen());
+        */
     }
     public void RegenStamina(float increaseStamina)
     {
@@ -94,17 +101,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable
             Cursor.visible = true;
         }
     }
-    void SetStatsBar(Image statsBarImage,TMP_Text statsBarText, float maxStats, float currentStats)
+    public void RegenLife(float regenValue)
+    {
+        currentLife += regenValue;
+        if(currentLife >= maxLife)
+        {
+            currentLife = maxLife;
+        }
+        SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
+    }
+    public void SetStatsBar(Image statsBarImage,TMP_Text statsBarText, float maxStats, float currentStats)
     {
         statsBarText.text = currentStats + "/" + maxStats;
         statsBarImage.fillAmount = currentStats / maxStats;
-    }
-
-    IEnumerator StaminaRegen()
-    {
-        yield return new WaitForSeconds(10);
-        currentStamina = maxStamina;
-        SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
-
     }
 }
