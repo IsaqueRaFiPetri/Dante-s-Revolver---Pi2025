@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasToBeMine: 0
+  skinRender: {fileID: 0}
 --- !u!1 &385765722038920899
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasToBeMine: 0
+  skinRender: {fileID: 0}
 --- !u!1 &561615882581018904
 GameObject:
   m_ObjectHideFlags: 0
@@ -9320,6 +9322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2775328518312601444, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       propertyPath: m_Name
       value: BasePlayer
@@ -9383,6 +9389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasToBeMine: 1
+  skinRender: {fileID: 5302051956318644574}
 --- !u!114 &2631883265156778013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9413,3 +9420,8 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!137 &5302051956318644574 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2775328518312601444, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
+  m_PrefabInstance: {fileID: 1218401008741183938}
+  m_PrefabAsset: {fileID: 0}
