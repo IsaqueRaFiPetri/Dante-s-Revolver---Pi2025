@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 660560855}
   - component: {fileID: 660560857}
   - component: {fileID: 660560856}
+  - component: {fileID: 660560858}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -1047,8 +1048,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 118.35608}
-  m_SizeDelta: {x: 0, y: 236.711}
+  m_AnchoredPosition: {x: 0, y: 178.893}
+  m_SizeDelta: {x: 0, y: 357.784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660560856
 MonoBehaviour:
@@ -1088,6 +1089,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660560854}
   m_CullTransparentMesh: 1
+--- !u!114 &660560858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660560854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd91f424d6255324a91277440455c0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStruct: []
+  nameTMP_Text: {fileID: 0}
+  messageTMP_Text: {fileID: 253889568}
+  messageDelay: 0
+  OnEndDialogue:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &661873389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +1989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 165.2}
+  m_AnchoredPosition: {x: 0, y: 221}
   m_SizeDelta: {x: 100, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362657263
