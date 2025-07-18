@@ -13,6 +13,8 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     float xRotation;
     float yRotation;
 
+    [SerializeField] Animator playerAnim;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,7 +30,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     {
         // get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
 
         yRotation += mouseX;
 
@@ -38,6 +40,8 @@ public class PlayerCam : MonoBehaviourPunCallbacks
         // rotate cam and orientation
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        playerAnim.SetFloat("CameraPos", xRotation);
     }
 
     public void DoFov(float endValue)

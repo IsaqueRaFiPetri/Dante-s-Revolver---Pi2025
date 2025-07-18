@@ -425,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 385765722038920899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.266, y: -0.258, z: 0.55}
+  m_LocalPosition: {x: 0.089, y: -0.077, z: 0.458}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2549,8 +2549,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2607364305855011607}
   - {fileID: 8269125650162595418}
-  - {fileID: 5828514181869916060}
   - {fileID: 2631883265156778013}
+  - {fileID: 5828514181869916060}
   - {fileID: 463639214029750090}
   - {fileID: 6409847840739127538}
   sceneViewId: 0
@@ -2855,8 +2855,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2739440888176408922}
-  - {fileID: 1684935866923062825}
   - {fileID: 6265749515593335977}
   - {fileID: 670874387449332687}
   m_Father: {fileID: 4459864851508666808}
@@ -2936,6 +2934,7 @@ MonoBehaviour:
   sensY: 400
   orientation: {fileID: 5724968560126500847}
   camHolder: {fileID: 4459864851508666808}
+  playerAnim: {fileID: 6547546292215367078}
 --- !u!114 &4181005684149780619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,6 +3059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1684935866923062825}
   - {fileID: 4459864851508666808}
   m_Father: {fileID: 4459864850019384738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8797,13 +8797,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7642651029446852408}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.52880573, y: -0.59371394, z: -0.36305532, w: 0.48585907}
+  m_LocalPosition: {x: 0.0019320584, y: -0.0016934616, z: -0.00013907003}
+  m_LocalScale: {x: 0.010000012, y: 0.01, z: 0.009999997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1013682984636038265}
-  m_Father: {fileID: 4459864851310106429}
+  m_Father: {fileID: 8914430960641941579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6134057513741263724
 Camera:
@@ -9282,19 +9282,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4459864851310106429}
+    m_TransformParent: {fileID: 5724968560126500847}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.72
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.439
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9334,7 +9334,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -1486527654978891383, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2739440888176408922}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
       insertIndex: -1
@@ -9420,11 +9423,21 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: IsWall-Running
+  - Type: 1
+    SynchronizeType: 0
+    Name: CameraPos
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
 --- !u!137 &5302051956318644574 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -2775328518312601444, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
+  m_PrefabInstance: {fileID: 1218401008741183938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8914430960641941579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1486527654978891383, guid: 6dbf92d2a2ea13f4daa9c49e890ba8ff, type: 3}
   m_PrefabInstance: {fileID: 1218401008741183938}
   m_PrefabAsset: {fileID: 0}
