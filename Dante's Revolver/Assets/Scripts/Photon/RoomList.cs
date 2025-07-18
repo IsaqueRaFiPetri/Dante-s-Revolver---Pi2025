@@ -7,8 +7,6 @@ public class RoomList : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject roomPrefab;
     public List<GameObject> allRooms;
-    [SerializeField] CreateAndJoin createAndJoin;
-
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         for(int i = 0; i<allRooms.Count; i++)
@@ -31,9 +29,6 @@ public class RoomList : MonoBehaviourPunCallbacks
                 Room.GetComponent<Room>().r_name.text = roomList[i].Name;
 
                 allRooms[i] = Room;
-
-                if (createAndJoin.roomOpt.MaxPlayers == 2)
-                    createAndJoin.roomOpt.IsVisible = false;
             }
         }
     }

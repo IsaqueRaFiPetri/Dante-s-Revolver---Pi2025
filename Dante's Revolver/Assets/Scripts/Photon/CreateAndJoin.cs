@@ -9,19 +9,15 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField input;
     [SerializeField] string roomBaseName, sceneToLoad;
-    [HideInInspector] public RoomOptions roomOpt;
 
     private void Awake()
     {
         input.text = roomBaseName;
-        roomOpt.MaxPlayers = 2;
-        roomOpt.IsVisible = true;
-        roomOpt.IsOpen = true;
     }
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input.text , roomOpt , TypedLobby.Default);
+        PhotonNetwork.CreateRoom(input.text , new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true} , TypedLobby.Default);
     }
     public void JoinRoom()
     {
