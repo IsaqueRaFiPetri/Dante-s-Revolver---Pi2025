@@ -1,42 +1,82 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+using Photon.Pun;
 public enum BossPhase
 {
-    Start, Medium, Final, Sleeping
+    OnMoveset, OnSleeping
 }
-public class BossController : MonoBehaviour
+public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
-    [System.Serializable] struct BossMovesets
-    {
-        public List<GameObject> moveSets;
-        public UnityEvent OnMoveset;
-    }
-    [SerializeField] List<BossMovesets> bossMovesets;
+    [SerializeField] List<Moveset> movesets;
     [Space(5)]
     [SerializeField] BossPhase bossPhase;
     [Space(5)]
-    [SerializeField] GameObject lastMoveset;
-    [Space(2.5f)]
-    [Header("==============")]
-    [Space(2.5f)]
-    [SerializeField] float movesetCooldown;
-    [SerializeField] float movesetChangeCooldown;
+    [SerializeField] Moveset lastMoveset;
+    [Space(20)]
+    [SerializeField] Image bossLifeBar;
+    [SerializeField] float lifeValue;
+    [SerializeField] float maxLifeValue;
+    public void DoAction()
+    {
+        switch (bossPhase)
+        {
+            case BossPhase.OnMoveset:
+                DoMoveset();
+                break;
+            case BossPhase.OnSleeping:
+                StartCoroutine(Sleeping());
+                break;
+        }
+    }
+    void DoMoveset()
+    {
+        lastMoveset = movesets[Random.Range(0, movesets.Count)];
+        StartCoroutine(DoingMoveset(lastMoveset.MovesetDuration()));
+    }
+    IEnumerator DoingMoveset(float duration)
+    {
+        lastMoveset.GetOnStart().Invoke();
+        yield return new WaitForSeconds(duration);
+        lastMoveset.GetOnFinish().Invoke();
+        ChangeBossPhase();
+        lastMoveset = null;
+    }
+    IEnumerator Sleeping()
+    {
+        yield return new WaitForSeconds(5);
+        ChangeBossPhase();
+        DoAction();
+    }
+    void ChangeBossPhase()
+    {
+        switch (bossPhase)
+        {
+            case BossPhase.OnMoveset:
+                bossPhase = BossPhase.OnSleeping;
+                break;
+            case BossPhase.OnSleeping:
+                bossPhase = BossPhase.OnMoveset;
+                break;
+        }
+    }
 
-    private void Start()
+    [PunRPC]
+    public void TakeDamage(int damage)
     {
-        StartCoroutine(MovesetSelector());
+        lifeValue -= damage;
+        bossLifeBar.fillAmount = UpdateLifeBar();
+        //OnDamageTake.Invoke();
+        if (lifeValue <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-    public void DoMoveset()
+
+    float UpdateLifeBar()
     {
-        lastMoveset = bossMovesets[(int)bossPhase].moveSets[Random.Range(0, bossMovesets[(int)bossPhase].moveSets.Count)];
-    }
-    IEnumerator MovesetSelector()
-    {
-        yield return new WaitForSeconds(movesetChangeCooldown);
-        DoMoveset();
-        StartCoroutine(MovesetSelector());
+        return bossLifeBar.fillAmount = lifeValue / maxLifeValue;
     }
 }
  
