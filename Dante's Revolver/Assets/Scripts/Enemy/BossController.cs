@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.Events;
 public enum BossPhase
 {
     OnMoveset, OnSleeping
 }
 public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
-    [SerializeField] List<Moveset> movesets;
+    [SerializeField] protected List<Moveset> movesets;
     [Space(5)]
-    [SerializeField] BossPhase bossPhase;
+    [SerializeField] protected BossPhase bossPhase;
     [Space(5)]
-    [SerializeField] Moveset lastMoveset;
+    [SerializeField] protected Moveset lastMoveset;
     [Space(20)]
-    [SerializeField] Image bossLifeBar;
-    [SerializeField] float lifeValue;
-    [SerializeField] float maxLifeValue;
+    [SerializeField] protected Image bossLifeBar;
+    [SerializeField] protected float lifeValue;
+    [SerializeField] protected float maxLifeValue;
+    [Space(20)]
+    [SerializeField] protected UnityEvent OnChangePhase;
+
+    private void Start()
+    {
+        DoAction();
+    }
     public void DoAction()
     {
         switch (bossPhase)
@@ -33,6 +41,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     void DoMoveset()
     {
         lastMoveset = movesets[Random.Range(0, movesets.Count)];
+        print("StartedMoveset: " + lastMoveset);
         StartCoroutine(DoingMoveset(lastMoveset.MovesetDuration()));
     }
     IEnumerator DoingMoveset(float duration)
@@ -40,17 +49,23 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         lastMoveset.GetOnStart().Invoke();
         yield return new WaitForSeconds(duration);
         lastMoveset.GetOnFinish().Invoke();
-        ChangeBossPhase();
+        print("EndedMoveset: " + lastMoveset);
         lastMoveset = null;
+        print("MovesetClear");
+        ChangeBossPhase();
+        DoAction();
     }
     IEnumerator Sleeping()
     {
+        print("StartedSleeping");
         yield return new WaitForSeconds(5);
+        print("EndedSleeping");
         ChangeBossPhase();
         DoAction();
     }
     void ChangeBossPhase()
     {
+        print("ChangingBossPhase");
         switch (bossPhase)
         {
             case BossPhase.OnMoveset:
@@ -60,6 +75,8 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
                 bossPhase = BossPhase.OnMoveset;
                 break;
         }
+        print("BossPhase: " + bossPhase);
+        OnChangePhase.Invoke();
     }
 
     [PunRPC]
@@ -67,7 +84,6 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     {
         lifeValue -= damage;
         bossLifeBar.fillAmount = UpdateLifeBar();
-        //OnDamageTake.Invoke();
         if (lifeValue <= 0)
         {
             Destroy(gameObject);
