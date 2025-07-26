@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TMP_Text messageTMP_Text;
     [SerializeField] float messageDelay;
     [SerializeField] UnityEvent OnEndDialogue;
-    int dialogueStructIndex = -1;
+    int dialogueStructIndex = 0;
 
     private void Start()
     {
