@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     float lifeValue;
     Transform player;
 
+    [SerializeField] Animator anim;
+
     private void Start()
     {
         lifeValue = enemyStats.lifeValue;
@@ -43,6 +45,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         {
             FindClosestPlayer();
             return;
+            anim.SetBool("IsChasing", false);
         }
 
         moveDirection = Vector3.zero;
@@ -57,6 +60,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
             body.AddForce(direction * moveSpeed, ForceMode.VelocityChange);
+            anim.SetBool("IsChasing", true);
         }
 
         if (body.linearVelocity.magnitude > moveSpeed * 2)
@@ -66,6 +70,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         else
         {
             body.linearVelocity = Vector3.zero;
+            anim.SetBool("IsChasing", false);
         }
 
         if (Physics.SphereCast(vision.position, 10.5f, vision.forward, out hit, range))
