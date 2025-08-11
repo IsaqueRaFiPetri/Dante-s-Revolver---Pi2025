@@ -21,8 +21,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     [SerializeField] Transform vision;
     [SerializeField] Stats enemyStats;
     [SerializeField] float range;
-    [SerializeField] UnityEvent OnAttack;
-    [SerializeField] UnityEvent OnDamageTake;
+    [SerializeField] UnityEvent OnAttack, OnDamageTake;
     [SerializeField] float cooldown = 2f;
 
     ServerSpawn serverSpawn;

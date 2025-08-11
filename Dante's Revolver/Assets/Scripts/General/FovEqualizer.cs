@@ -3,6 +3,7 @@ using UnityEngine;
 public class FovEqualizer : MonoBehaviour
 {
     Camera cam;
+    [SerializeField] Camera fovCamera;
 
     private void Start()
     {
@@ -10,6 +11,6 @@ public class FovEqualizer : MonoBehaviour
     }
     private void Update()
     {
-        cam.fieldOfView = Camera.main.fieldOfView;
+        cam.fieldOfView = fovCamera.fieldOfView;
     }
 }

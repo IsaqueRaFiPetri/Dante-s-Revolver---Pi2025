@@ -6591,6 +6591,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1720799875}
     m_Modifications:
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1926184941}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785792545677086097, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2040057050751780873, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -12725,23 +12757,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9306b607bee2a714bad11eaa61c1e9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossMovesets:
-  - moveSets: []
-    OnMoveset:
-      m_PersistentCalls:
-        m_Calls: []
-  - moveSets: []
-    OnMoveset:
-      m_PersistentCalls:
-        m_Calls: []
-  - moveSets: []
-    OnMoveset:
-      m_PersistentCalls:
-        m_Calls: []
+  movesets: []
   bossPhase: 0
   lastMoveset: {fileID: 0}
-  movesetCooldown: 0
-  movesetChangeCooldown: 2
+  bossLifeBar: {fileID: 0}
+  lifeValue: 0
+  maxLifeValue: 0
+  OnChangePhase:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1784363185
 GameObject:
   m_ObjectHideFlags: 0
@@ -14152,6 +14176,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1720799875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1926184941 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3783514361073407474, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+  m_PrefabInstance: {fileID: 856868373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1951208260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17269,6 +17298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 2
+  anim: {fileID: 0}
   playerTransform: {fileID: 0}
   vision: {fileID: 0}
   projectil: {fileID: 0}
