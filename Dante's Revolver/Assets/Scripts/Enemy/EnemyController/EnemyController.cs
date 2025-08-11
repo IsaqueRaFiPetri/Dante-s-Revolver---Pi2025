@@ -43,8 +43,8 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         if (player == null || Vector3.Distance(player.position, transform.position) > range)
         {
             FindClosestPlayer();
-            return;
             anim.SetBool("IsChasing", false);
+            return;
         }
 
         moveDirection = Vector3.zero;
