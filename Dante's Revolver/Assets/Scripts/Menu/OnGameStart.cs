@@ -4,6 +4,6 @@ public class OnGameStart : MonoBehaviour
 {
     private void Awake()
     {
-        Application.targetFrameRate = 240;
+        Application.targetFrameRate = 90;
     }
 }
