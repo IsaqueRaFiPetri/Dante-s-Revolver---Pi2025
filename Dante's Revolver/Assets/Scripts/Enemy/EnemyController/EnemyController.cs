@@ -43,11 +43,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         if (player == null || Vector3.Distance(player.position, transform.position) > range)
         {
             FindClosestPlayer();
-            anim.SetBool("IsChasing", false);
             return;
         }
 
-        moveDirection = Vector3.zero;
+        anim.SetBool("IsChasing", true);        
+
         float distance = Vector3.Distance(player.position, transform.position);
         Vector3 dir = player.position - transform.position;
         dir.y = 0;
@@ -57,16 +57,11 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 0;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
             body.AddForce(direction * moveSpeed, ForceMode.VelocityChange);
-            anim.SetBool("IsChasing", true);
         }
 
-        if (body.linearVelocity.magnitude > moveSpeed * 2)
-        {
-            body.linearVelocity = body.linearVelocity.normalized * moveSpeed * 2;
-        }
-        else
+        else if(distance > range)
         {
             body.linearVelocity = Vector3.zero;
             anim.SetBool("IsChasing", false);
@@ -140,5 +135,4 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 2f);
     }
-
 }
