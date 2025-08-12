@@ -18,12 +18,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     [SerializeField] float currentLife;
     [SerializeField] float maxLife;
     [Space(5)]
-    [Header("Stamina_Stats")]
-    [SerializeField] float currentStamina;
-    [SerializeField] float maxStamina;
-    [SerializeField] float staminaRegenCooldown;
-    bool canMakeMove = true;
-    [Space(5)]
     [Header("Layout")]
     [SerializeField] Image lifeBarSprite;
     TMP_Text lifeBarText;
@@ -43,48 +37,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         maxLife = playerStats.lifeValue;
         lifeBarText = lifeBarSprite.GetComponentInChildren<TMP_Text>();
         currentLife = maxLife;
-
-        maxStamina = playerStats.staminaValue;
-
-        staminaBarText = staminaBarSprite.GetComponentInChildren<TMP_Text>();
-        currentStamina = maxStamina;
     }
-    public void Action(float staminaDamage)
-    {
-        /*
-         * 
-        StopCoroutine(StaminaRegen());
-        SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
-        if (currentStamina <= 0)
-        {
-            currentStamina = 0;
-            StartCoroutine(StaminaRegen());
-            SetStatsBar(staminaBarSprite, staminaBarText, maxStamina, currentStamina);
-            SetCanMove(false);
-            return;
-        }
-        currentStamina -= staminaDamage;
-        StartCoroutine(StaminaRegen());
-        */
-    }
-    public void RegenStamina(float increaseStamina)
-    {
-        SetCanMove(true);
-        if(currentStamina >= maxStamina)
-        {
-            currentStamina = maxStamina;
-        }
-        currentStamina += increaseStamina;
-    }
-    public bool GetCanMove()
-    {
-        return canMakeMove;
-    }
-    bool SetCanMove(bool canMove)
-    {
-        return canMakeMove = canMove;
-    }
-
     [PunRPC]
     public void TakeDamage(int damage)
     {
@@ -114,5 +67,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     {
         statsBarText.text = currentStats + "/" + maxStats;
         statsBarImage.fillAmount = currentStats / maxStats;
+    }
+
+    public void OnHit()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
     }
 }

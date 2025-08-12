@@ -159,15 +159,13 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && playerController.GetCanMove())
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
-
-            playerController.Action(5);
 
             StartCoroutine(WaitForLandThenResetJump());
         }
@@ -203,7 +201,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         }
 
         // Mode - Sprinting
-        else if (grounded && Input.GetKey(sprintKey) && playerController.GetCanMove())
+        else if (grounded && Input.GetKey(sprintKey))
         {
             cam.DoFov(90f);
             cam.MoveYCamera(0f);

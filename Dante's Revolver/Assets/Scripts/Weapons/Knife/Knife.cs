@@ -43,7 +43,7 @@ public class Knife : DamageInteraction, IPowerable
         {
             if (hit.collider.TryGetComponent(out EnemyController target))
             {
-                DoDamage(target?.gameObject);
+                //DoDamage(target?.gameObject);
                 ShootParticle(bloodParticle.gameObject ,hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }

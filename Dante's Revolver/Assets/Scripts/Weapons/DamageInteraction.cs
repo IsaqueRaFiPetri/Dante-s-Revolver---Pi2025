@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 public interface IDamaging
 {
-    public void DoDamage(GameObject target);
+    public void DoDamage(IKillable target);
 }
 public class DamageInteraction : MonoBehaviourPunCallbacks, IDamaging
 {
@@ -11,10 +11,10 @@ public class DamageInteraction : MonoBehaviourPunCallbacks, IDamaging
     [SerializeField] protected ParticleSystem damageParticle;
     [SerializeField] protected ParticleSystem bloodParticle;
 
-    public void DoDamage(GameObject target)
+    public void DoDamage(IKillable target)
     {
-        print(target.name);
-        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered , weaponsStats.weaponDamage);
+        print(target.GetGameObject().name);
+        target.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered , weaponsStats.weaponDamage);
     }
     public void ShootParticle(GameObject shootParticle, RaycastHit raycast)
     {

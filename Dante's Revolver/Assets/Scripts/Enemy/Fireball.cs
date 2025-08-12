@@ -7,9 +7,9 @@ public class Fireball : MonoBehaviourPunCallbacks, IDamaging
     [SerializeField] GameObject explosionParticle;
     [SerializeField] int damage;
 
-    public void DoDamage(GameObject target)
+    public void DoDamage(IKillable target)
     {
-        target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, weaponsStats.weaponDamage);
+        target.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, weaponsStats.weaponDamage);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,7 +18,7 @@ public class Fireball : MonoBehaviourPunCallbacks, IDamaging
         PhotonNetwork.Instantiate(explosionParticle.name, transform.position, Quaternion.identity);
         if (collision.collider.TryGetComponent(out PlayerController target))
         {
-            DoDamage(target.gameObject);
+            DoDamage(target);
         }
         Destroy(gameObject);
     }
