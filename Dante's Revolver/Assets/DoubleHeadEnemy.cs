@@ -1,26 +1,18 @@
-using NUnit.Framework;
 using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
+    [SerializeField] List<int> alreadyShoot;
+    int id = 0;
     public GameObject GetGameObject()
     {
-        throw new System.NotImplementedException();
+        return this.gameObject;
     }
-
-    public int GetViewID(int _id)
-    {
-        return _id;
-    }
-
-    public void OnHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void TakeDamage(int damage)
     {
-        throw new System.NotImplementedException();
+        id = damage;
+        alreadyShoot.Add(id);
     }
 }

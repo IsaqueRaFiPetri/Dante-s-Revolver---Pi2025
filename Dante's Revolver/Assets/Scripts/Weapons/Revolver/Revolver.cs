@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using Photon.Pun;
+using static UnityEngine.GraphicsBuffer;
 
 public class Revolver : DamageInteraction
 {
@@ -75,19 +76,24 @@ public class Revolver : DamageInteraction
         {
             if(hit.collider.TryGetComponent(out IKillable _target))
             {
+                if (hit.collider.TryGetComponent(out WeakPoint headshot))
+                {
+                    ShootParticle(headshot.HeadshotParticle(), hit);
+                }
+                else
+                {
+                    ShootParticle(damageParticle.gameObject, hit);
+                }
                 DoDamage(_target);
                 ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(damageParticle.gameObject, hit);
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
                 ShootParticle(shootParticle, hit);
             }
-            if (hit.collider.TryGetComponent(out WeakPoint headshot))
+            if (hit.collider.TryGetComponent(out DoubleHeadEnemy doubleHead))
             {
-                ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(headshot.HeadshotParticle(), hit);
-                //headshot.Hitkill();
+                doubleHead.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, photonView.ViewID);
             }
         }
     }

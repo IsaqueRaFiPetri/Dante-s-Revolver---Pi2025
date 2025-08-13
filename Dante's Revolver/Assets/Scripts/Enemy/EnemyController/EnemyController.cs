@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public interface IKillable
 {
-    void OnHit();
     void TakeDamage(int damage);
 
     GameObject GetGameObject();
@@ -138,12 +137,6 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 2f);
     }
-
-    public void OnHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public GameObject GetGameObject()
     {
         return this.gameObject;

@@ -17,11 +17,6 @@ public class WeakPoint : MonoBehaviourPunCallbacks, IKillable, ILifeable
         return gameObject.GetComponentInParent<EnemyController>();
     }
 
-    public void OnHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void TakeDamage(int damage)
     {
         GetEnemyController().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, damage * 20000);
@@ -31,4 +26,5 @@ public class WeakPoint : MonoBehaviourPunCallbacks, IKillable, ILifeable
     {
         return this.gameObject;
     }
+
 }

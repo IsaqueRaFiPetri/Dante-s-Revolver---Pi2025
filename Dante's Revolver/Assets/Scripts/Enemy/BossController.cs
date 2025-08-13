@@ -95,11 +95,6 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         return bossLifeBar.fillAmount = lifeValue / maxLifeValue;
     }
 
-    public void OnHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public GameObject GetGameObject()
     {
         throw new System.NotImplementedException();
