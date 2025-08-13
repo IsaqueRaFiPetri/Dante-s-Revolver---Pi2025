@@ -69,11 +69,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         statsBarImage.fillAmount = currentStats / maxStats;
     }
 
-    public void OnHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public GameObject GetGameObject()
     {
         return this.gameObject;
