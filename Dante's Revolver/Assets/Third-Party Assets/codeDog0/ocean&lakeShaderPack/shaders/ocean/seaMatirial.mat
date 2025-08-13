@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -94,7 +94,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -103,24 +103,24 @@ Material:
     - _ZWrite: 1
     - _depth_fade: 2.74
     - _foam_depth: 10.45
-    - _foam_distance: 0.7
+    - _foam_distance: 0.67
     - _foam_power: 1
-    - _foam_scale: 8.79
-    - _foam_speed: 0.01
+    - _foam_scale: 40
+    - _foam_speed: 10
     - _foam_strength: 0
     - _fresnel_power: 1.12
-    - _normal_speed: 1
+    - _normal_speed: 0.91
     - _normal_tile: 1
     - _oclussion_strength: 1
     - _offset: 1
-    - _smoothness: 1
+    - _smoothness: -8.2
     - _waveBumps_speed: 1
     - _waveBumps_spees: 0.7
-    - _waveColor_speed: 4
-    - _wave_scale: 16
-    - _wave_speed: 2
+    - _waveColor_speed: 5
+    - _wave_scale: 20
+    - _wave_speed: 3
     - _wave_strength: 5
-    - _wave_tile: 1.7
+    - _wave_tile: 5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -130,8 +130,8 @@ Material:
     - _foam_color2: {r: 0, g: 0, b: 0, a: 0}
     - _normal_strength: {r: -0.4, g: 0, b: 0, a: 0}
     - _shallow_color: {r: 0, g: 0, b: 0, a: 0}
-    - _waterColor1: {r: 0.25698105, g: 0.6707559, b: 0.85660374, a: 0}
-    - _waterColor2: {r: 0, g: 0.4442654, b: 0.6377357, a: 0}
+    - _waterColor1: {r: 0.5849056, g: 0, b: 0.08257477, a: 0}
+    - _waterColor2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7403962904411355469
