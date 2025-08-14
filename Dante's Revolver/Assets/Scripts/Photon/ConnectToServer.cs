@@ -6,6 +6,16 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     [SerializeField] UnityEvent OnLobbyLoaded;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+
+        if (PhotonNetwork.InLobby)
+        {
+            print("IsAlreadyConnected");
+        }
+    }
+
     public void LoadingScreen()
     {
         PhotonNetwork.ConnectUsingSettings();

@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         if (currentLife <= 0)
         {
             OnDeath.Invoke();
-            DisconectManager.instance.Disconnect("Menu");
+            //DisconectManager.instance.Disconnect("Menu");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

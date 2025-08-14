@@ -1,33 +1,59 @@
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class DisconectManager : MonoBehaviour
 {
-    public static DisconectManager instance;
-    private void Awake()
+    [SerializeField] UnityEvent OnPause, OnUnpause;
+    bool isPaused;
+
+    void SetCursor()
     {
-        instance = this;
+        if (isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        Cursor.visible = isPaused;
+    }
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnPause.Invoke();
+            SetPaused(true);
+            SetCursor();
+        }
+        if (context.canceled)
+        {
+            OnUnpause.Invoke();
+            SetPaused(false);
+            SetCursor();
+        }
+    }
+    bool SetPaused(bool _paused)
+    {
+        return isPaused = _paused;
     }
     public void Disconnect(string sceneName)
     {
-        StartCoroutine(DisconectAndLoad(sceneName));
-    }
-    IEnumerator DisconectAndLoad(string sceneName)
-    {
         PhotonNetwork.Disconnect();
-        while (PhotonNetwork.InRoom)
-            yield return null;
         SceneManager.LoadScene(sceneName);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void ReturnLobby(string sceneName)
     {
-        if (collision.collider.GetComponents<PlayerMovementAdvanced>() != null)
-            Disconnect("Menu");
+        PhotonNetwork.JoinLobby();
+        SceneManager.LoadScene(sceneName);
+    }
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+    public void DisconnectAndQuit()
+    {
+        Application.Quit();
     }
 }
