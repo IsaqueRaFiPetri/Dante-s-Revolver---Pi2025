@@ -11,8 +11,7 @@ public class Revolver : DamageInteraction
 {
     [SerializeField]Camera playerCamera;
 
-    bool canShoot = true;
-    bool canReload = true;
+    [SerializeField] bool canShoot = true;
     float shootCooldown;
     float reloadCooldown;
 
@@ -80,11 +79,13 @@ public class Revolver : DamageInteraction
                 ShootParticle(bloodParticle.gameObject, hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }
+            /*
             if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 ShootParticle(headshot.HeadshotParticle(), hit);
                 DoDamage(_target);
             }
+            */
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
                 ShootParticle(shootParticle, hit);
