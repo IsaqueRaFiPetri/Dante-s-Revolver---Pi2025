@@ -12,6 +12,7 @@ public class Revolver : DamageInteraction
     [SerializeField]Camera playerCamera;
 
     [SerializeField] bool canShoot = true;
+    [SerializeField] bool canReload = true;
     float shootCooldown;
     float reloadCooldown;
 
