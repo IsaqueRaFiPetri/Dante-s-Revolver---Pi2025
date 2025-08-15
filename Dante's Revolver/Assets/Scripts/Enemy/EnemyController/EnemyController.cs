@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
             direction.y = 0;
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-            body.AddForce(direction * moveSpeed, ForceMode.VelocityChange);
+            body.AddForce((direction * moveSpeed) / 1.5f, ForceMode.VelocityChange);
         }
 
         else if(distance > range)
