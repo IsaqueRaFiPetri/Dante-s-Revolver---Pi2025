@@ -19,12 +19,12 @@ public class WeakPoint : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     public void TakeDamage(int damage)
     {
-        GetEnemyController().TakeDamage(damage * 20000);
+        GetEnemyController().TakeDamage(damage += 100);
     }
 
     public GameObject GetGameObject()
     {
-        return this.gameObject;
+        return GetEnemyController().gameObject;
     }
 
 }
