@@ -50,14 +50,10 @@ public class DisconectManager : MonoBehaviour
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(sceneName);
     }
-    public void ReturnLobby(string sceneName)
-    {
-        PhotonNetwork.JoinLobby();
-        SceneManager.LoadScene(sceneName);
-    }
 
     public void DisconnectAndQuit()
     {
+        PhotonNetwork.Disconnect();
         Application.Quit();
     }
 }
