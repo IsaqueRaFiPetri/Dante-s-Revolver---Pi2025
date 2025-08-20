@@ -6,9 +6,15 @@ using UnityEngine.Events;
 
 public class DisconectManager : MonoBehaviour
 {
+    public static DisconectManager instance;
     [SerializeField] UnityEvent OnPause, OnUnpause;
     bool isPaused;
 
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void SetCursor()
     {
         if (isPaused)

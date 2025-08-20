@@ -73,10 +73,6 @@ public class Revolver : DamageInteraction
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
-            if(hit.collider.TryGetComponent(out PlayerController _player))
-            {
-                print("hit player: " + _player.name);
-            }
             if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 print("hit headshot");

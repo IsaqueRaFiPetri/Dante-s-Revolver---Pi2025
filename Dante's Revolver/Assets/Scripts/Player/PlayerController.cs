@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         currentLife -= damage;
         SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
 
-        if (currentLife <= 0)
+        if (currentLife <= 0 && photonView.IsMine)
         {
             OnDeath.Invoke();
-            //DisconectManager.instance.Disconnect("Menu");
+            DisconectManager.instance.Disconnect("Menu");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
