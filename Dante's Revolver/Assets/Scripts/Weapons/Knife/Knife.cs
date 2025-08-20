@@ -41,9 +41,9 @@ public class Knife : DamageInteraction, IPowerable
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
-            if (hit.collider.TryGetComponent(out EnemyController target))
+            if (hit.collider.TryGetComponent(out IKillable target))
             {
-                //DoDamage(target?.gameObject);
+                DoDamage(target);
                 ShootParticle(bloodParticle.gameObject ,hit);
                 ShootParticle(damageParticle.gameObject, hit);
             }
