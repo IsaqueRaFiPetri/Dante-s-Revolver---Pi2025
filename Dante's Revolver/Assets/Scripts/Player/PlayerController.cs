@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     {
         if (!photonView.IsMine)
         {
-            Destroy(this);
+            //Destroy(this);
         }
     }
     private void Start()
