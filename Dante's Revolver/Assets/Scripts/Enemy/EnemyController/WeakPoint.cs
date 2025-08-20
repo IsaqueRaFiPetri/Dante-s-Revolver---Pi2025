@@ -19,6 +19,7 @@ public class WeakPoint : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     public void TakeDamage(int damage)
     {
+        print("enemy headshot -==-=-=-=-=-=-=--=-=: " + damage);
         GetEnemyController().TakeDamage(damage += 100);
     }
 

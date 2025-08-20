@@ -73,17 +73,17 @@ public class Revolver : DamageInteraction
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
-            if(hit.collider.TryGetComponent(out IKillable _target))
-            {
-                DoDamage(_target);
-                ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(damageParticle.gameObject, hit);
-            }
             if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 print("hit headshot");
                 ShootParticle(headshot.HeadshotParticle(), hit);
-                DoDamage(headshot);
+                headshot.TakeDamage(20000);
+            }
+            if (hit.collider.TryGetComponent(out IKillable _target))
+            {
+                ShootParticle(bloodParticle.gameObject, hit);
+                ShootParticle(damageParticle.gameObject, hit);
+                DoDamage(_target);
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
@@ -91,7 +91,8 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out DoubleHeadEnemy doubleHead))
             {
-                doubleHead.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, photonView.ViewID);
+                //doubleHead.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, photonView.ViewID);
+                doubleHead.TakeDamage(photonView.ViewID);
             }
         }
     }

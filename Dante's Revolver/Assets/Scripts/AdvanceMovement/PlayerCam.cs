@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Photon.Pun;
+using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviourPunCallbacks
 {
@@ -26,11 +27,10 @@ public class PlayerCam : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Update()
+    public void Camera(InputAction.CallbackContext value)
     {
-        // get mouse input
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = value.ReadValue<Vector2>().x * sensX;
+        float mouseY = value.ReadValue<Vector2>().y * sensY;
 
         yRotation += mouseX;
 

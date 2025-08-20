@@ -2621,7 +2621,19 @@ MonoBehaviour:
     m_ActionId: ce53eee8-15bb-4e63-b790-e64d860047a2
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5019128925842536573}
+        m_TargetAssemblyTypeName: PlayerCam, Assembly-CSharp
+        m_MethodName: Camera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 72c469c0-ae97-40cf-9e39-d510d718ab52
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
@@ -2963,8 +2975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4249d095048c14e914aa6822b49318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 200
-  sensY: 200
+  sensX: 0.08
+  sensY: 0.08
   orientation: {fileID: 5724968560126500847}
   camHolder: {fileID: 4459864851508666808}
   playerAnim: {fileID: 6547546292215367078}
