@@ -1,5 +1,4 @@
 using Photon.Pun;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -58,9 +57,12 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         {
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 0;
+                    
+            body.linearVelocity = direction * moveSpeed;
 
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-            body.AddForce((direction * moveSpeed) / 1.5f, ForceMode.VelocityChange);
+            Quaternion targetRot = Quaternion.LookRotation(direction);
+            body.MoveRotation(Quaternion.Lerp(body.rotation, targetRot, Time.deltaTime * 5f));
+
         }
 
         else if(distance > range)
