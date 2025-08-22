@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.Events;
 
@@ -31,6 +32,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         OnLobbyLoaded.Invoke();
+        SceneManager.LoadScene("Lobby");
     }
 
     public void QuitGame()
