@@ -15,6 +15,10 @@ public class SpawningEnemies : MonoBehaviour
     {
         StartCoroutine(StartSpawning());
     }
+    private void OnEnable()
+    {
+        StartCoroutine(StartSpawning());
+    }
     public void Spawn()
     {
         OnStartSpawn.Invoke();
