@@ -25,8 +25,6 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     [SerializeField] UnityEvent OnAttack, OnDamageTake;
     [SerializeField] float cooldown = 2f;
 
-    ServerSpawn serverSpawn;
-
     float currentCooldown;
     float lifeValue;
     Transform player;
