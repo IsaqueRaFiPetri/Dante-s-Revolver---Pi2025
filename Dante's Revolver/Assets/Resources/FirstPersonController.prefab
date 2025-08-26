@@ -2865,7 +2865,20 @@ MonoBehaviour:
   staminaBarSprite: {fileID: 1723353821257393745}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4459864850019384750}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Grave: {fileID: 5993109687116251939, guid: 30420569c1ff5af418d8d873d1effa5a, type: 3}
 --- !u!1 &4459864851310106424
 GameObject:
   m_ObjectHideFlags: 0
