@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
-public class SetCharacter : MonoBehaviour
+public class SetCharacter : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_Text cardText;
 

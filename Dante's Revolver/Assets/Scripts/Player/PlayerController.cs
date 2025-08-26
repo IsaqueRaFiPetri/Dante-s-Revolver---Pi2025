@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     [SerializeField] Image staminaBarSprite;
     TMP_Text staminaBarText;
     [SerializeField] UnityEvent OnDeath;
+    [SerializeField] GameObject Grave;
 
     private void Awake()
     {
@@ -49,9 +50,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         if (currentLife <= 0 && photonView.IsMine)
         {
             OnDeath.Invoke();
-            DisconectManager.instance.Disconnect("Menu");
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
         }
     }
     public void RegenLife(float regenValue)
