@@ -10,4 +10,5 @@ public class SpectatorManager : MonoBehaviourPunCallbacks
             this.enabled = false;
         }
     }
+
 }
