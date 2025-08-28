@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         if (currentLife <= 0 && photonView.IsMine)
         {
             OnDeath.Invoke();
-            PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity).GetComponentInChildren<PhantomMode>().SetBody(this.gameObject);
-            photonView.enabled = false;
+            PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
     public void RegenLife(float regenValue)
