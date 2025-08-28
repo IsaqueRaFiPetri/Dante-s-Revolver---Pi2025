@@ -120,7 +120,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     }
 
-    void Attack()
+    public virtual void Attack()
     {
         if (player == null) return;
 

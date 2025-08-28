@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
 public class WitchEnemy : EnemyController
 {
-    [SerializeField] GameObject minionsObj;
+    [SerializeField] string enemyToSpawn;
     [SerializeField] Transform[] spawnPoints;
     bool canContinue = true;
 
@@ -35,8 +36,13 @@ public class WitchEnemy : EnemyController
 
             for (int i = 0; i < amountToSpawn; i++)
             {
-                Instantiate(minionsObj, shuffledPoints[i].position, minionsObj.transform.rotation);
+                PhotonNetwork.Instantiate(enemyToSpawn, shuffledPoints[i].position, Quaternion.identity);
             }
         }
+    }
+
+    public override void Attack()
+    {
+        
     }
 }

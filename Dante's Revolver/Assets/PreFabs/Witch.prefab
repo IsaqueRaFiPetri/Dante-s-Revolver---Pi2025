@@ -330,12 +330,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vision: {fileID: 8567610863178524092}
   enemyStats: {fileID: 11400000, guid: c66099ff17365ea478b56a8937c5602d, type: 2}
-  range: 0
+  range: 10
   OnAttack:
     m_PersistentCalls:
       m_Calls: []
+  OnDamageTake:
+    m_PersistentCalls:
+      m_Calls: []
   cooldown: 2
-  minionsObj: {fileID: 3807114093112960381, guid: d1ced09734ba54241a6d44f9d5aff054, type: 3}
+  anim: {fileID: 1063941731718078208}
+  enemyToSpawn: Enemy
   spawnPoints:
   - {fileID: 1737346740342271342}
   - {fileID: 3867469506118830831}
@@ -629,10 +633,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55520d95b8f53f5468dce3dc1d97c597, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1063941731718078208}
   m_SourcePrefab: {fileID: 100100000, guid: 55520d95b8f53f5468dce3dc1d97c597, type: 3}
 --- !u!4 &3715024137278110488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55520d95b8f53f5468dce3dc1d97c597, type: 3}
   m_PrefabInstance: {fileID: 3748353578931838195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4090880798965031330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55520d95b8f53f5468dce3dc1d97c597, type: 3}
+  m_PrefabInstance: {fileID: 3748353578931838195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1063941731718078208
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090880798965031330}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
