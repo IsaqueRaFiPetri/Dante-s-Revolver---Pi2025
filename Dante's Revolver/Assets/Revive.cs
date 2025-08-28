@@ -18,6 +18,7 @@ public class Revive : MonoBehaviour
         if (_players.Count >= 2)
         {
             _playerPhantom.isInReviveArea(transform.position);
+            print("2 people");
         }
     }
     private void OnTriggerExit(Collider other)

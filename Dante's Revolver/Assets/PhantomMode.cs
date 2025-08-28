@@ -13,6 +13,7 @@ public class PhantomMode : MonoBehaviour
     }
     public void isInReviveArea(Vector3 _pos)
     {
+        print("revive");
         SetBodyPos(playerBody.transform, _pos);
         playerBody.SetActive(true);
         Destroy(GetComponentInParent<GameObject>());

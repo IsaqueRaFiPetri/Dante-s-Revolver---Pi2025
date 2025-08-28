@@ -24,9 +24,5 @@ public class SetIsMine : MonoBehaviourPunCallbacks
                     break;
             }
         }
-        if (!photonView.IsMine)
-        {
-            gameObject.SetActive(false);
-        }
     }
 }
