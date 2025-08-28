@@ -9712,6 +9712,7 @@ GameObject:
   - component: {fileID: 6134057513741263724}
   - component: {fileID: 3727916168371059544}
   - component: {fileID: 2395803604589588340}
+  - component: {fileID: 6342276300717753524}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -9843,6 +9844,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fovCamera: {fileID: 4459864851310106426}
+--- !u!114 &6342276300717753524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642651029446852408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfc46ff937d28b489543ef0e7f90cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasToBeMine: 0
+  skinRender: {fileID: 0}
+  setIsMineEnum: 1
 --- !u!1 &7885394690055371498
 GameObject:
   m_ObjectHideFlags: 0
