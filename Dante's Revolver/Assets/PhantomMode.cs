@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class PhantomMode : MonoBehaviour
@@ -16,6 +17,7 @@ public class PhantomMode : MonoBehaviour
         print("revive");
         SetBodyPos(playerBody.transform, _pos);
         playerBody.SetActive(true);
+        playerBody.GetPhotonView().enabled = true;
         Destroy(GetComponentInParent<GameObject>());
     }
 }

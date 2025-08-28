@@ -17,7 +17,7 @@ public class Revive : MonoBehaviour
         }
         if (_players.Count >= 2)
         {
-            _playerPhantom.isInReviveArea(transform.position);
+            _playerPhantom.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
             print("2 people");
         }
     }
