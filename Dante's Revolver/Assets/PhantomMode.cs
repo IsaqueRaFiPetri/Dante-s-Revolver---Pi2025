@@ -8,6 +8,6 @@ public class PhantomMode : MonoBehaviour
     {
         print("revive");
         PhotonNetwork.Instantiate(playerBody.name, _pos, Quaternion.identity);
-        PhotonNetwork.Destroy(GetComponentInParent<GameObject>());
+        PhotonNetwork.Destroy(gameObject);
     }
 }
