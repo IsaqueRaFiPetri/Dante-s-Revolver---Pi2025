@@ -7,7 +7,7 @@ public class PhantomMode : MonoBehaviour
     public void isInReviveArea(Vector3 _pos)
     {
         print("revive");
-        PhotonNetwork.Instantiate(playerBody.name, _pos, Quaternion.identity);
+        PhotonNetwork.Instantiate(playerBody.name, _pos, Quaternion.identity).GetComponentInChildren<Camera>().enabled = true;
         PhotonNetwork.Destroy(gameObject);
     }
 }
