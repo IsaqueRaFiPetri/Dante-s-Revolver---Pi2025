@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class PhantomMode : MonoBehaviour
 {
-    public void isInReviveArea()
+    [SerializeField] GameObject playerBody;
+    public GameObject SetBody(GameObject _playerBody)
     {
-
+        return playerBody = _playerBody;
     }
-    public void OnDeath()
+    Vector3 SetBodyPos(Transform _playerObj , Vector3 _pos)
     {
-
+        return _playerObj.position = _pos;
+    }
+    public void isInReviveArea(Vector3 _pos)
+    {
+        SetBodyPos(playerBody.transform, _pos);
+        playerBody.SetActive(true);
+        Destroy(GetComponentInParent<GameObject>());
     }
 }

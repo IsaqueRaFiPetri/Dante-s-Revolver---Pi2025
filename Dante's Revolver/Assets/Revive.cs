@@ -15,12 +15,16 @@ public class Revive : MonoBehaviour
         {
             _players.Add(_playerObj.photonView);
         }
+        if (_players.Count >= 2)
+        {
+            _playerPhantom.isInReviveArea(transform.position);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out PlayerCam _playerCam))
+        if (other.TryGetComponent(out PhantomMode _playerPhantom))
         {
-            _players.Remove(_playerCam.photonView);
+            _players.Remove(_playerPhantom.gameObject.GetPhotonView());
         }
         if (other.TryGetComponent(out PlayerController _playerObj))
         {
