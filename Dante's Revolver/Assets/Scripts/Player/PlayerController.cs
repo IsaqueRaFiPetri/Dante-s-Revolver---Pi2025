@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         {
             OnDeath.Invoke();
             PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
     public void RegenLife(float regenValue)
