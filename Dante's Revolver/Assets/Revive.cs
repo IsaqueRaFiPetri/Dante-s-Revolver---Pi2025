@@ -1,16 +1,30 @@
+using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Revive : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] List<PhotonView> _players;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent(out PhantomMode _playerPhantom))
+        {
+            _players.Add(_playerPhantom.gameObject.GetPhotonView());
+        }
+        if(other.TryGetComponent(out PlayerController _playerObj))
+        {
+            _players.Add(_playerObj.photonView);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.TryGetComponent(out PlayerCam _playerCam))
+        {
+            _players.Remove(_playerCam.photonView);
+        }
+        if (other.TryGetComponent(out PlayerController _playerObj))
+        {
+            _players.Remove(_playerObj.photonView);
+        }
     }
 }
