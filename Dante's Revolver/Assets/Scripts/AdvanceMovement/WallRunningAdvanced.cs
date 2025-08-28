@@ -45,6 +45,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] Animator anim;
+    string animLayerName = "Torso";
 
     private void Start()
     {
@@ -142,6 +143,14 @@ public class WallRunningAdvanced : MonoBehaviour
         // apply camera effects
         if (wallLeft) cam.DoTilt(-5f);
         if (wallRight) cam.DoTilt(5f);
+
+        int layerIndex = anim.GetLayerIndex(animLayerName);
+
+        if (layerIndex != -1)
+        {
+            float layerWeight = anim.GetLayerWeight(layerIndex);
+            anim.SetLayerWeight(layerIndex, 0f);
+        }
     }
 
     private void WallRunningMovement()
@@ -180,6 +189,14 @@ public class WallRunningAdvanced : MonoBehaviour
         // reset camera effects
         cam.DoFov(80f);
         cam.DoTilt(0f);
+
+        int layerIndex = anim.GetLayerIndex(animLayerName);
+
+        if (layerIndex != -1)
+        {
+            float layerWeight = anim.GetLayerWeight(layerIndex);
+            anim.SetLayerWeight(layerIndex, 1f);
+        }
     }
 
     private void WallJump()

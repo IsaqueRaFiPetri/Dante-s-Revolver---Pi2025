@@ -24,6 +24,7 @@ public class Sliding : MonoBehaviourPunCallbacks
     private float verticalInput;
 
     [SerializeField] Animator anim;
+    string animLayerName = "Torso";
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class Sliding : MonoBehaviourPunCallbacks
 
     public void StartSlide()
     {
+        
         pm.sliding = true;
 
         capsuleCollider.height = 1;
@@ -69,6 +71,14 @@ public class Sliding : MonoBehaviourPunCallbacks
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
         slideTimer = maxSlideTime;
+
+        int layerIndex = anim.GetLayerIndex(animLayerName);
+
+        if (layerIndex != -1) 
+        {
+            float layerWeight = anim.GetLayerWeight(layerIndex);
+            anim.SetLayerWeight(layerIndex, 0f);
+        }
     }
 
     private void SlidingMovement()
@@ -104,5 +114,13 @@ public class Sliding : MonoBehaviourPunCallbacks
         capsuleCollider.height = 2;
         capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + .5f, capsuleCollider.center.z);
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
+
+        int layerIndex = anim.GetLayerIndex(animLayerName);
+
+        if (layerIndex != -1)
+        {
+            float layerWeight = anim.GetLayerWeight(layerIndex);
+            anim.SetLayerWeight(layerIndex, 1f);
+        }
     }
 }
