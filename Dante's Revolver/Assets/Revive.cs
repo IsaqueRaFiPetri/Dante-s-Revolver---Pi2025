@@ -19,6 +19,7 @@ public class Revive : MonoBehaviour
         {
             _playerPhantom.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
             print("2 people");
+            _players.Clear();
         }
     }
     private void OnTriggerExit(Collider other)
