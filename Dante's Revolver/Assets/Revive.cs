@@ -5,6 +5,7 @@ using UnityEngine;
 public class Revive : MonoBehaviour
 {
     [SerializeField] List<PhotonView> _players;
+    int playerQuantity;
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out PhantomMode _playerPhantom))
@@ -15,10 +16,18 @@ public class Revive : MonoBehaviour
         {
             _players.Add(_playerObj.photonView);
         }
-        if (_players.Count >= 2)
+        for (int i = 0; i < _players.Count; i++)
         {
-            _playerPhantom.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
-            print("2 people");
+            if (_players[i].GetComponent<PhotonView>())
+            {
+                playerQuantity++;
+
+                if(playerQuantity >= 2)
+                {
+                    _playerPhantom.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
+                    print("2 people");
+                }
+            }
         }
     }
     private void OnTriggerExit(Collider other)
