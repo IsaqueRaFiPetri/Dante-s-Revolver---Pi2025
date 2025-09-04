@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 5240794440629579944}
   - component: {fileID: 6556031739398844217}
   - component: {fileID: 6331550963365737205}
-  - component: {fileID: 1208238579643240907}
+  - component: {fileID: 2579737396427347710}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -364,15 +364,14 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras:
-  - {fileID: 0}
+  m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -459,7 +458,7 @@ MonoBehaviour:
   hasToBeMine: 0
   skinRender: {fileID: 0}
   setIsMineEnum: 1
---- !u!114 &1208238579643240907
+--- !u!114 &2579737396427347710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
