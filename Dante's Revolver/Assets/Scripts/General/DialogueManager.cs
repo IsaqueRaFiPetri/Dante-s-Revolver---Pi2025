@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Events;
 using System;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public interface Iinterectable
 {
@@ -21,7 +22,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TMP_Text messageTMP_Text;
     [SerializeField] float messageDelay;
     [SerializeField] UnityEvent OnEndDialogue;
-    int dialogueStructIndex = 0;
+    bool canGoNext;
+    int dialogueStructIndex = -1;
 
     private void Start()
     {
@@ -45,13 +47,29 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator ShowText()
     {
-        gameObject.GetComponentInChildren<Button>().interactable = false;
+        canGoNext = false;
         foreach (char letter in dialogueStruct[dialogueStructIndex].messageContent.ToCharArray())
         {
             messageTMP_Text.text += letter;
 
             yield return new WaitForSeconds(messageDelay);
         }
-        gameObject.GetComponentInChildren<Button>().interactable = true;
+        canGoNext = true;
+    }
+    public void NextText(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (canGoNext)
+            {
+                Dialogue();
+            }
+            else
+            {
+                StopAllCoroutines();
+                messageTMP_Text.text = dialogueStruct[dialogueStructIndex].messageContent;
+                canGoNext = true;
+            }
+        }
     }
 }
