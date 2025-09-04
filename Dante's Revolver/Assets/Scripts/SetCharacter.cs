@@ -7,6 +7,11 @@ public class SetCharacter : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        NameSelector();    
+    }
+
+    public void NameSelector()
+    {
         if (PhotonNetwork.IsMasterClient)
         {
             cardText.text = "D - A - N - T - E";
