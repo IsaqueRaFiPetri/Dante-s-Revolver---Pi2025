@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     {
         public string characterName;
         public string messageContent;
+        public float messageDelay;
+        public UnityEvent OnDialogue;
     }
     [SerializeField] DialogueStruct[] dialogueStruct;
     [SerializeField] TMP_Text nameTMP_Text;
@@ -43,6 +45,8 @@ public class DialogueManager : MonoBehaviour
         messageTMP_Text.text = "";
         dialogueStructIndex++;
         nameTMP_Text.text = dialogueStruct[dialogueStructIndex].characterName;
+        messageDelay = dialogueStruct[dialogueStructIndex].messageDelay;
+        dialogueStruct[dialogueStructIndex].OnDialogue.Invoke();
         StartCoroutine(ShowText());
     }
     IEnumerator ShowText()
