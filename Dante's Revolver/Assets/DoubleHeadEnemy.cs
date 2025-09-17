@@ -13,6 +13,27 @@ public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
     public void TakeDamage(int damage)
     {
         id = damage;
-        alreadyShoot.Add(id);
+        if(alreadyShoot.Count > 0)
+        {
+            for (int i = 0; i < alreadyShoot.Count; i++)
+            {
+                if (id != alreadyShoot[i - 1])
+                {
+                    alreadyShoot.Add(id);
+                    if(alreadyShoot.Count >= 2)
+                    {
+                        PhotonNetwork.Destroy(gameObject);
+                    }
+                }
+                else
+                {
+                    id = 0;
+                }
+            }
+        }
+        else
+        {
+            alreadyShoot.Add(id);
+        }
     }
 }
