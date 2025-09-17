@@ -1,11 +1,11 @@
 using Photon.Pun;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
-    [SerializeField] List<int> alreadyShoot;
-    int id = 0;
+    [SerializeField] bool _isHited;
+    [SerializeField] int id = 0;
+    [SerializeField] int lastId;
     public GameObject GetGameObject()
     {
         return this.gameObject;
@@ -13,27 +13,21 @@ public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
     public void TakeDamage(int damage)
     {
         id = damage;
-        if(alreadyShoot.Count > 0)
+        if (!_isHited)
         {
-            for (int i = 0; i < alreadyShoot.Count; i++)
-            {
-                if (id != alreadyShoot[i - 1])
-                {
-                    alreadyShoot.Add(id);
-                    if(alreadyShoot.Count >= 2)
-                    {
-                        PhotonNetwork.Destroy(gameObject);
-                    }
-                }
-                else
-                {
-                    id = 0;
-                }
-            }
+            lastId = id;
+            _isHited = true;
         }
         else
         {
-            alreadyShoot.Add(id);
+            if(id != lastId)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+            else
+            {
+                print("enemy");
+            }
         }
     }
 }
