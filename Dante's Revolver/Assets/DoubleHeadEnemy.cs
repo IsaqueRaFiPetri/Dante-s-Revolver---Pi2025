@@ -22,7 +22,7 @@ public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, ILifeable
             id = _pv;
             if(lastId != id)
             {
-                print("die");
+                PhotonNetwork.Destroy(gameObject);
             }
             else
             {
