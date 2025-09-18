@@ -91,8 +91,7 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out DoubleHeadEnemy doubleHead))
             {
-                //doubleHead.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, photonView.ViewID);
-                doubleHead.TakeDamage(photonView.ViewID);
+                doubleHead.GetGameObject().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, gameObject.GetComponent<PhotonTransformView>().photonView.ViewID);
             }
         }
     }

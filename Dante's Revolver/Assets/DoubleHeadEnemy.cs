@@ -1,32 +1,32 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, IKillable, ILifeable
+public class DoubleHeadEnemy : MonoBehaviourPunCallbacks, ILifeable
 {
-    [SerializeField] bool _isHited;
-    [SerializeField] int id = 0;
+    [SerializeField] int id;
     [SerializeField] int lastId;
     public GameObject GetGameObject()
     {
         return this.gameObject;
     }
-    public void TakeDamage(int damage)
+    [PunRPC]
+    public void TakeDamage(int _pv)
     {
-        id = damage;
-        if (!_isHited)
+        if (id == 0)
         {
+            id = _pv;
             lastId = id;
-            _isHited = true;
         }
         else
         {
-            if(id != lastId)
+            id = _pv;
+            if(lastId != id)
             {
-                PhotonNetwork.Destroy(gameObject);
+                print("die");
             }
             else
             {
-                print("enemy");
+                lastId = _pv;
             }
         }
     }
