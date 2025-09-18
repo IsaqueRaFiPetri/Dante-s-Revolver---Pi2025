@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     Rigidbody body;
     Vector3 moveDirection;
     float moveSpeed;
+    float _distance;
 
     [SerializeField] Transform vision;
     [SerializeField] Stats enemyStats;
@@ -48,6 +49,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         anim.SetBool("IsChasing", true);        
 
         float distance = Vector3.Distance(player.position, transform.position);
+        _distance = distance;
         Vector3 dir = player.position - transform.position;
         dir.y = 0;
 
@@ -91,7 +93,10 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
             }
         }
     }
-
+    protected float GetDistance()
+    {
+        return _distance;
+    }
     [PunRPC]
     public void TakeDamage(int damage)
     {
