@@ -7,11 +7,11 @@ public class ExplosionEnemy : EnemyController
     private void FixedUpdate()
     {
         Walk();
-        if(GetDistance() <= 2 && GetDistance() != 0)
+        if(GetDistance() <= 1 && GetDistance() != 0)
         {
             print("dead");
             PhotonNetwork.Instantiate(_prefab.name, transform.position, Quaternion.identity);
-            //PhotonNetwork.Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

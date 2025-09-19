@@ -21,9 +21,9 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     float _distance;
 
     [SerializeField] Transform vision;
-    [SerializeField] Stats enemyStats;
+    [SerializeField] protected Stats enemyStats;
     [SerializeField] float range;
-    [SerializeField] UnityEvent OnAttack, OnDamageTake;
+    [SerializeField] protected UnityEvent OnAttack, OnDamageTake, OnDeath;
     [SerializeField] float cooldown = 2f;
 
     float currentCooldown;
@@ -104,6 +104,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         OnDamageTake.Invoke();
         if (lifeValue <= 0)
         {
+            OnDeath.Invoke();
             Destroy(gameObject);
         }
     }
