@@ -2,12 +2,9 @@ using UnityEngine;
 
 public interface ICollectable
 {
-    public void Collect();
+    public abstract void Collect();
 }
-public class Items : MonoBehaviour, ICollectable
+public abstract class Items : MonoBehaviour, ICollectable
 {
-    public void Collect()
-    {
-        
-    }
+    public abstract void Collect();
 }

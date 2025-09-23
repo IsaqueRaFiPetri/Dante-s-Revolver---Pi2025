@@ -7,7 +7,7 @@ using System.Collections;
 
 public interface IRegenerable
 {
-    public void RegenLife(float regenValue);
+    public void RegenLife(float regenValue, bool isLife);
 }
 public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerable
 {
@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     [Header("Life_Stats")]
     [SerializeField] float currentLife;
     [SerializeField] float maxLife;
+    [SerializeField] float currentShield;
+    [SerializeField] float maxShield;
     [Space(5)]
     [Header("Layout")]
     [SerializeField] Image lifeBarSprite;
+    [SerializeField] Image shieldBarSprite;
     TMP_Text lifeBarText;
-    [SerializeField] Image staminaBarSprite;
-    TMP_Text staminaBarText;
+    TMP_Text shieldBarText;
     [SerializeField] UnityEvent OnDeath;
     [SerializeField] GameObject Grave;
 
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     {
         if (!photonView.IsMine)
         {
-            //Destroy(this);
+            Destroy(this);
         }
     }
     private void Start()
@@ -38,14 +40,23 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         maxLife = playerStats.lifeValue;
         lifeBarText = lifeBarSprite.GetComponentInChildren<TMP_Text>();
         currentLife = maxLife;
+
     }
     [PunRPC]
     public void TakeDamage(int damage)
     {
         Debug.Log("inimigo atacando");
         
-        currentLife -= damage;
-        SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
+        if(currentShield > 0)
+        {
+            currentShield -= damage;
+            SetStatsBar(shieldBarSprite, shieldBarText, maxShield, currentShield);
+        }
+        else
+        {
+            currentLife -= damage;
+            SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
+        }
 
         if (currentLife <= 0 && photonView.IsMine)
         {
@@ -54,14 +65,26 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
             PhotonNetwork.Destroy(gameObject);
         }
     }
-    public void RegenLife(float regenValue)
+    public void RegenLife(float regenValue, bool isLife)
     {
-        currentLife += regenValue;
-        if(currentLife >= maxLife)
+        if (isLife)
         {
-            currentLife = maxLife;
+            currentLife += regenValue;
+            if (currentLife >= maxLife)
+            {
+                currentLife = maxLife;
+            }
+            SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
         }
-        SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
+        else
+        {
+            currentShield += regenValue;
+            if (currentShield >= maxShield)
+            {
+                currentShield = maxShield;
+            }
+            SetStatsBar(shieldBarSprite, shieldBarText, maxShield, currentShield);
+        }
     }
     public void SetStatsBar(Image statsBarImage,TMP_Text statsBarText, float maxStats, float currentStats)
     {

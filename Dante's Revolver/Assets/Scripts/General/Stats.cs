@@ -10,6 +10,7 @@ public class Stats : ScriptableObject
     public float wallrunSpeed;
     [Header("Stats")]
     public float lifeValue;
+    public float shieldValue;
     public float staminaValue;
     public float damage;
 }
