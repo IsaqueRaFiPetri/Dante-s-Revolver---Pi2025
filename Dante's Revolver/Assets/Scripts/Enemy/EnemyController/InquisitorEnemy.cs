@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Photon.Pun;
 
-public class WitchEnemy : EnemyController, ILauncher
+public class InquisitorEnemy : EnemyController, ILauncher
 {
     [SerializeField] string enemyToSpawn;
     [SerializeField] Transform[] spawnPoints;
