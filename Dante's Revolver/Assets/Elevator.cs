@@ -1,26 +1,20 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Elevator : MonoBehaviour, IKillable
 {
-    float _initialPos;
-    [SerializeField] float _clikedPos;
     [SerializeField] GameObject _elevatorObj;
-    [SerializeField] bool isInitialElevator;
-
-    private void Start()
-    {
-        _initialPos = transform.position.z;
-    }
+    [SerializeField] UnityEvent OnClick;
     public GameObject GetGameObject()
     {
         return gameObject;
     }
     public void TakeDamage(int damage)
     {
-        SetPos(_clikedPos);
+        OnClick.Invoke();
     }
-    void SetPos(float _setPos)
+    public void SetPos(float _setPos)
     {
         transform.DOMoveZ(_setPos, .25f);
     }

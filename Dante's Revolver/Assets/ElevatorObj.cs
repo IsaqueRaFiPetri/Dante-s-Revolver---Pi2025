@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class ElevatorObj : MonoBehaviour
 {
+    [SerializeField] bool isInitialElevator;
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        if (isInitialElevator)
+        {
+            Destroy(gameObject);
+        }
     }
 }

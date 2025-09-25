@@ -5283,7 +5283,7 @@ Transform:
   m_GameObject: {fileID: 576472886}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.1875, z: -0.1875}
+  m_LocalPosition: {x: -0, y: 0.1875, z: -0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5301,9 +5301,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b51e2ddfb8f01489abf7813e4a930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clikedPos: -0.143
   _elevatorObj: {fileID: 1801175110}
   isInitialElevator: 0
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 576472888}
+        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
+        m_MethodName: SetPos
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -0.15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!23 &576472889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24652,9 +24666,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b51e2ddfb8f01489abf7813e4a930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clikedPos: -0.143
   _elevatorObj: {fileID: 1730717969845738580}
   isInitialElevator: 1
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &6187356256604248000
 Transform:
   m_ObjectHideFlags: 0
