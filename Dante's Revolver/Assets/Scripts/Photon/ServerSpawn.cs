@@ -22,9 +22,13 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
 
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
-        GameObject prefabToSpawn = DisconectManager.intentionallyLeftPlayers.Contains(actorId)
-            ? deadPlayerPrefab 
-            : playerPrefab;
+        string roomName = PhotonNetwork.CurrentRoom.Name;
+
+        bool shouldSpawnDead =
+            DisconectManager.intentionallyLeftPlayers.ContainsKey(roomName) &&
+            DisconectManager.intentionallyLeftPlayers[roomName].Contains(actorId);
+
+        GameObject prefabToSpawn = shouldSpawnDead ? deadPlayerPrefab : playerPrefab;
 
         GameObject player = PhotonNetwork.Instantiate(prefabToSpawn.name, new Vector3(0, 1, 0), Quaternion.identity);
         playerList.Add(player);
@@ -33,6 +37,10 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         if (player.GetComponentInChildren<Camera>() != null && player.GetComponent<PhotonView>().IsMine)
             player.GetComponentInChildren<Camera>().enabled = true;
 
-        DisconectManager.intentionallyLeftPlayers.Remove(actorId);
+        // Limpa o estado se spawnou morto
+        if (shouldSpawnDead)
+        {
+            DisconectManager.intentionallyLeftPlayers[roomName].Remove(actorId);
+        }
     }
 }

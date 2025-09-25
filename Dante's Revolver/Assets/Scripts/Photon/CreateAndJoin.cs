@@ -4,11 +4,11 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-
 public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField input;
-    [SerializeField] string roomBaseName, sceneToLoad;
+    [SerializeField] string roomBaseName;
+    [SerializeField] string sceneToLoad;
 
     private void Awake()
     {
@@ -17,19 +17,31 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input.text , new RoomOptions() {MaxPlayers = 2 , IsVisible = true , IsOpen = true} , TypedLobby.Default);
+        RoomOptions roomOptions = new RoomOptions
+        {
+            MaxPlayers = 2,
+            IsVisible = true,
+            IsOpen = true,
+            EmptyRoomTtl = 0
+        };
+
+        PhotonNetwork.CreateRoom(input.text, roomOptions, TypedLobby.Default);
     }
+
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(input.text);
     }
+
     public void JoinRoomInList(string RoomName)
     {
         PhotonNetwork.JoinRoom(RoomName);
     }
+
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel(sceneToLoad);
-        print(PhotonNetwork.CountOfPlayersInRooms);
+        Debug.Log("Players in room: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 }
+

@@ -1,6 +1,6 @@
 using UnityEngine;
-using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine.Events;
@@ -9,7 +9,10 @@ using UnityEngine.InputSystem;
 public class DisconectManager : MonoBehaviourPunCallbacks
 {
     public static DisconectManager instance;
-    public static HashSet<int> intentionallyLeftPlayers = new HashSet<int>();
+
+    // Agora é um dicionário: cada sala tem sua lista de jogadores que devem voltar mortos
+    public static Dictionary<string, HashSet<int>> intentionallyLeftPlayers
+        = new Dictionary<string, HashSet<int>>();
 
     [SerializeField] UnityEvent OnPause, OnUnpause;
     bool isPaused;
@@ -18,6 +21,7 @@ public class DisconectManager : MonoBehaviourPunCallbacks
     {
         instance = this;
     }
+
     void SetCursor()
     {
         if (isPaused)
@@ -30,6 +34,7 @@ public class DisconectManager : MonoBehaviourPunCallbacks
         }
         Cursor.visible = isPaused;
     }
+
     public void Pause(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -45,6 +50,7 @@ public class DisconectManager : MonoBehaviourPunCallbacks
             SetCursor();
         }
     }
+
     bool SetPaused(bool _paused)
     {
         return isPaused = _paused;
@@ -52,29 +58,36 @@ public class DisconectManager : MonoBehaviourPunCallbacks
 
     public void Disconnect(string sceneName)
     {
-        if (PhotonNetwork.LocalPlayer != null)
-            intentionallyLeftPlayers.Add(PhotonNetwork.LocalPlayer.ActorNumber);
-
+        RegisterPlayerAsDeadInRoom();
         PhotonNetwork.Disconnect();
         SceneManager.LoadScene(sceneName);
     }
 
     public void LeaveRoom(string sceneName)
     {
-        if (PhotonNetwork.LocalPlayer != null)
-            intentionallyLeftPlayers.Add(PhotonNetwork.LocalPlayer.ActorNumber);
-
+        RegisterPlayerAsDeadInRoom();
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(sceneName);
     }
 
     public void DisconnectAndQuit()
     {
-        if (PhotonNetwork.LocalPlayer != null)
-            intentionallyLeftPlayers.Add(PhotonNetwork.LocalPlayer.ActorNumber);
-
+        RegisterPlayerAsDeadInRoom();
         PhotonNetwork.Disconnect();
         Application.Quit();
+    }
+
+    private void RegisterPlayerAsDeadInRoom()
+    {
+        if (PhotonNetwork.LocalPlayer != null && PhotonNetwork.CurrentRoom != null)
+        {
+            string roomName = PhotonNetwork.CurrentRoom.Name;
+
+            if (!intentionallyLeftPlayers.ContainsKey(roomName))
+                intentionallyLeftPlayers[roomName] = new HashSet<int>();
+
+            intentionallyLeftPlayers[roomName].Add(PhotonNetwork.LocalPlayer.ActorNumber);
+        }
     }
 
     public override void OnDisconnected(DisconnectCause cause)
