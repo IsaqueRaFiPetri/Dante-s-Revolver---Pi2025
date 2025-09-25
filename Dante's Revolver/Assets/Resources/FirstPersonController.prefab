@@ -2519,18 +2519,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  walkSpeed: 8
-  sprintSpeed: 12
-  slideSpeed: 10
-  wallrunSpeed: 12
+  walkSpeed: 10
+  sprintSpeed: 20
+  slideSpeed: 18
+  wallrunSpeed: 20
   cam: {fileID: 5019128925842536573}
   speedIncreaseMultiplier: 6
-  slopeIncreaseMultiplier: 1
-  groundDrag: 1
-  jumpForce: 6
+  slopeIncreaseMultiplier: 6
+  groundDrag: 3
+  jumpForce: 8
   jumpCooldown: 1
-  airMultiplier: 1
-  crouchSpeed: 6
+  airMultiplier: 2
+  crouchSpeed: 10
   crouchYScale: 1
   jumpKey: 32
   sprintKey: 304
@@ -2539,7 +2539,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65
-  maxSlopeAngle: 40
+  maxSlopeAngle: 20
   orientation: {fileID: 5724968560126500847}
   animator: {fileID: 6547546292215367078}
   state: 0
@@ -2806,9 +2806,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
-  wallRunForce: 5
+  wallRunForce: 10
   wallJumpUpForce: 8
-  wallJumpSideForce: 20
+  wallJumpSideForce: 8
   wallClimbSpeed: 0
   maxWallRunTime: 5
   jumpKey: 32
