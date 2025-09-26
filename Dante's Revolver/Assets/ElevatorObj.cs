@@ -15,13 +15,20 @@ public class ElevatorObj : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.TryGetComponent(out PhotonView _pv))
+        if (collision.gameObject.TryGetComponent(out PhotonView _pv))
         {
-
+            _objInsideElevator.Add(_pv.gameObject);
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        
+        if (collision.gameObject.TryGetComponent(out PhotonView _pv))
+        {
+            _objInsideElevator.Remove(_pv.gameObject);
+        }
+    }
+    public List<GameObject> GetPlayers()
+    {
+        return _objInsideElevator;
     }
 }
