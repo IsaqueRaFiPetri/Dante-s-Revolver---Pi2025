@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         maxLife = playerStats.lifeValue;
         lifeBarText = lifeBarSprite.GetComponentInChildren<TMP_Text>();
         currentLife = maxLife;
-
+        shieldBarText = shieldBarSprite.GetComponentInChildren<TMP_Text>();
+        SetStatsBar(shieldBarSprite, shieldBarText, maxShield, currentShield);
     }
     [PunRPC]
     public void TakeDamage(int damage)
