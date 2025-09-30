@@ -1,40 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ActivationMethods : MonoBehaviour
 {
-    int playersInside = 0;
-
-    [SerializeField] bool requireBoth = true;
+    [SerializeField] List<PlayerMovementAdvanced> _playersInside;
 
     [SerializeField] UnityEvent ActiveCall;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.TryGetComponent(out PlayerMovementAdvanced _playerMovement))
         {
-            playersInside++;
-
+            _playersInside.Add(_playerMovement);
             CheckActivation();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if(other.TryGetComponent(out PlayerMovementAdvanced _playerMovement))
         {
-            playersInside--;
-
+            _playersInside.Remove(_playerMovement);
             CheckActivation();
         }
     }
 
     private void CheckActivation()
     {
-        if (requireBoth)
-            ActiveCall.Invoke();
-        else
-            ActiveCall.Invoke();
+        if(_playersInside.Count >= 2)
+        {
+            ActiveCall?.Invoke();
+        }
     }
 
 }
