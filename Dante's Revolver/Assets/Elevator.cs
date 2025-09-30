@@ -13,6 +13,9 @@ public class Elevator : MonoBehaviour, IKillable
     private void Start()
     {
         _elevatorObj = GetComponentInParent<ElevatorObj>();
+
+        _teleportPos.x = _elevatorPositions[1].position.x - _elevatorPositions[0].position.x;
+        _teleportPos.y = _elevatorPositions[1].position.z - _elevatorPositions[0].position.z;
     }
     public GameObject GetGameObject()
     {
@@ -30,11 +33,9 @@ public class Elevator : MonoBehaviour, IKillable
     public void SetPlayerPos()
     {
         print("teleported");
-        _teleportPos.x = _elevatorPositions[1].position.x - _elevatorPositions[0].position.x;
-        _teleportPos.y = _elevatorPositions[1].position.z - _elevatorPositions[0].position.z;
         for (int i = 0; i < _elevatorObj.GetPlayers().Count; i++)
         {
-            _elevatorObj.GetPlayers()[i].transform.position = new Vector3(_elevatorObj.GetPlayers()[i].transform.position.x + _teleportPos.x, _elevatorObj.GetPlayers()[i].transform.position.y, _elevatorObj.GetPlayers()[i].transform.position.z + _teleportPos.y);
+            _elevatorObj.GetPlayers()[i].MovePosition(new Vector3 (_elevatorObj.GetPlayers()[i].transform.position.x + _teleportPos.x, _elevatorObj.GetPlayers()[i].transform.position.y, _elevatorObj.GetPlayers()[i].transform.position.z + _teleportPos.y));
         }
     }
 }

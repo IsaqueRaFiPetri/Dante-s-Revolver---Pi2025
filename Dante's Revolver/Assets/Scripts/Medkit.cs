@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class Medkit : Items
@@ -6,15 +7,12 @@ public class Medkit : Items
     [SerializeField] float _regenlife;
     public override void Collect()
     {
+        PhotonNetwork.Destroy(gameObject);
         _player.RegenLife(_regenlife, true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         Collect();
-        if(other.TryGetComponent(out IRegenerable player))
-        {
-            _player = player;
-        }
     }
 }

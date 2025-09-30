@@ -216,6 +216,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
             cam.MoveYCamera(0f);
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
+            readyToJump = true;
         }
 
         // Mode - Air
@@ -223,6 +224,7 @@ public class PlayerMovementAdvanced : MonoBehaviourPunCallbacks, IPlayable, ILif
         {
             cam.DoFov(85f);
             state = MovementState.air;
+            readyToJump = false;
         }
 
         // check if desired move speed has changed drastically
