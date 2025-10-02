@@ -17,6 +17,7 @@ public class Revolver : DamageInteraction
     float reloadCooldown;
 
     RevolverMoves revolverMoves;
+    [SerializeField] IKillable _player;
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
@@ -33,6 +34,7 @@ public class Revolver : DamageInteraction
     }
     private void Start()
     {
+        _player = GetComponentInParent<IKillable>();
         shootCooldown = weaponsStats.shootCooldown;
         reloadCooldown = weaponsStats.reloadCooldown;
         revolverMoves = GetComponent<RevolverMoves>();
@@ -87,9 +89,12 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(damageParticle.gameObject, hit);
-                DoDamage(_target);
+                if (_target != _player)
+                {
+                    ShootParticle(bloodParticle.gameObject, hit);
+                    ShootParticle(damageParticle.gameObject, hit);
+                    DoDamage(_target);
+                }
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
