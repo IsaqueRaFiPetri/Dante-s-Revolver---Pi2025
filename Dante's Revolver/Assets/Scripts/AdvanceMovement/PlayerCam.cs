@@ -23,7 +23,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
 
         if (!photonView.IsMine)
         {
-            this.enabled = false;
+            PhotonNetwork.Destroy(this.gameObject);
         }
     }
 
