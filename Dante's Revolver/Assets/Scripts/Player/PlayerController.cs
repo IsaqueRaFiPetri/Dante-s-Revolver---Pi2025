@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
 {
     public PhotonView playerPhotonView;
     [SerializeField] Stats playerStats;
-    [SerializeField] bool isHitable;
     [Space(20)]
     [Header("Life_Stats")]
     [SerializeField] float currentLife;
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     {
         if (!photonView.IsMine)
         {
-            isHitable = true;
             Destroy(this);
         }
     }
@@ -98,10 +96,5 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     public GameObject GetGameObject()
     {
         return this.gameObject;
-    }
-
-    public bool GetIsNonHitable()
-    {
-        throw new System.NotImplementedException();
     }
 }

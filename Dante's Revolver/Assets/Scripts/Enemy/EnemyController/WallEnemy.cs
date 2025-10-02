@@ -37,9 +37,4 @@ public class WallEnemy : MonoBehaviour, IKillable
     {
         textHolder.SetText(text);
     }
-
-    public bool GetIsNonHitable()
-    {
-        return true;
-    }
 }

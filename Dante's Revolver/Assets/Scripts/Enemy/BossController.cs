@@ -99,10 +99,5 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     {
         return gameObject;
     }
-
-    public bool GetIsNonHitable()
-    {
-        return true;
-    }
 }
  

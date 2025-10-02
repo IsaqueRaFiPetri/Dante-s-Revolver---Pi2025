@@ -28,8 +28,4 @@ public class WeakPoint : MonoBehaviourPunCallbacks, IKillable, ILifeable
         return GetEnemyController().gameObject;
     }
 
-    public bool GetIsNonHitable()
-    {
-        return true;
-    }
 }
