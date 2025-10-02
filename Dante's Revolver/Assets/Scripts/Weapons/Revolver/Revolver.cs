@@ -79,6 +79,18 @@ public class Revolver : DamageInteraction
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
+            if(hit.collider.TryGetComponent(out PlayerController _controller))
+            {
+                if(_controller.GetGameObject().GetPhotonView() != _pv)
+                {
+                    print("yourself=================================================================================");
+                    return;
+                }
+                else
+                {
+                    print("other Player=========================================================================");
+                }
+            }
             if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 print("hit headshot");
@@ -87,12 +99,9 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                if (_target.GetGameObject().GetPhotonView().GetInstanceID() != _pv.GetInstanceID())
-                {
-                    ShootParticle(bloodParticle.gameObject, hit);
-                    ShootParticle(damageParticle.gameObject, hit);
-                    DoDamage(_target);
-                }
+                ShootParticle(bloodParticle.gameObject, hit);
+                ShootParticle(damageParticle.gameObject, hit);
+                DoDamage(_target);
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
