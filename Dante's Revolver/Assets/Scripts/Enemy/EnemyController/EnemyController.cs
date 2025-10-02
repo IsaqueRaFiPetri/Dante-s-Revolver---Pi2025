@@ -8,6 +8,8 @@ public interface IKillable
     void TakeDamage(int damage);
 
     GameObject GetGameObject();
+
+    bool GetIsNonHitable();
 }
 
 [RequireComponent(typeof(Rigidbody))]
@@ -146,5 +148,10 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     public GameObject GetGameObject()
     {
         return this.gameObject;
+    }
+
+    public bool GetIsNonHitable()
+    {
+        return true;
     }
 }

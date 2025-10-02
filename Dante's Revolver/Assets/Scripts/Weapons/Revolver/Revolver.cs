@@ -17,7 +17,6 @@ public class Revolver : DamageInteraction
     float reloadCooldown;
 
     RevolverMoves revolverMoves;
-    [SerializeField] PlayerController _playerController;
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
@@ -79,18 +78,6 @@ public class Revolver : DamageInteraction
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
-            if(hit.collider.TryGetComponent(out PlayerController _controller))
-            {
-                if(_controller == _playerController)
-                {
-                    print("yourself=================================================================================");
-                    return;
-                }
-                else
-                {
-                    print("other Player=========================================================================");
-                }
-            }
             if (hit.collider.TryGetComponent(out WeakPoint headshot))
             {
                 print("hit headshot");
@@ -99,9 +86,12 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(damageParticle.gameObject, hit);
-                DoDamage(_target);
+                if (_target.GetIsNonHitable())
+                {
+                    ShootParticle(bloodParticle.gameObject, hit);
+                    ShootParticle(damageParticle.gameObject, hit);
+                    DoDamage(_target);
+                }
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {

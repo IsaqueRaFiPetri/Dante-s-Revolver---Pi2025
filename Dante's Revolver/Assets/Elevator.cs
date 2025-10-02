@@ -33,4 +33,9 @@ public class Elevator : MonoBehaviour, IKillable
             _elevatorObj.GetPlayers()[i].MovePosition(new Vector3 (_elevatorObj.GetPlayers()[i].transform.position.x + _teleportPos.x, _elevatorObj.GetPlayers()[i].transform.position.y, _elevatorObj.GetPlayers()[i].transform.position.z + _teleportPos.y));
         }
     }
+
+    public bool GetIsNonHitable()
+    {
+        return true;
+    }
 }
