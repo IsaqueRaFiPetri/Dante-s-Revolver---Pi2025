@@ -30,10 +30,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
 
     private void Awake()
     {
-        if (!photonView.IsMine)
-        {
-            Destroy(this);
-        }
+
     }
     private void Start()
     {
