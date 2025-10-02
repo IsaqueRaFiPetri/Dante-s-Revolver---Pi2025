@@ -60,6 +60,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                     print("ChargedShoot");
                     StartCoroutine(ChargeShooting());
                     charging = Charging.IsCharging;
+                    revolverClass.SetIsUlting(true);
                     OnUltLoaded.Invoke();
                 }
                 break;
@@ -69,6 +70,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                     print("StartedCharging");
                     canRotate = true;
                     OnUltStart.Invoke();
+                    revolverClass.SetIsUlting(true);
                     PowerImage(ultFeedback, !canRotate);
                     StartCoroutine(IsCharging());
                 }
@@ -78,6 +80,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
                     canRotate = false;
                     OnUltCancel.Invoke();
                     PowerImage(ultFeedback, !canRotate);
+                    revolverClass.SetIsUlting(false);
                     revolverMoves.SetTransform(barrelImage.rectTransform, new Vector3(0, 0, 0), .25f);
                     charging = Charging.IsCharging;
                     StopAllCoroutines();
@@ -113,6 +116,7 @@ public class RevolverUlt : MonoBehaviour, IPowerable
         {
             StartCoroutine(revolverClass.Reloading());
             PowerImage(ultFeedback, !canRotate);
+            revolverClass.SetIsUlting(false);
         }
     }
 

@@ -8,14 +8,16 @@ using Photon.Pun;
 
 public class Revolver : DamageInteraction
 {
-    [SerializeField]Camera playerCamera;
+    [SerializeField] Camera playerCamera;
 
     [SerializeField] bool canShoot = true;
     [SerializeField] bool canReload = true;
+    [SerializeField] bool isUlting;
     float shootCooldown;
     float reloadCooldown;
 
     RevolverMoves revolverMoves;
+    [SerializeField] PhotonView _pv;
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
@@ -45,9 +47,13 @@ public class Revolver : DamageInteraction
     {
         return canShoot = setCanShoot;
     }
+    public bool SetIsUlting(bool setIsUlting)
+    {
+        return isUlting = setIsUlting;
+    }
     public void Fire(InputAction.CallbackContext context)
     {
-        if (context.performed && canShoot)
+        if (context.performed && canShoot && !isUlting)
         {
             StartCoroutine(Shooting());
         }
@@ -81,9 +87,12 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                ShootParticle(bloodParticle.gameObject, hit);
-                ShootParticle(damageParticle.gameObject, hit);
-                DoDamage(_target);
+                if (_target.GetGameObject().GetPhotonView().ViewID != _pv.ViewID)
+                {
+                    ShootParticle(bloodParticle.gameObject, hit);
+                    ShootParticle(damageParticle.gameObject, hit);
+                    DoDamage(_target);
+                }
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
@@ -98,7 +107,7 @@ public class Revolver : DamageInteraction
     }
     public void Reload(InputAction.CallbackContext context)
     {
-        if (context.performed && canReload)
+        if (context.performed && canReload && !isUlting)
         {
             StartCoroutine(Reloading());
         }
