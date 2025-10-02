@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class FovEqualizer : MonoBehaviour
+public class FovEqualizer : MonoBehaviourPunCallbacks
 {
     Camera cam;
     [SerializeField] Camera fovCamera;
@@ -8,6 +9,11 @@ public class FovEqualizer : MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
+
+        if (!photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(this.gameObject);
+        }
     }
     private void Update()
     {
