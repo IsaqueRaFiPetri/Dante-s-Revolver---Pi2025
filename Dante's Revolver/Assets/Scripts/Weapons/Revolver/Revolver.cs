@@ -87,7 +87,7 @@ public class Revolver : DamageInteraction
             }
             if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                if (_target.GetGameObject().GetPhotonView().ViewID != _pv.ViewID)
+                if (_target.GetGameObject().GetPhotonView().GetInstanceID() != _pv.GetInstanceID())
                 {
                     ShootParticle(bloodParticle.gameObject, hit);
                     ShootParticle(damageParticle.gameObject, hit);
