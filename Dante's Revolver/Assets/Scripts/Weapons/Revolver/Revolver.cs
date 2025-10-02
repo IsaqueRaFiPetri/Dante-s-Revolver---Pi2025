@@ -17,7 +17,7 @@ public class Revolver : DamageInteraction
     float reloadCooldown;
 
     RevolverMoves revolverMoves;
-    [SerializeField] PhotonView _pv;
+    [SerializeField] PlayerController _playerController;
     [SerializeField] Transform bulletHolder;
     [SerializeField] List<Image> bulletImage;
     [SerializeField] UnityEvent OnShoot;
@@ -81,7 +81,7 @@ public class Revolver : DamageInteraction
         {
             if(hit.collider.TryGetComponent(out PlayerController _controller))
             {
-                if(_controller.GetGameObject().GetPhotonView() != _pv)
+                if(_controller == _playerController)
                 {
                     print("yourself=================================================================================");
                     return;
