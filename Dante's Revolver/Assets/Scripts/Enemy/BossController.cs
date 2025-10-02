@@ -58,7 +58,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     IEnumerator Sleeping()
     {
         print("StartedSleeping");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(12);
         print("EndedSleeping");
         ChangeBossPhase();
         DoAction();
@@ -86,7 +86,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         bossLifeBar.fillAmount = UpdateLifeBar();
         if (lifeValue <= 0)
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -97,7 +97,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     public GameObject GetGameObject()
     {
-        throw new System.NotImplementedException();
+        return gameObject;
     }
 }
  

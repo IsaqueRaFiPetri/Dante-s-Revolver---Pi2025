@@ -7,7 +7,6 @@ public class Elevator : MonoBehaviour, IKillable
 {
     [SerializeField] UnityEvent OnClick;
     [SerializeField] Transform[] _elevatorPositions;
-    [SerializeField] Transform _elevatorButton;
     [SerializeField] ElevatorObj _elevatorObj;
     [SerializeField] Vector2 _teleportPos;
     private void Start()
@@ -25,10 +24,6 @@ public class Elevator : MonoBehaviour, IKillable
     public void TakeDamage(int damage)
     {
         OnClick.Invoke();
-    }
-    public void SetPos(float _setPos)
-    {
-        _elevatorButton.DOLocalMoveZ(_setPos, .25f);
     }
     public void SetPlayerPos()
     {
