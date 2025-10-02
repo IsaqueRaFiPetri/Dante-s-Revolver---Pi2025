@@ -18,30 +18,32 @@ public class PlayerCam : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         if (!photonView.IsMine)
         {
             PhotonNetwork.Destroy(this.gameObject);
         }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Camera(InputAction.CallbackContext value)
     {
-        float mouseX = value.ReadValue<Vector2>().x * sensX;
-        float mouseY = value.ReadValue<Vector2>().y * sensY;
+        if (photonView.IsMine)
+        {
+            float mouseX = value.ReadValue<Vector2>().x * sensX;
+            float mouseY = value.ReadValue<Vector2>().y * sensY;
 
-        yRotation += mouseX;
+            yRotation += mouseX;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // rotate cam and orientation
-        camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            // rotate cam and orientation
+            camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        playerAnim.SetFloat("CameraPos", xRotation);
+            playerAnim.SetFloat("CameraPos", xRotation);
+        }
     }
 
     public void DoFov(float endValue)
