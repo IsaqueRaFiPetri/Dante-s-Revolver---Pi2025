@@ -1005,8 +1005,7 @@ PrefabInstance:
       value: 1Floor_Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4105775520612025726, guid: 6a9e5a9c333b14e4fa0c1a500632f79c, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9e5a9c333b14e4fa0c1a500632f79c, type: 3}
@@ -4489,7 +4488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &819043856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11860,6 +11859,10 @@ PrefabInstance:
     - target: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
       propertyPath: m_Name
       value: elevator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6879038447944243938, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
       propertyPath: m_AnchorMax.y
