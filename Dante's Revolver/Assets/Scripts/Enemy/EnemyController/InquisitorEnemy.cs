@@ -39,7 +39,8 @@ public class InquisitorEnemy : EnemyController, ILauncher
 
             for (int i = 0; i < amountToSpawn; i++)
             {
-                PhotonNetwork.Instantiate(enemyToSpawn, shuffledPoints[i].position, Quaternion.identity);
+                GameObject _lastInstantiatedEnemy = PhotonNetwork.Instantiate(enemyToSpawn, shuffledPoints[i].position, Quaternion.identity);
+                _lastInstantiatedEnemy.AddComponent<InquisitorFollower>().GetLineRenderer().SetPosition(0, transform.position);
             }
         }
     }
