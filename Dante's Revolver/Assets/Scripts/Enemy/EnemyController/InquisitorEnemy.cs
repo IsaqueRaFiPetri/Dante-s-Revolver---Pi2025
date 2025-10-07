@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class InquisitorEnemy : EnemyController, ILauncher
 {
@@ -10,6 +11,7 @@ public class InquisitorEnemy : EnemyController, ILauncher
     [SerializeField] GameObject attackSpawn;
     [SerializeField] Transform attackPoint;
     [SerializeField] LineRenderer _lineRendererPrefab;
+    [SerializeField] List<Material> _materials;
     [SerializeField] Transform _headTransform;
     bool canContinue = true;
 
@@ -45,9 +47,9 @@ public class InquisitorEnemy : EnemyController, ILauncher
                 print(_lastInstantiatedEnemy);
                 InquisitorFollower _lastInquitiorFollower = _lastInstantiatedEnemy.AddComponent<InquisitorFollower>();
                 print(_lastInquitiorFollower);
-                _lastInquitiorFollower._transformList[1] = transform;
+                _lastInquitiorFollower._transformList[1] = _headTransform;
                 _lastInquitiorFollower._transformList[0] = _lastInquitiorFollower.transform;
-                _lastInquitiorFollower.SetLineRenderer(_lineRendererPrefab);
+                _lastInquitiorFollower.SetLineRenderer(_lineRendererPrefab, _materials);
 
             }
         }

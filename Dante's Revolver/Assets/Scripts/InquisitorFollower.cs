@@ -5,10 +5,9 @@ using UnityEngine;
 public class InquisitorFollower : MonoBehaviour
 {
     [SerializeField] public Transform[] _transformList = new Transform[2];
-    List<Material> _materials;
-    public void SetLineRenderer(LineRenderer _lineRendererObj)
+    public void SetLineRenderer(LineRenderer _lineRendererObj, List<Material> _materials)
     {
-        //gameObject.GetComponent<LineRenderer>()
+        gameObject.GetComponent<LineRenderer>().SetMaterials(_materials);
         gameObject.GetComponent<LineRenderer>().widthCurve = _lineRendererObj.widthCurve;
     }
     public void UpdateLineRenderer()
