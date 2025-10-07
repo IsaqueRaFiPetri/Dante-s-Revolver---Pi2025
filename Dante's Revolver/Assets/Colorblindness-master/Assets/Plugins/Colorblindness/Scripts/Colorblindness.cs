@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-namespace SOHNE.Accessibility.Colorblindness
-{
+
     public enum ColorblindTypes
     {
         Normal = 0,
@@ -29,7 +28,7 @@ namespace SOHNE.Accessibility.Colorblindness
         VolumeComponent lastFilter;
 
         int maxType;
-        int _currentType = 0;
+        public static int _currentType = 0;
         int currentType
         {
             get => _currentType;
@@ -147,5 +146,4 @@ namespace SOHNE.Accessibility.Colorblindness
             lastFilter = filter.components[0];
         }
     }
-}
 //https://github.com/SOHNE/Colorblindness?tab=readme-ov-file
