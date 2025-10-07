@@ -9,6 +9,8 @@ public class InquisitorEnemy : EnemyController, ILauncher
     [SerializeField] float timeToSpawn;
     [SerializeField] GameObject attackSpawn;
     [SerializeField] Transform attackPoint;
+    [SerializeField] LineRenderer _lineRendererPrefab;
+    [SerializeField] Transform _headTransform;
     bool canContinue = true;
 
     void Awake()
@@ -40,7 +42,13 @@ public class InquisitorEnemy : EnemyController, ILauncher
             for (int i = 0; i < amountToSpawn; i++)
             {
                 GameObject _lastInstantiatedEnemy = PhotonNetwork.Instantiate(enemyToSpawn, shuffledPoints[i].position, Quaternion.identity);
-                _lastInstantiatedEnemy.AddComponent<InquisitorFollower>().GetLineRenderer().SetPosition(0, transform.position);
+                print(_lastInstantiatedEnemy);
+                InquisitorFollower _lastInquitiorFollower = _lastInstantiatedEnemy.AddComponent<InquisitorFollower>();
+                print(_lastInquitiorFollower);
+                _lastInquitiorFollower._transformList[1] = transform;
+                _lastInquitiorFollower._transformList[0] = _lastInquitiorFollower.transform;
+                _lastInquitiorFollower.SetLineRenderer(_lineRendererPrefab);
+
             }
         }
     }
