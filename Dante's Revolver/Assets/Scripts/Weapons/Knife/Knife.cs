@@ -3,15 +3,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Knife : DamageInteraction, IPowerable
 {
     [SerializeField] Camera playerCamera;
     [SerializeField] UnityEvent OnAttack;
     [SerializeField] Image knifeImage;
+    [SerializeField] IKillable _player;
 
     bool canAttack = true;
-
+    private void Start()
+    {
+        _player = GetComponentInParent<IKillable>();
+    }
     public void MeleeAttack(InputAction.CallbackContext context)
     {
         if (!photonView.IsMine)
@@ -41,11 +46,14 @@ public class Knife : DamageInteraction, IPowerable
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
-            if (hit.collider.TryGetComponent(out IKillable target))
+            if (hit.collider.TryGetComponent(out IKillable _target))
             {
-                DoDamage(target);
-                ShootParticle(bloodParticle.gameObject ,hit);
-                ShootParticle(damageParticle.gameObject, hit);
+                if (_target != _player)
+                {
+                    ShootParticle(bloodParticle.gameObject, hit);
+                    ShootParticle(damageParticle.gameObject, hit);
+                    DoDamage(_target);
+                }
             }
             if (!hit.collider.TryGetComponent(out ILifeable lifePoint))
             {
