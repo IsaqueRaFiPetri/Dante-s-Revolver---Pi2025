@@ -7,6 +7,7 @@ public class ElevatorObj : MonoBehaviour
 {
     [SerializeField] bool isInitialElevator;
     [SerializeField] List<Rigidbody> _objInsideElevator;
+    [SerializeField] List<PlayerMovementAdvanced> _players;
     [SerializeField] UnityEvent OnStart, OnCloseElevatorDoor;
     private void OnBecameInvisible()
     {
@@ -21,10 +22,17 @@ public class ElevatorObj : MonoBehaviour
     }
     public void CloseDoors()
     {
-        OnCloseElevatorDoor.Invoke();
+        if(_players.Count >= 2)
+        {
+            OnCloseElevatorDoor.Invoke();
+        }
     }
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.TryGetComponent(out PlayerMovementAdvanced _player))
+        {
+            _players.Add(_player);
+        }
         if (collision.gameObject.TryGetComponent(out PhotonView _pv))
         {
             _objInsideElevator.Add(_pv.gameObject.GetComponent<Rigidbody>());
@@ -32,6 +40,10 @@ public class ElevatorObj : MonoBehaviour
     }
     private void OnTriggerExit(Collider collision)
     {
+        if (collision.gameObject.TryGetComponent(out PlayerMovementAdvanced _player))
+        {
+            _players.Remove(_player);
+        }
         if (collision.gameObject.TryGetComponent(out PhotonView _pv))
         {
             _objInsideElevator.Remove(_pv.gameObject.GetComponent<Rigidbody>());
