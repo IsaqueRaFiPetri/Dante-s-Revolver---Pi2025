@@ -1,6 +1,7 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
+
 public class Cannon : MonoBehaviour
 {
     [SerializeField] UnityEvent OnCannonShoot;
