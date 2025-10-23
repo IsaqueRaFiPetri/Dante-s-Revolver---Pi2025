@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Cerberus : BossController
 {
@@ -9,15 +10,18 @@ public class Cerberus : BossController
     [SerializeField] Appearing appearing;
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Transform[] _positions;
+    [SerializeField] UnityEvent OnAppear, OnDisappear;
     public void DetectPhase()
     {
         switch (bossPhase)
         {
             case BossPhase.OnMoveset:
                 appearing = Appearing.IsNotAppearing;
+                OnDisappear.Invoke();
                 break;
             case BossPhase.OnSleeping:
                 appearing = Appearing.IsAppearing;
+                OnAppear.Invoke();
                 break;
         }
         SetIsAppearing();
@@ -27,11 +31,11 @@ public class Cerberus : BossController
         switch (appearing)
         {
             case Appearing.IsAppearing:
-                meshRenderer.enabled = true;
+
                 SetRandomPos();
                 break;
             case Appearing.IsNotAppearing:
-                meshRenderer.enabled = false;
+
                 break;
         }
     }
