@@ -28,7 +28,10 @@ public class ConstraintCalculer : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        SynchronizingVectors();
+        if(_selectedTarget != null)
+        {
+            SynchronizingVectors();
+        }
     }
     void SynchronizingVectors()
     {

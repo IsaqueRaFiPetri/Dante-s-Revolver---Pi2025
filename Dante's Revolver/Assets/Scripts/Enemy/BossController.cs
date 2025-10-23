@@ -47,6 +47,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     }
     IEnumerator DoingMoveset(float duration)
     {
+        print("moveset");
         lastMoveset.GetOnStart().Invoke();
         yield return new WaitForSeconds(duration);
         lastMoveset.GetOnFinish().Invoke();

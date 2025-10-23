@@ -8,7 +8,7 @@ public class CerberusImortalManager : MonoBehaviour
 
     public void SetIsDiving(bool _isDiving)
     {
-        isDiving = _isDiving;
+        isDiving = !_isDiving;
         SetAnimator();
     }
     void SetAnimator()
