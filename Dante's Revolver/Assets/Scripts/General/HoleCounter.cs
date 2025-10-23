@@ -5,13 +5,12 @@ public class HoleCounter : MonoBehaviour
 {
     [SerializeField] int layerToFind;
     [SerializeField] UnityEvent OnEnemyEntered;
-
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.layer == layerToFind)
         {
             OnEnemyEntered.Invoke();
         }
     }
-
 }
