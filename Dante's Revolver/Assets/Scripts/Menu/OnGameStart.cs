@@ -7,7 +7,7 @@ public class OnGameStart : MonoBehaviour
     [SerializeField] UnityEvent isOnLobby;
     private void Awake()
     {
-        Application.targetFrameRate = 90;
+        //Application.targetFrameRate = 90;
     }
     private void Start()
     {

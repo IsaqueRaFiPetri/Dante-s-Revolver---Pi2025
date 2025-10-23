@@ -10,7 +10,7 @@ public class InfiniteMovesetController : MonoBehaviour
 
     public void DetectQuantityToActive()
     {
-        if (_quantiy >= _minQuantityNeededToActivate)
+        if (_quantiy + 1 >= _minQuantityNeededToActivate)
         {
             OnQuantityReached.Invoke();
             _moveset.GetOnFinish().Invoke();

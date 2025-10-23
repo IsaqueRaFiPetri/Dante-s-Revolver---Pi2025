@@ -26,6 +26,13 @@ public class Cerberus : BossController
         }
         SetIsAppearing();
     }
+    public void InvertState()
+    {
+        ChangeBossPhase();
+        lastMoveset = null;
+        DetectPhase();
+        DoAction();
+    }
     void SetIsAppearing()
     {
         switch (appearing)

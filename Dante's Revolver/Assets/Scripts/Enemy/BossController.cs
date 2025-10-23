@@ -65,7 +65,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         ChangeBossPhase();
         DoAction();
     }
-    void ChangeBossPhase()
+    public void ChangeBossPhase()
     {
         print("ChangingBossPhase");
         switch (bossPhase)

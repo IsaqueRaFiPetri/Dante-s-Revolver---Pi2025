@@ -48,7 +48,6 @@ using UnityEngine.SceneManagement;
 
         public static Colorblindness Instance { get; private set; }
 
-        [UnityEditor.Callbacks.DidReloadScripts]
         private static void OnScriptsReloaded()
         {
 #if !RENDERPIPELINE

@@ -81,7 +81,7 @@ public class Revolver : DamageInteraction
         if (Physics.Raycast(ray.origin, ray.direction, out hit, weaponsStats.maxDistance))
         {
 
-            if (hit.collider.TryGetComponent(out WeakPoint headshot))
+            if (hit.collider.TryGetComponent(out WeakPoint headshot) && !isUlting)
             {
                 print("hit headshot");
                 ShootParticle(headshot.HeadshotParticle(), hit);

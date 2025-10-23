@@ -1,9 +1,15 @@
 using UnityEngine;
 
-public class CerberusFireRay : MonoBehaviour
+public class CerberusFireRay : DamageInteraction
 {
     private void OnTriggerEnter(Collider other)
     {
-        print("entered");
+        if(other.TryGetComponent(out IKillable _IKillable))
+        {
+            if(_IKillable.GetGameObject().TryGetComponent(out PlayerController _playerController))
+            {
+                DoDamage(_IKillable);
+            }
+        }
     }
 }

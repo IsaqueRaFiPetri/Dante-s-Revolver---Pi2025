@@ -25,6 +25,8 @@ public class MovesetUnlock : MonoBehaviour, IKillable
         if(_life <= 0)
         {
             OnDestroyCrystal.Invoke();
+            gameObject.SetActive(false);
+            _life = _maxLife;
         }
     }
 }
