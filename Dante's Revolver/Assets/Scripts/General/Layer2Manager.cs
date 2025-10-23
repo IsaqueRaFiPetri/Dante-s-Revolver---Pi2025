@@ -7,7 +7,7 @@ public class Layer2Manager : MonoBehaviour
     [SerializeField] UnityEvent OnQuantityReached;
     public void DetectEnemyQuantity()
     {
-        if(_minEnemyQuantity >= _maxEnemyQuantity)
+        if (_minEnemyQuantity >= _maxEnemyQuantity)
         {
             OnQuantityReached.Invoke();
         }
