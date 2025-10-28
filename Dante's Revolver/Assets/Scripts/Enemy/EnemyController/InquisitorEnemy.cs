@@ -13,17 +13,45 @@ public class InquisitorEnemy : EnemyController, ILauncher
     [SerializeField] LineRenderer _lineRendererPrefab;
     [SerializeField] List<Material> _materials;
     [SerializeField] Transform _headTransform;
+    [SerializeField] List<IPlayable> _players;
     bool canContinue = true;
 
     void Awake()
     {
         StartCoroutine(SpawnMinions());
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.TryGetComponent(out IPlayable player))
+        {
+            _players.Add(player);
+            VerifyPlayerQuantity();
+            StartCoroutine(SpawnMinions());
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out IPlayable player))
+        {
+            _players.Remove(player);
+            VerifyPlayerQuantity();
+        }
+    }
+    void VerifyPlayerQuantity()
+    {
+        if(_players.Count <= 0)
+        {
+            canContinue = false;
+        }
+        else
+        {
+            canContinue = true;
+        }
+    }
     void Update()
     {
         Walk();
     }
-
     IEnumerator SpawnMinions()
     {
         while (canContinue)
