@@ -37,6 +37,7 @@ public class Moveset : MonoBehaviour
     }
     public void SetMoveAnimation(bool _isStartScene)
     {
+        print("start_");
         if (_isStartScene)
         {
             transform.DOMove(_endPos, _animationTime).SetEase(Ease.InQuad).onComplete = SetActive;
