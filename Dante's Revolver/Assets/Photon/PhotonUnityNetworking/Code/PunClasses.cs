@@ -31,7 +31,6 @@ namespace Photon.Pun
     using UnityEngine.SceneManagement;
     using Photon.Realtime;
     using SupportClassPun = ExitGames.Client.Photon.SupportClass;
-    using System.Collections;
 
 
     /// <summary>Replacement for RPC attribute with different name. Used to flag methods as remote-callable.</summary>
@@ -419,11 +418,6 @@ namespace Photon.Pun
         public virtual void OnErrorInfo(ErrorInfo errorInfo)
         {
         }
-
-    override void onJoinedRoom()
-    {
-
-    }
     }
 
 
