@@ -36,6 +36,7 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
     public void JoinRoomInList(string RoomName)
     {
         PhotonNetwork.JoinRoom(RoomName);
+        print(RoomName + "=============================================================================================");
     }
 
     public override void OnJoinedRoom()

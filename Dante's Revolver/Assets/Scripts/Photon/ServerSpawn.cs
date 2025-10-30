@@ -2,6 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using static UnityEditor.Progress;
 
 public class ServerSpawn : MonoBehaviourPunCallbacks
 {
@@ -31,6 +32,7 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         GameObject prefabToSpawn = shouldSpawnDead ? deadPlayerPrefab : playerPrefab;
 
         GameObject player = PhotonNetwork.Instantiate(prefabToSpawn.name, new Vector3(0, 50, 0), Quaternion.identity);
+        print(player + "=============================================================================================");
         playerList.Add(player);
         playerIdList.Add(player.GetPhotonView().ViewID);
 

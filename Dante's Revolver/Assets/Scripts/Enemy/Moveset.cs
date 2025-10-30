@@ -33,6 +33,7 @@ public class Moveset : MonoBehaviour
     public void Started()
     {
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        transform.position += _startPos;
         _childGameObject.SetActive(true);
         transform.DOMove(_endPos, _animationTime);
     }
