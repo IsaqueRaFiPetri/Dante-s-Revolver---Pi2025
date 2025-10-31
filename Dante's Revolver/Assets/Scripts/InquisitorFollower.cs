@@ -6,7 +6,7 @@ using UnityEngine;
 public class InquisitorFollower : MonoBehaviour
 {
     [SerializeField] public Transform[] _transformList = new Transform[2];
-    [SerializeField] float _lifeTime;
+    [SerializeField] float _lifeTime = 15;
 
     private void Start()
     {
