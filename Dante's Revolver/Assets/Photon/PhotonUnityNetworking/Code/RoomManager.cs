@@ -8,8 +8,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public static RoomManager Instance;
 
     [Header("Scene and Player Settings")]
-    [SerializeField] private string loadingSceneName;
-    [SerializeField] GameObject playerPrefabName;
+    [SerializeField] private string loadingSceneName = "Loading";
+    [SerializeField] private string playerPrefabName = "PlayerTeste";
     [SerializeField] private Transform[] spawnPoints;
 
     [Header("Timer Reference")]
@@ -59,7 +59,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (point == null)
             return;
 
-        PhotonNetwork.Instantiate(playerPrefabName.name, point.position, point.rotation);
+        PhotonNetwork.Instantiate(playerPrefabName, point.position, point.rotation);
         playerSpawned = true;
     }
 
