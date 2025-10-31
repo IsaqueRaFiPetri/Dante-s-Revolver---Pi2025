@@ -48,6 +48,7 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
     {
         playerIdList.Clear();
         yield return new WaitForSeconds(1);
+        print("POW");
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
 
