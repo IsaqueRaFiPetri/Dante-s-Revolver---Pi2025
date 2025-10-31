@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ServerSpawn : MonoBehaviourPunCallbacks
 {
     public List<GameObject> playerList;
-    public List<string> playerIdList;
+    public List<int> playerIdList;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject deadPlayerPrefab;
 
@@ -15,16 +15,14 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
     private void Awake()
     {
         instance = this;
-        StartCoroutine(Reset());
     }
+
     IEnumerator Start()
     {
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
 
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
         string roomName = PhotonNetwork.CurrentRoom.Name;
-
-        //playerIdList.Add(actorId);
         /*
         bool shouldSpawnDead =
             DisconectManager.intentionallyLeftPlayers.ContainsKey(roomName) &&
@@ -35,25 +33,9 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 50, 0), Quaternion.identity);
         print(player + "=============================================================================================");
         playerList.Add(player);
-        //playerIdList.Add(player.GetPhotonView().ViewID);
+        playerIdList.Add(player.GetPhotonView().ViewID);
 
         if (player.GetComponentInChildren<Camera>() != null && player.GetComponent<PhotonView>().IsMine)
             player.GetComponentInChildren<Camera>().enabled = true;
-    }
-    private void FixedUpdate()
-    {
-
-    }
-    IEnumerator Reset()
-    {
-        playerIdList.Clear();
-        yield return new WaitForSeconds(1);
-        print("POW");
-        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
-        {
-
-            playerIdList.Add(PhotonNetwork.PlayerList[i].UserId);
-        }
-        StartCoroutine(Reset());
     }
 }
