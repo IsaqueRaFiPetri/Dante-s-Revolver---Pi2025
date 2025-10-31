@@ -35,9 +35,16 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 50, 0), Quaternion.identity);
         print(player + "=============================================================================================");
         playerList.Add(player);
-        playerIdList.Add(player.GetPhotonView().ViewID);
+        //playerIdList.Add(player.GetPhotonView().ViewID);
 
         if (player.GetComponentInChildren<Camera>() != null && player.GetComponent<PhotonView>().IsMine)
             player.GetComponentInChildren<Camera>().enabled = true;
+    }
+    private void FixedUpdate()
+    {
+        int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
+        string roomName = PhotonNetwork.CurrentRoom.Name;
+
+        playerIdList.Add(actorId);
     }
 }
