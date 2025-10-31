@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ServerSpawn : MonoBehaviourPunCallbacks
 {
     public List<GameObject> playerList;
-    public List<int> playerIdList;
+    public List<string> playerIdList;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject deadPlayerPrefab;
 
@@ -15,8 +15,8 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
     private void Awake()
     {
         instance = this;
+        StartCoroutine(Reset());
     }
-
     IEnumerator Start()
     {
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
@@ -24,7 +24,7 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
         string roomName = PhotonNetwork.CurrentRoom.Name;
 
-        playerIdList.Add(actorId);
+        //playerIdList.Add(actorId);
         /*
         bool shouldSpawnDead =
             DisconectManager.intentionallyLeftPlayers.ContainsKey(roomName) &&
@@ -42,9 +42,17 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
     }
     private void FixedUpdate()
     {
-        int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
-        string roomName = PhotonNetwork.CurrentRoom.Name;
 
-        playerIdList.Add(actorId);
+    }
+    IEnumerator Reset()
+    {
+        playerIdList.Clear();
+        yield return new WaitForSeconds(1);
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+        {
+
+            playerIdList.Add(PhotonNetwork.PlayerList[i].UserId);
+        }
+        StartCoroutine(Reset());
     }
 }
