@@ -60,6 +60,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             return;
 
         PhotonNetwork.Instantiate(playerPrefabName, point.position, point.rotation);
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
         playerSpawned = true;
     }
 
