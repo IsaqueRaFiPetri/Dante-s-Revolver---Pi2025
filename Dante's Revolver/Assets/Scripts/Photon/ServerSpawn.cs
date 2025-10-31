@@ -2,7 +2,6 @@ using UnityEngine;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using static UnityEditor.Progress;
 
 public class ServerSpawn : MonoBehaviourPunCallbacks
 {
@@ -24,6 +23,8 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
 
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
         string roomName = PhotonNetwork.CurrentRoom.Name;
+
+        playerIdList.Add(actorId);
         /*
         bool shouldSpawnDead =
             DisconectManager.intentionallyLeftPlayers.ContainsKey(roomName) &&
