@@ -23,25 +23,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
         else { Destroy(gameObject); return; }
 
         if (PhotonNetwork.InRoom)
-            TrySpawnAndStartTimer();
+            SpawnPlayer();
     }
 
     private void Start()
     {
         if (PhotonNetwork.InRoom && !playerSpawned)
-            TrySpawnAndStartTimer();
+            SpawnPlayer();
     }
 
     public override void OnJoinedRoom()
     {
-        TrySpawnAndStartTimer();
-    }
-
-    private void TrySpawnAndStartTimer()
-    {
-        if (!PhotonNetwork.InRoom)
-            return;
-
         SpawnPlayer();
     }
 
