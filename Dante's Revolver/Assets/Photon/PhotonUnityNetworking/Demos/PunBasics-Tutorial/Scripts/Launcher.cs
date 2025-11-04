@@ -12,7 +12,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Photon.Realtime;
-using UnityEditor;
 
 namespace Photon.Pun.Demo.PunBasics
 {
@@ -42,18 +41,15 @@ namespace Photon.Pun.Demo.PunBasics
 		[SerializeField]
 		private LoaderAnime loaderAnime;
 
-        [SerializeField]
-        //private SceneAsset startLevel;
+		#endregion
 
-        #endregion
-
-        #region Private Fields
-        /// <summary>
-        /// Keep track of the current process. Since connection is asynchronous and is based on several callbacks from Photon, 
-        /// we need to keep track of this to properly adjust the behavior when we receive call back by Photon.
-        /// Typically this is used for the OnConnectedToMaster() callback.
-        /// </summary>
-        bool isConnecting;
+		#region Private Fields
+		/// <summary>
+		/// Keep track of the current process. Since connection is asynchronous and is based on several callbacks from Photon, 
+		/// we need to keep track of this to properly adjust the behavior when we receive call back by Photon.
+		/// Typically this is used for the OnConnectedToMaster() callback.
+		/// </summary>
+		bool isConnecting;
 
 		/// <summary>
 		/// This client's version number. Users are separated from each other by gameVersion (which allows you to make breaking changes).
@@ -219,9 +215,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 				// #Critical
 				// Load the Room Level. 
-				//PhotonNetwork.LoadLevel("PunBasics-Room for 1");
-				//PhotonNetwork.LoadLevel(startLevel.name);
-
+				PhotonNetwork.LoadLevel("PunBasics-Room for 1");
 
 			}
 		}
