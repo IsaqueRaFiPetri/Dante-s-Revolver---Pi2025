@@ -10,11 +10,6 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
     [SerializeField] string roomBaseName;
     [SerializeField] string sceneToLoad;
 
-    private void Awake()
-    {
-        input.text = roomBaseName;
-    }
-
     public void CreateRoom()
     {
         RoomOptions roomOptions = new RoomOptions
