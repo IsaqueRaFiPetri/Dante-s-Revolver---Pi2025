@@ -7,6 +7,7 @@ public class RoomList : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject roomPrefab;
     public List<GameObject> allRooms;
+    /*
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         for(int i = 0; i<allRooms.Count; i++)
@@ -45,5 +46,6 @@ public class RoomList : MonoBehaviourPunCallbacks
             }
         }
     }
+    */
 }
 //https://www.youtube.com/watch?v=GipaiFVyQt0&list=PL_l4pPo5eSc2nHazxm_VjIrURNdWcWQpd&index=4&t=51s&ab_channel=BudGames
