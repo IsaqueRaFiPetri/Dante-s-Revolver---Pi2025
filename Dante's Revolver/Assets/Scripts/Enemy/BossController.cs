@@ -41,7 +41,10 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     }
     void DoMoveset()
     {
-        lastMoveset = movesets[Random.Range(0, movesets.Count)];
+        if(lastMoveset != null)
+        {
+            lastMoveset = movesets[Random.Range(0, movesets.Count)];
+        }
         print("StartedMoveset: " + lastMoveset);
         StartCoroutine(DoingMoveset(lastMoveset.MovesetDuration()));
     }
