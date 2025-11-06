@@ -19,8 +19,12 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
 
     IEnumerator Start()
     {
-        yield return new WaitUntil(() => PhotonNetwork.InRoom);
+        //yield return new WaitUntil(() => PhotonNetwork.InRoom);
 
+        while (!PhotonNetwork.InRoom)
+        {
+            yield return null;
+        }
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
         string roomName = PhotonNetwork.CurrentRoom.Name;
         /*
@@ -30,7 +34,7 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         */
         GameObject prefabToSpawn = playerPrefab;
         
-        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 50, 0), Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 50, 0), Quaternion.identity, 0);
         print(player + "=============================================================================================");
         playerList.Add(player);
         playerIdList.Add(player.GetPhotonView().ViewID);

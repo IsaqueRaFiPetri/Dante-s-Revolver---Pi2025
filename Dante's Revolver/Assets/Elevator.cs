@@ -13,8 +13,11 @@ public class Elevator : MonoBehaviour, IKillable
     {
         _elevatorObj = GetComponentInParent<ElevatorObj>();
 
-        _teleportPos.x = _elevatorPositions[1].position.x - _elevatorPositions[0].position.x;
-        _teleportPos.y = _elevatorPositions[1].position.z - _elevatorPositions[0].position.z;
+        if (_elevatorPositions[0] == null && _elevatorPositions[0] == null)
+        {
+            _teleportPos.x = _elevatorPositions[1].position.x - _elevatorPositions[0].position.x;
+            _teleportPos.y = _elevatorPositions[1].position.z - _elevatorPositions[0].position.z;
+        }
     }
     public GameObject GetGameObject()
     {
