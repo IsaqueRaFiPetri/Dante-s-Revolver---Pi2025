@@ -22,6 +22,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     [Space(20)]
     [SerializeField] protected UnityEvent OnChangePhase;
     [SerializeField] protected UnityEvent OnTakeDamage;
+    [SerializeField] protected UnityEvent OnDie;
 
     private void Start()
     {
@@ -91,7 +92,7 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
         bossLifeBar.fillAmount = UpdateLifeBar();
         if (lifeValue <= 0)
         {
-            PhotonNetwork.Destroy(gameObject);
+            OnDie.Invoke();
             bossLifeBar.fillAmount = 0;
         }
         else
