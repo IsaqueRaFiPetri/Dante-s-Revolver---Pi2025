@@ -14,7 +14,7 @@ public class Cannon : MonoBehaviour
     }
     public void Shoot()
     {
-        _bulletRb = Instantiate(_cannonBullet, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        _bulletRb = PhotonNetwork.Instantiate(_cannonBullet.name, transform.position, transform.rotation).GetComponent<Rigidbody>();
         _bulletRb.AddForce(transform.forward *= _cannonForce, ForceMode.Impulse);
     }
 }
