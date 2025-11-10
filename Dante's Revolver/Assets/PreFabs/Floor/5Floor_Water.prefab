@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3556931107863445466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.212122, y: 12.4, z: -57.62712}
+  m_LocalPosition: {x: 210.1, y: 12.4, z: -10.7}
   m_LocalScale: {x: 15.151516, y: 25, z: 21.186441}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 4654110523559915459}
   - component: {fileID: 5854499432066408882}
   - component: {fileID: 9200405952172723318}
+  - component: {fileID: 5517722279143972340}
+  - component: {fileID: 3993787781899178320}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -141,10 +143,11 @@ Transform:
   m_GameObject: {fileID: 6138786797945073056}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: -0.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.6412}
+  m_LocalPosition: {x: 0, y: -0.96, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5924501644013989209}
   m_Father: {fileID: 4101915965115758898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4654110523559915459
@@ -215,20 +218,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c805ac01a44ff4747b5dfb400f89a43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridResolution: 128
-  gridSize: 710
+  gridResolution: 100
+  gridSize: 1450
   recenterMesh: 1
   waveCount: 4
-  amplitudeMin: 0.2
-  amplitudeMax: 1.2
+  amplitudeMin: 0.4
+  amplitudeMax: 2.4
   wavelengthMin: 8
   wavelengthMax: 30
   speedMin: 1
-  speedMax: 3
-  steepness: 0.6
+  speedMax: 4
+  steepness: 0.795
   randomSeed: 12345
   timeScale: 1
   useUnscaledTime: 0
+--- !u!65 &5517722279143972340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138786797945073056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1461.6385, y: 0, z: 1470.5219}
+  m_Center: {x: 1.3823853, y: 0, z: -1.6355591}
+--- !u!114 &3993787781899178320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138786797945073056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61279ad0b7fd3f4cb955f229c8498f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lava
+  _inpulseForce: 0
+  _lavaDamage: 20
+  _isTeleportLava: 1
+  _revivePoint: {fileID: 0}
 --- !u!1 &6453721569898069821
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,11 +295,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 572, y: 10, z: 244}
-  m_LocalScale: {x: 1.65, y: 1, z: 1.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2653864626343151866}
-  - {fileID: 5924501644013989209}
   - {fileID: 5162841859121970879}
   - {fileID: 7706398882594580998}
   m_Father: {fileID: 0}
@@ -292,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 8902004536403629897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.363636, y: 12.4, z: 29.067787}
+  m_LocalPosition: {x: 171.3, y: 12.4, z: 69.6}
   m_LocalScale: {x: 15.151516, y: 25, z: 21.186441}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -404,11 +443,11 @@ Transform:
   m_GameObject: {fileID: 9151030864376203400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -346.6667, y: -10, z: -221.18645}
-  m_LocalScale: {x: 0.6060606, y: 1, z: 0.84745765}
+  m_LocalPosition: {x: -543, y: -9.04, z: -235}
+  m_LocalScale: {x: 0.6060606, y: 1, z: 1.3216743}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4101915965115758898}
+  m_Father: {fileID: 2653864626343151866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &1381670863923640177
 Terrain:
