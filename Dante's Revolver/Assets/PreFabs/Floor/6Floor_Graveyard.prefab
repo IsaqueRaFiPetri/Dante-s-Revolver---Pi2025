@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3671207033226689335}
   - component: {fileID: 1852859109234125447}
   - component: {fileID: 2814852807868692385}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +171,121 @@ Transform:
   - {fileID: 5785373605176227714}
   m_Father: {fileID: 8951721998652570787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3851356770347581312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3658323005280953253}
+  - component: {fileID: 2349798217779831403}
+  m_Layer: 0
+  m_Name: ExitManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3658323005280953253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851356770347581312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1880215522949863135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2349798217779831403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851356770347581312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482d31e8cda257748937d0dfc150927d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpotManager
+  spotPositions:
+  - {fileID: 9197157770740572573}
+  - {fileID: 1541550336946705944}
+  - {fileID: 8037452342379169860}
+  - {fileID: 3290673818925548847}
+  - {fileID: 4794488980099532701}
+  - {fileID: 7655435703101838544}
+  - {fileID: 1624781882974346003}
+  - {fileID: 3540752824863910524}
+  - {fileID: 7291414142686152450}
+  - {fileID: 9007966842202384120}
+  - {fileID: 3314518875617460482}
+  - {fileID: 8475711758824297134}
+  - {fileID: 4725103544468865969}
+  - {fileID: 4001094823020637893}
+  - {fileID: 804330390311336790}
+  - {fileID: 6150414946213817493}
+  - {fileID: 5073374069631965877}
+  - {fileID: 731644645872059339}
+  - {fileID: 9167227253837386893}
+  - {fileID: 1433726049910783776}
+  - {fileID: 1640500414766322229}
+  - {fileID: 7496433452016722412}
+  - {fileID: 2399119071149369600}
+  - {fileID: 1138323828312510554}
+  - {fileID: 8136690427131261266}
+  - {fileID: 1830474683040594691}
+  - {fileID: 2682350804251339263}
+  - {fileID: 5312533212672054187}
+  - {fileID: 1495758679773728221}
+  - {fileID: 307202298900273991}
+  - {fileID: 6000065697765081045}
+  - {fileID: 6054247384344687612}
+  - {fileID: 737271555751874596}
+  - {fileID: 632079589560046669}
+  - {fileID: 6254373719940706492}
+  - {fileID: 5915397545852059962}
+  - {fileID: 3720774071002460774}
+  - {fileID: 1440286724971835074}
+  - {fileID: 3947748428688628105}
+  - {fileID: 9066340159440916643}
+  - {fileID: 4324941646440479208}
+  - {fileID: 619787777334953784}
+  - {fileID: 2136505626671596186}
+  - {fileID: 6265920495088009007}
+  - {fileID: 8180549423478714320}
+  - {fileID: 6988825287238898966}
+  - {fileID: 6988988190801664233}
+  - {fileID: 6137769990966787500}
+  - {fileID: 4398433952405893579}
+  - {fileID: 2805818156440925091}
+  - {fileID: 1315914407916485879}
+  - {fileID: 1872237733881368776}
+  - {fileID: 500090910394945558}
+  - {fileID: 7158171984594305791}
+  - {fileID: 2756832615093835109}
+  - {fileID: 5205282202141332132}
+  - {fileID: 1907301744378711920}
+  - {fileID: 5557063595549865571}
+  - {fileID: 3909662698162771206}
+  - {fileID: 7542180770257291160}
+  - {fileID: 6406365867829938204}
+  - {fileID: 7432534817322436801}
+  - {fileID: 3693097792670775567}
+  - {fileID: 5042028362764907992}
+  exitSpotPrefab: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
+  sameRowSprite: {fileID: 0}
+  sameColumnSprite: {fileID: 0}
+  neitherSprite: {fileID: 0}
+  neutralSprite: {fileID: 0}
+  hintChance: 0.7
 --- !u!1 &3971934857674131879
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +318,7 @@ Transform:
   - {fileID: 3671207033226689335}
   - {fileID: 8951721998652570787}
   - {fileID: 4336758206886706339}
+  - {fileID: 3658323005280953253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4941802149557462083
@@ -410,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4336758206886706339}
   m_Layer: 0
-  m_Name: Elevator
+  m_Name: ElevatorPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,16 +757,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (30)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8850175378386926963}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &500090910394945558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 106423336564914173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &989523786377087660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 106423336564914173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8850175378386926963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989523786377087660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &127409891745751579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,16 +1085,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8452252935749200846}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &307202298900273991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 272995137206828204}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1083316304256041469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 272995137206828204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8452252935749200846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083316304256041469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &596333329210636209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1021,11 +1189,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (18)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3476933792992882760}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &326497577977400032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 596333329210636209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3476933792992882760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326497577977400032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &1138323828312510554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -1323,11 +1517,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (56)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7110277741574128581}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &27688549918613996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 910632327778114749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7110277741574128581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27688549918613996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &804330390311336790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -1513,11 +1733,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (25)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270121359209430937}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &102600108443769201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 985702900086350880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &270121359209430937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102600108443769201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &731644645872059339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -1591,11 +1837,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (35)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8148511223852384828}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &103723796366051998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 986827008781219791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8148511223852384828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103723796366051998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &737271555751874596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -1669,11 +1941,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (52)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6957401705067723831}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &275349733707193730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1086305180452954323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6957401705067723831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275349733707193730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &619787777334953784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -1747,11 +2045,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (43)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7313751761789321372}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &256223202751024887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1103136119861359526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7313751761789321372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256223202751024887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &632079589560046669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -2161,16 +2485,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7133482873022462877}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1624781882974346003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1226909836274334968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2145879662509506985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1226909836274334968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7133482873022462877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145879662509506985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1247078260206630366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2239,16 +2589,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (49)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3070543359058356248}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1640500414766322229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1247078260206630366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2130179275879827599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1247078260206630366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3070543359058356248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130179275879827599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1328308166052352033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2429,16 +2805,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5742138483570953747}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1541550336946705944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1364052614994129395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2175097271432498338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1364052614994129395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5742138483570953747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175097271432498338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1389564879704402486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2507,16 +2909,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (58)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4340370132232085718}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1495758679773728221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1389564879704402486}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2272576411748177767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1389564879704402486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4340370132232085718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272576411748177767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1437676572775793322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2697,16 +3125,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (41)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7286226517682768868}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1433726049910783776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1472438769618163915}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1778445298752267674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1472438769618163915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7286226517682768868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778445298752267674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1474458666120071465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2775,16 +3229,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (20)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 454854380386565872}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1440286724971835074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1474458666120071465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1780959838987646072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1474458666120071465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &454854380386565872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780959838987646072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1569971023444663068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2853,16 +3333,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3261850810701487208}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &1315914407916485879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 1569971023444663068}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1803904415055111757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1569971023444663068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3261850810701487208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803904415055111757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &1646098184495616378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3043,11 +3549,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (60)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3179497996900503633}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &1652174690544916512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 1886126372273726833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3179497996900503633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652174690544916512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &2136505626671596186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -3345,11 +3877,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (62)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 824962986324141895}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &1239554741581469130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2157964921765128347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &824962986324141895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239554741581469130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &1907301744378711920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -3535,11 +4093,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (22)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6331681662773513537}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &1346671809690634866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2193603976843867939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6331681662773513537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346671809690634866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &1872237733881368776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -3613,11 +4197,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (34)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5069039064429860511}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &1309693902219551161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2228611645398555880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5069039064429860511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309693902219551161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &1830474683040594691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -3803,16 +4413,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (61)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8817475250613937186}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &2805818156440925091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 2412519560776111176}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3295390365127862553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2412519560776111176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8817475250613937186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295390365127862553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &2434342749699076750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3881,16 +4517,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (46)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3702908161844625120}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &2756832615093835109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 2434342749699076750}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3245384511328964575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2434342749699076750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3702908161844625120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245384511328964575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &2458828272302389432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4183,16 +4845,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (42)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 782126692239979967}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &2682350804251339263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 2500384709253467668}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3346824836362154821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2500384709253467668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &782126692239979967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346824836362154821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &2535714068296360421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4821,16 +5509,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2298448829668363140}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &2399119071149369600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 2792754487813754603}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3026615457551053754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 2792754487813754603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2298448829668363140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026615457551053754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &2941168267769365309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5011,11 +5725,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6539459392620373686}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &2801523517492567957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3035543909032862404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6539459392620373686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801523517492567957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &3290673818925548847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -5089,11 +5829,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7576666877388756360}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &2788952989529922488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3059404462846961385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7576666877388756360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788952989529922488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &3314518875617460482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -5615,16 +6381,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (48)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3749542056668316936}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &4001094823020637893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3462150973268543790}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4381279123809301631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3462150973268543790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3749542056668316936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381279123809301631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3549823021099974242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5693,16 +6485,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (28)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5608767040498810203}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &3947748428688628105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3549823021099974242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4432361080243077939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3549823021099974242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5608767040498810203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432361080243077939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3588050584364331757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5771,16 +6589,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (23)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5645827098399182662}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &3909662698162771206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3588050584364331757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4398390859589357500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3588050584364331757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5645827098399182662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398390859589357500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3649967187790443474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5961,16 +6805,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4326509940593845644}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &3720774071002460774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3758360750665012621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4100818699452524764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3758360750665012621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4326509940593845644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100818699452524764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3770404158127886043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6263,16 +7133,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (55)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3376504454320914908}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &3693097792670775567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3803920581302607588}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4038414179455722421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3803920581302607588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3376504454320914908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038414179455722421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3928702050071781225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6453,16 +7349,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3465436196242591032}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &3540752824863910524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 3938959253301366167}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4208780168510648518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 3938959253301366167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3465436196242591032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208780168510648518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &3978091517183222573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6755,11 +7677,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (53)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1902460180227217447}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &3909600344700349297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 4215607971064239648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1902460180227217447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909600344700349297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &4398433952405893579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -6833,11 +7781,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (44)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4659360695126786550}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &3985288951959184210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 4291929337602366979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4659360695126786550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985288951959184210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &4324941646440479208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -7135,16 +8109,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9004376434596886104}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &5073374069631965877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 4747506127316073822}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5558548576007028751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 4747506127316073822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9004376434596886104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5558548576007028751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &4774424866413504467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7325,16 +8325,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (63)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5041238188637460553}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &5042028362764907992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 4787989858108215859}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5670932128569470818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 4787989858108215859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5041238188637460553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5670932128569470818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &4973041813132075126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7403,16 +8429,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5648897947463003575}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &4794488980099532701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 4973041813132075126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5314989729050778919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 4973041813132075126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5648897947463003575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314989729050778919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &5050868203849049178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7481,16 +8533,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (40)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2582531306065738413}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &4725103544468865969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 5050868203849049178}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5393377277779237131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5050868203849049178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2582531306065738413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393377277779237131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &5253303690517918861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7671,11 +8749,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7446659815128879548}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &5068088112663588057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5373953896659833224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7446659815128879548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068088112663588057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &5557063595549865571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -8085,11 +9189,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (50)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3227270730338641353}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &4823980152150558993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5634937384395420736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3227270730338641353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823980152150558993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &5312533212672054187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -8163,11 +9293,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (54)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5217138227911252474}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &4861407344627304478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5743877231901504847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5217138227911252474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861407344627304478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &5205282202141332132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -8353,16 +9509,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (51)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7135838523689478570}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6254373719940706492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 5855038779448350551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6737437193233164806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5855038779448350551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7135838523689478570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737437193233164806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &5872619149618976964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8431,16 +9613,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1219893072049589223}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6265920495088009007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 5872619149618976964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6755071586576835989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5872619149618976964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1219893072049589223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755071586576835989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &5881562278661678551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8621,16 +9829,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (45)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7352869752248504288}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6137769990966787500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 5955733657466296903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6802245117539313430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5955733657466296903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7352869752248504288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802245117539313430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &5967287870823500670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8699,16 +9933,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6662221772569631716}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6150414946213817493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 5967287870823500670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6778332376803292719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 5967287870823500670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6662221772569631716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778332376803292719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &6021234181882680343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8777,16 +10037,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4708174645708030746}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6054247384344687612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 6021234181882680343}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6867656588090648902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 6021234181882680343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4708174645708030746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867656588090648902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &6096529961256127159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8967,16 +10253,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (19)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 524931041831845935}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6000065697765081045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 6110886113582667838}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6345382050211259759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 6110886113582667838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &524931041831845935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345382050211259759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &6162708245425244643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9269,16 +10581,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (59)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7186461649256603584}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &5915397545852059962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 6169104413803128529}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6439133814241008512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 6169104413803128529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7186461649256603584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439133814241008512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &6210437674969533153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10131,11 +11469,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (39)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2707885692573109755}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &6029241816602153638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 6876225516921008119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2707885692573109755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029241816602153638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &6406365867829938204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -10321,16 +11685,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (47)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7424326798373370784}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &7432534817322436801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 6966807438016605994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7813318355985257083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 6966807438016605994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7424326798373370784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813318355985257083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &7097367418462395014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10511,16 +11901,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 536225751659956186}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &7291414142686152450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 7114271216708100329}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7961130675566878136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7114271216708100329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &536225751659956186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961130675566878136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &7267778473586386196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10589,16 +12005,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (38)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7953932866319433988}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &7158171984594305791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 7267778473586386196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7502222725785966661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7267778473586386196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7953932866319433988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502222725785966661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &7345201049038534070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10779,16 +12221,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (37)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1739400648392924992}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6988988190801664233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 7455540715345379074}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7761407596838404691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7455540715345379074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1739400648392924992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761407596838404691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &7455694818553443069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10857,16 +12325,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (29)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 562110342847713677}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &6988825287238898966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 7455694818553443069}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7761561700986523564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7455694818553443069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &562110342847713677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761561700986523564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &7494127421971050415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10935,11 +12429,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7923359746082079139}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &7260107158339195646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7494127421971050415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7923359746082079139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260107158339195646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &8037452342379169860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -11125,11 +12645,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6266471672923351479}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &7022873901051547242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 7905835273245111099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6266471672923351479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022873901051547242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &7655435703101838544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -11203,11 +12749,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (31)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2168743775774354871}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &7197004953972874530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8007835605076189299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2168743775774354871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197004953972874530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &7542180770257291160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -11281,11 +12853,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (57)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2490222153440606212}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &7152699365595790166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8035011059560646151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2490222153440606212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7152699365595790166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &7496433452016722412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -11359,16 +12957,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (32)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4807923043712411301}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &8475711758824297134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 8220616939575162181}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9138954130950359060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8220616939575162181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4807923043712411301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138954130950359060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &8393408403382857691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11549,16 +13173,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8462374670915416714}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &8180549423478714320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 8506630260140591163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8848718909386913130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8506630260140591163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8462374670915416714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848718909386913130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &8549428754351515522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11851,16 +13501,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (26)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4966248178506173653}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
 --- !u!4 &8136690427131261266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
   m_PrefabInstance: {fileID: 8602418069648152249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8908265721499921384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8602418069648152249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4966248178506173653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908265721499921384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!1001 &8658283803674560118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11929,11 +13605,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 900356367425883935}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &8424280998011173671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8658283803674560118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &900356367425883935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424280998011173671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &9197157770740572573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -12007,11 +13709,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (33)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4508079261542986443}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &8391147504958279223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8697068683429458790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4508079261542986443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391147504958279223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &9167227253837386893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -12309,11 +14037,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (36)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6724591819943786181}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &8546087143953779225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8815977877211772744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6724591819943786181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546087143953779225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &9066340159440916643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
@@ -12387,11 +14141,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: elevator (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+    - {fileID: -7511558181221131132, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7646832577355479552}
   m_SourcePrefab: {fileID: 100100000, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+--- !u!1 &8523461080285461570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
+  m_PrefabInstance: {fileID: 8829310782983700755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7646832577355479552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523461080285461570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627275bb26e9154a8532cb290dabe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitSpot
+  hiddenObject: {fileID: 0}
+  hintImage: {fileID: 0}
+  spotButton: {fileID: 0}
+  isExit: 0
 --- !u!4 &9007966842202384120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bef7ca824203944dac4afe0de40d4e7, type: 3}
