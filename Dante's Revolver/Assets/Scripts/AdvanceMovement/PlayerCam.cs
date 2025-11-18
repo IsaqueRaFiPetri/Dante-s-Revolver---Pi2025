@@ -16,6 +16,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     float yRotation;
 
     [SerializeField] Animator playerAnim;
+    [SerializeField] bool _canMoveCamera;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
 
     public void Camera(InputAction.CallbackContext value)
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && _canMoveCamera)
         {
             float mouseX = value.ReadValue<Vector2>().x * sensX;
             float mouseY = value.ReadValue<Vector2>().y * sensY;
@@ -59,5 +60,9 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     public void MoveYCamera(float yPos)
     {
         transform.DOLocalMoveY(yPos, 0.25f);
+    }
+    public void SetCanMoveCamera(bool _canMove)
+    {
+        _canMoveCamera = _canMove;
     }
 }
