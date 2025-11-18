@@ -12,6 +12,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
     public Transform camHolder;
 
     float xRotation;
+    float xMaxRotation = 90;
     float yRotation;
 
     [SerializeField] Animator playerAnim;
@@ -42,7 +43,7 @@ public class PlayerCam : MonoBehaviourPunCallbacks
             camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-            playerAnim.SetFloat("CameraPos", xRotation);
+            playerAnim.SetFloat("CameraPos", xRotation/ xMaxRotation);
         }
     }
 
