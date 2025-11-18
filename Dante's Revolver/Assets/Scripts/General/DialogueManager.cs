@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     [Serializable] public struct DialogueStruct
     {
         public string characterName;
-        public string messageContent;
+        [TextArea] public string messageContent;
         public float messageDelay;
         public UnityEvent OnDialogue;
     }
