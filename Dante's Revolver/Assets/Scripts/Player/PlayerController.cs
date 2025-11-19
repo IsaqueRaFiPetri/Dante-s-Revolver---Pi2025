@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     [SerializeField] Image shieldBarSprite;
     TMP_Text lifeBarText;
     TMP_Text shieldBarText;
-    [SerializeField] UnityEvent OnDeath;
+    [SerializeField] UnityEvent OnDeath, OnTakeDamage;
     [SerializeField] GameObject Grave;
 
     private void Awake()
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     public void TakeDamage(int damage)
     {
         Debug.Log("inimigo atacando");
+
+        OnTakeDamage.Invoke();
         
         if(currentShield > 0)
         {
