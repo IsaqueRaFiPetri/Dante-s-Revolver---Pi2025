@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using System.Collections;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
@@ -286,6 +287,13 @@ public class ProceduralWater : MonoBehaviourPunCallbacks
         n = new Vector3(-nx, 1f, -nz).normalized; // construção típica de normal aproximada
         approxNormal = n;
         return y;
+    }
+    public IEnumerator PauseWater()
+    {
+        yield return new WaitForSeconds(0.1f);
+        this.gameObject.GetComponent<ProceduralWater>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        StopCoroutine(PauseWater());
     }
 
 #if UNITY_EDITOR
