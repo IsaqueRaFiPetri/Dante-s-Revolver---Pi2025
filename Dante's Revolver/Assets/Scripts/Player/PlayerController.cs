@@ -49,7 +49,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         
         if(currentShield > 0)
         {
-            currentShield -= damage;
+            if(damage > currentShield)
+            {
+                int remainDamage;
+                remainDamage = damage -= (int)currentShield;
+                currentLife -= damage;
+                currentShield = 0;
+            }
+            else
+            {
+                currentShield -= damage;
+            }
+            SetStatsBar(lifeBarSprite, lifeBarText, maxLife, currentLife);
             SetStatsBar(shieldBarSprite, shieldBarText, maxShield, currentShield);
         }
         else
