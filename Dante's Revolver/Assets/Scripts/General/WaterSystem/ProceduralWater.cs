@@ -93,7 +93,7 @@ public class ProceduralWater : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.TryGetValue(ROOM_KEY, out object boxed))
         {
@@ -106,7 +106,7 @@ public class ProceduralWater : MonoBehaviourPunCallbacks
 
     private void PublishRoomWaterParams(int seed)
     {
-        var ht = new Hashtable { { ROOM_KEY, seed } };
+        var ht = new ExitGames.Client.Photon.Hashtable { { ROOM_KEY, seed } };
         PhotonNetwork.CurrentRoom.SetCustomProperties(ht);
     }
 
