@@ -7,6 +7,7 @@ public class Lava : MonoBehaviour
     [SerializeField] int _lavaDamage;
     [SerializeField] bool _isTeleportLava;
     [SerializeField] Transform _revivePoint;
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent(out Rigidbody _rb))

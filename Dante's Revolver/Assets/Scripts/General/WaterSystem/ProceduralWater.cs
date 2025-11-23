@@ -79,7 +79,10 @@ public class ProceduralWater : MonoBehaviourPunCallbacks
             // Offline/Singleplayer: usa seed local serializeField
             ApplySeed(randomSeed);
         }
+
+        StartCoroutine(PauseWater());
     }
+
 
     public override void OnJoinedRoom()
     {
