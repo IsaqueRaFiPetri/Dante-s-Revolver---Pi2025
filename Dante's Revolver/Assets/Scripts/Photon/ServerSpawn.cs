@@ -7,6 +7,7 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
 {
     public List<GameObject> playerList;
     public List<int> playerIdList;
+    [SerializeField] Transform[] _spawnPoints;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject deadPlayerPrefab;
 
@@ -27,14 +28,12 @@ public class ServerSpawn : MonoBehaviourPunCallbacks
         }
         int actorId = PhotonNetwork.LocalPlayer.ActorNumber;
         string roomName = PhotonNetwork.CurrentRoom.Name;
-        /*
         bool shouldSpawnDead =
             DisconectManager.intentionallyLeftPlayers.ContainsKey(roomName) &&
             DisconectManager.intentionallyLeftPlayers[roomName].Contains(actorId);
-        */
         GameObject prefabToSpawn = playerPrefab;
         
-        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 50, 0), Quaternion.identity, 0);
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, _spawnPoints[playerList.Count].position, Quaternion.identity, 0);
         print(player + "=============================================================================================");
         playerList.Add(player);
         playerIdList.Add(player.GetPhotonView().ViewID);
