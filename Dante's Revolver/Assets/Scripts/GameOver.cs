@@ -23,13 +23,11 @@ public class GameOver : MonoBehaviour
             print("Phantoms: " + _phantonsInGame.Count);
         }
     }
-    [PunRPC]
     public void AddToDeathList(GameObject _phantom)
     {
         _phantonsInGame.Add(_phantom);
         DetectGameOver();
     }
-    [PunRPC]
     public void RemoveFromDeathList(GameObject _phantom)
     {
         _phantonsInGame.Remove(_phantom);

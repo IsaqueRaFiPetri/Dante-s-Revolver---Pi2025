@@ -8,9 +8,9 @@ public class PhantomMode : MonoBehaviour
     public void isInReviveArea(Vector3 _pos)
     {
         print("revive");
+        GameOver.instance.RemoveFromDeathList(_grave);
         PhotonNetwork.Instantiate(playerBody.name, _pos, Quaternion.identity).GetComponentInChildren<Camera>().enabled = true;
         PhotonNetwork.Destroy(gameObject);
-        GameOver.instance.gameObject.GetPhotonView().RPC("RemoveFromDeathList", RpcTarget.AllBuffered, _grave);
         
     }
 }
