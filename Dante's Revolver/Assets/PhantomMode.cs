@@ -9,5 +9,6 @@ public class PhantomMode : MonoBehaviour
         print("revive");
         PhotonNetwork.Instantiate(playerBody.name, _pos, Quaternion.identity).GetComponentInChildren<Camera>().enabled = true;
         PhotonNetwork.Destroy(gameObject);
+        GameOver.instance.RemoveFromDeathList(this);
     }
 }

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
     [SerializeField] float maxLife;
     [SerializeField] float currentShield;
     [SerializeField] float maxShield;
+    [SerializeField] PhantomMode _phantomMode;
     [Space(5)]
     [Header("Layout")]
     [SerializeField] Image lifeBarSprite;
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
             OnDeath.Invoke();
             PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
             PhotonNetwork.Destroy(gameObject);
+            GameOver.instance.AddToDeathList(_phantomMode);
         }
     }
     public void RegenLife(float regenValue, bool isLife)

@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class GameOver : MonoBehaviour
+{
+    public static GameOver instance;
+    [SerializeField] UnityEvent OnGameOver;
+    [SerializeField] List<PhantomMode> _phantonsInGame;
+    private void Awake()
+    {
+        instance = this;
+    }
+    void DetectGameOver()
+    {
+        if (_phantonsInGame.Count >= 2)
+        {
+            OnGameOver.Invoke();
+            print("GameOver========================");
+        }
+        else
+        {
+            print("Phantoms: " + _phantonsInGame.Count);
+        }
+    }
+    public void AddToDeathList(PhantomMode _phantom)
+    {
+        _phantonsInGame.Add(_phantom);
+        DetectGameOver();
+    }
+    public void RemoveFromDeathList(PhantomMode _phantom)
+    {
+        _phantonsInGame.Remove(_phantom);
+    }
+
+}
