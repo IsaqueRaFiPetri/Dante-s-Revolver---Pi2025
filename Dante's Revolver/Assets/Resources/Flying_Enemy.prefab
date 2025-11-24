@@ -202,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 330343660095446379}
   - component: {fileID: 2721127621566575555}
-  - component: {fileID: 4551238263940963421}
   - component: {fileID: 1616050193741378366}
   m_Layer: 0
   m_Name: Torso_U
@@ -363,28 +362,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000000013969839, y: -0.0017570596, z: -0.0005993722}
     m_Extent: {x: 0.014367124, y: 0.005203904, z: 0.011034476}
   m_DirtyAABB: 0
---- !u!95 &4551238263940963421
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555177671227037587}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40e391ac38037284682a406125f1b4b4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1616050193741378366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,6 +2164,8 @@ GameObject:
   - component: {fileID: 7995954493743224085}
   - component: {fileID: 3960200668378931428}
   - component: {fileID: 8151120699917630085}
+  - component: {fileID: 8663321403729068102}
+  - component: {fileID: 3217974593134224768}
   m_Layer: 0
   m_Name: Flying_Enemy
   m_TagString: Untagged
@@ -2279,7 +2258,7 @@ MonoBehaviour:
   OnAttack:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4551238263940963421}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
         m_Mode: 5
@@ -2298,7 +2277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 2
-  anim: {fileID: 4551238263940963421}
+  anim: {fileID: 8663321403729068102}
   playerTransform: {fileID: 0}
   vision: {fileID: 6038528223589490436}
   projectil: {fileID: 5403339314352650801, guid: 5781017971fb34f4f843b45fe8f8ed55, type: 3}
@@ -2323,7 +2302,9 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 8151120699917630085}
-  sceneViewId: 0
+  - {fileID: 3217974593134224768}
+  - {fileID: 1616050193741378366}
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &8151120699917630085
@@ -2342,6 +2323,52 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!95 &8663321403729068102
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345266067616036691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40e391ac38037284682a406125f1b4b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3217974593134224768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345266067616036691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonAnimatorView
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsChasing
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &8419404742273202559
 GameObject:
   m_ObjectHideFlags: 0
