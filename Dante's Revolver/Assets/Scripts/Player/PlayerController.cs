@@ -72,9 +72,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
         if (currentLife <= 0 && photonView.IsMine)
         {
             OnDeath.Invoke();
-            PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
-            GameOver.instance.AddToDeathList(Grave);
-            GameOver.instance.gameObject.GetPhotonView().RPC("AddToDeathList", RpcTarget.AllBuffered, Grave);
+            GameOver.instance.gameObject.GetPhotonView().RPC("AddToDeathList", RpcTarget.AllBuffered, PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity));
             PhotonNetwork.Destroy(gameObject);
         }
     }
