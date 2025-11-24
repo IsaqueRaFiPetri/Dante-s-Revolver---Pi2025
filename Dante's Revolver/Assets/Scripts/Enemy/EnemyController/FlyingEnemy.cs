@@ -13,7 +13,6 @@ public class FlyingEnemy : EnemyController, ILauncher
 
     private void Start()
     {
-        // INICIAR a corrotina de disparo
         StartCoroutine(Shooting());
     }
 
@@ -52,15 +51,13 @@ public class FlyingEnemy : EnemyController, ILauncher
         }
     }
 
-    // CORROTINA CORRIGIDA - estava faltando iniciar
     IEnumerator Shooting()
     {
-        while (true) // Loop infinito para disparar continuamente
+        while (true)
         {
             if (hasFoundPlayer)
             {
                 Shoot(projectil);
-                // Chamar animação de ataque se existir
                 if (anim != null)
                 {
                     anim.SetTrigger("Attack");
@@ -70,12 +67,12 @@ public class FlyingEnemy : EnemyController, ILauncher
         }
     }
 
-    // SOBRESCREVER o método Walk para adicionar comportamentos específicos do inimigo voador
+
     protected new void Walk()
     {
         if (playerTransform == null)
         {
-            // Parar animação se não há jogador
+
             if (anim != null)
             {
                 anim.SetBool("IsChasing", false);
@@ -83,13 +80,12 @@ public class FlyingEnemy : EnemyController, ILauncher
             return;
         }
 
-        // Chamar o Walk da classe base
+
         base.Walk();
 
-        // Comportamentos adicionais específicos para FlyingEnemy
+
         float distance = Vector3.Distance(playerTransform.position, transform.position);
 
-        // Ativar animação de perseguição
         if (anim != null)
         {
             anim.SetBool("IsChasing", distance <= range && distance > 2f);
