@@ -1409,6 +1409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3567459669105875693}
+  - {fileID: 6038528223589490436}
   m_Father: {fileID: 4687229763496352354}
   m_LocalEulerAnglesHint: {x: -88.17693, y: 0, z: 0}
 --- !u!65 &4238276551772563763
@@ -2245,12 +2246,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2ba111ef233814d8c5474a0d4d2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
-  vision: {fileID: 1534557508410235565}
+  vision: {fileID: 6038528223589490436}
   enemyStats: {fileID: 11400000, guid: ffbdde688affb61449cfd3de7bf5083a, type: 2}
   range: 30
   OnAttack:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4551238263940963421}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: FlyingEnemy_Attack
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDamageTake:
     m_PersistentCalls:
       m_Calls: []
@@ -2260,9 +2273,40 @@ MonoBehaviour:
   cooldown: 2
   anim: {fileID: 4551238263940963421}
   playerTransform: {fileID: 0}
-  vision: {fileID: 0}
+  vision: {fileID: 1534557508410235565}
   projectil: {fileID: 5403339314352650801, guid: 5781017971fb34f4f843b45fe8f8ed55, type: 3}
   weaponsStats: {fileID: 11400000, guid: 3578efe361bf6ce49b2abd08e554b0e1, type: 2}
+--- !u!1 &8419404742273202559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6038528223589490436}
+  m_Layer: 0
+  m_Name: Vision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6038528223589490436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419404742273202559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00795, z: 0.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1534557508410235565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8478747647534463238
 GameObject:
   m_ObjectHideFlags: 0
