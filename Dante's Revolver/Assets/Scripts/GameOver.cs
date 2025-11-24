@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class GameOver : MonoBehaviourPunCallbacks
 {
     public static GameOver instance;
-    public bool _isOneDead;
+    [SerializeField] bool _isOneDead;
     [SerializeField] UnityEvent OnGameOver;
     private void Awake()
     {
@@ -23,6 +23,11 @@ public class GameOver : MonoBehaviourPunCallbacks
         {
             print("NAAAADAAAAAAAAAAAA");
         }
+    }
+    [PunRPC]
+    public bool SetIsOneDead(bool _isDead)
+    {
+        return _isOneDead = _isDead;
     }
 
 }
