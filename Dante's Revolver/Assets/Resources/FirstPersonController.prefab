@@ -5835,6 +5835,7 @@ MonoBehaviour:
   maxLife: 100
   currentShield: 100
   maxShield: 100
+  _phantomMode: {fileID: 0}
   lifeBarSprite: {fileID: 1267834558620609959}
   shieldBarSprite: {fileID: 1723353821257393745}
   OnDeath:
@@ -7776,6 +7777,7 @@ GameObject:
   - component: {fileID: 2818719733079432591}
   - component: {fileID: 586534757251930244}
   - component: {fileID: 2297570212224990323}
+  - component: {fileID: 5198890231179617583}
   m_Layer: 0
   m_Name: DamageVolume
   m_TagString: Untagged
@@ -7837,6 +7839,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5198890231179617583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066484518085239916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonAnimatorView
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: Damage
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &6157715275198403965
 GameObject:
   m_ObjectHideFlags: 0
@@ -17873,7 +17896,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: IsWall-Running
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: CameraPos
   m_SynchronizeLayers:
   - SynchronizeType: 0
