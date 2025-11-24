@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 330343660095446379}
   - component: {fileID: 2721127621566575555}
   - component: {fileID: 4551238263940963421}
+  - component: {fileID: 1616050193741378366}
   m_Layer: 0
   m_Name: Torso_U
   m_TagString: Untagged
@@ -384,6 +385,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1616050193741378366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555177671227037587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonAnimatorView
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsChasing
+  - Type: 9
+    SynchronizeType: 2
+    Name: Attack
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &821410153420339539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,6 +2185,8 @@ GameObject:
   - component: {fileID: 5646954432931856596}
   - component: {fileID: 5175581089335214086}
   - component: {fileID: 7995954493743224085}
+  - component: {fileID: 3960200668378931428}
+  - component: {fileID: 8151120699917630085}
   m_Layer: 0
   m_Name: Flying_Enemy
   m_TagString: Untagged
@@ -2273,9 +2300,48 @@ MonoBehaviour:
   cooldown: 2
   anim: {fileID: 4551238263940963421}
   playerTransform: {fileID: 0}
-  vision: {fileID: 1534557508410235565}
+  vision: {fileID: 6038528223589490436}
   projectil: {fileID: 5403339314352650801, guid: 5781017971fb34f4f843b45fe8f8ed55, type: 3}
   weaponsStats: {fileID: 11400000, guid: 3578efe361bf6ce49b2abd08e554b0e1, type: 2}
+--- !u!114 &3960200668378931428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345266067616036691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 8151120699917630085}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8151120699917630085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345266067616036691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonTransformView
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &8419404742273202559
 GameObject:
   m_ObjectHideFlags: 0
