@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     RaycastHit hit;
     [SerializeField] Rigidbody body;
     Vector3 moveDirection;
-    float moveSpeed;
+    float moveSpeed = 15;
     float _distance;
 
     [SerializeField] Transform vision;
