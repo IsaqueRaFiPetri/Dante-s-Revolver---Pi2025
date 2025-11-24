@@ -24,5 +24,9 @@ public class SetIsMine : MonoBehaviourPunCallbacks
                     break;
             }
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
