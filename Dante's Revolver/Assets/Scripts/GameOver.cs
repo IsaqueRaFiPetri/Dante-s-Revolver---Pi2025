@@ -6,7 +6,7 @@ public class GameOver : MonoBehaviour
 {
     public static GameOver instance;
     [SerializeField] UnityEvent OnGameOver;
-    [SerializeField] List<PhantomMode> _phantonsInGame;
+    [SerializeField] List<GameObject> _phantonsInGame;
     private void Awake()
     {
         instance = this;
@@ -23,12 +23,12 @@ public class GameOver : MonoBehaviour
             print("Phantoms: " + _phantonsInGame.Count);
         }
     }
-    public void AddToDeathList(PhantomMode _phantom)
+    public void AddToDeathList(GameObject _phantom)
     {
         _phantonsInGame.Add(_phantom);
         DetectGameOver();
     }
-    public void RemoveFromDeathList(PhantomMode _phantom)
+    public void RemoveFromDeathList(GameObject _phantom)
     {
         _phantonsInGame.Remove(_phantom);
     }
