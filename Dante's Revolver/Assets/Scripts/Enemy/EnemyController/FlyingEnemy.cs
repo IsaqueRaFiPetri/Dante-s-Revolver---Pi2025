@@ -70,25 +70,6 @@ public class FlyingEnemy : EnemyController, ILauncher
 
     protected new void Walk()
     {
-        if (playerTransform == null)
-        {
-
-            if (anim != null)
-            {
-                anim.SetBool("IsChasing", false);
-            }
-            return;
-        }
-
-
         base.Walk();
-
-
-        float distance = Vector3.Distance(playerTransform.position, transform.position);
-
-        if (anim != null)
-        {
-            anim.SetBool("IsChasing", distance <= range && distance > 2f);
-        }
     }
 }

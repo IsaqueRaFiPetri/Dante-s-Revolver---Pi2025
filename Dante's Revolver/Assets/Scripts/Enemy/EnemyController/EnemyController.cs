@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 {
     List<Transform> players;
     RaycastHit hit;
-    Rigidbody body;
+    [SerializeField] Rigidbody body;
     Vector3 moveDirection;
     float moveSpeed;
     float _distance;
