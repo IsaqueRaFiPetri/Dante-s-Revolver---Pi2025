@@ -12290,6 +12290,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 533040392777164710}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: FlyingEnemy_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995954493743224085, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8345266067616036691, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
       propertyPath: m_Name
       value: Flying_Enemy
@@ -12299,6 +12331,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+--- !u!95 &533040392777164710 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4551238263940963421, guid: 0db3ffebcbdec4440bc585cff990316e, type: 3}
+  m_PrefabInstance: {fileID: 533040392777164709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450652871024391
 Transform:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     [SerializeField] Transform vision;
     [SerializeField] protected Stats enemyStats;
-    [SerializeField] float range;
+    public float range;
     [SerializeField] protected UnityEvent OnAttack, OnDamageTake, OnDeath;
     [SerializeField] float cooldown = 2f;
 
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviourPunCallbacks, IKillable, ILifeable
     float lifeValue;
     Transform player;
 
-    [SerializeField] Animator anim;
+    public Animator anim;
 
     private void Start()
     {
