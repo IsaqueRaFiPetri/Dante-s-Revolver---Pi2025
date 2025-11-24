@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IKillable, IRegenerab
             OnDeath.Invoke();
             PhotonNetwork.Instantiate(Grave.name, transform.position, Quaternion.identity);
             GameOver.instance.AddToDeathList(Grave);
+            GameOver.instance.gameObject.GetPhotonView().RPC("AddToDeathList", RpcTarget.AllBuffered, Grave);
             PhotonNetwork.Destroy(gameObject);
         }
     }
