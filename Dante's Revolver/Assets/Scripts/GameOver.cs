@@ -2,35 +2,27 @@ using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class GameOver : MonoBehaviour
+public class GameOver : MonoBehaviourPunCallbacks
 {
     public static GameOver instance;
+    public bool _isOneDead;
     [SerializeField] UnityEvent OnGameOver;
-    [SerializeField] List<GameObject> _phantonsInGame;
     private void Awake()
     {
         instance = this;
     }
-    void DetectGameOver()
+    [PunRPC]
+    public void DetectGameOver()
     {
-        if (_phantonsInGame.Count >= 2)
+        if (_isOneDead)
         {
             OnGameOver.Invoke();
-            print("GameOver========================");
+            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==================================================");
         }
         else
         {
-            print("Phantoms: " + _phantonsInGame.Count);
+            print("NAAAADAAAAAAAAAAAA");
         }
-    }
-    public void AddToDeathList(GameObject _phantom)
-    {
-        _phantonsInGame.Add(_phantom);
-        DetectGameOver();
-    }
-    public void RemoveFromDeathList(GameObject _phantom)
-    {
-        _phantonsInGame.Remove(_phantom);
     }
 
 }
