@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Floor1ElevatorLobby : MonoBehaviourPunCallbacks
 {
-    [SerializeField] bool _onePlayerEntered;
+    public bool _onePlayerEntered;
     [SerializeField] UnityEvent OnAllPlayersEntered;
     private void Start()
     {
@@ -19,6 +19,7 @@ public class Floor1ElevatorLobby : MonoBehaviourPunCallbacks
         }
         else
         {
+            print("DetectEntering");
             OnAllPlayersEntered.Invoke();
         }
     }
