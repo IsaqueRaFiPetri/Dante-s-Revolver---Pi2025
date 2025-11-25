@@ -183,22 +183,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2752539323001817892, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752539323001817892, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 743976421}
-    - target: {fileID: 2752539323001817892, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Rotation
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752539323001817892, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RotationValueChange, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3205268756375831435, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: sceneViewId
       value: 4
@@ -214,14 +198,6 @@ PrefabInstance:
     - target: {fileID: 4587754174373442582, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: sceneViewId
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 5002148664404161569, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 743976422}
-    - target: {fileID: 5002148664404161569, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Rotation
       objectReference: {fileID: 0}
     - target: {fileID: 5082065616234582172, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: sceneViewId
@@ -263,28 +239,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
---- !u!114 &743976421 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 784153488707111900, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-  m_PrefabInstance: {fileID: 743976420}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3187c5a87e637ae4089a9156c57c2939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotationValueChange
---- !u!114 &743976422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3567910348577938390, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
-  m_PrefabInstance: {fileID: 743976420}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3187c5a87e637ae4089a9156c57c2939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotationValueChange
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
