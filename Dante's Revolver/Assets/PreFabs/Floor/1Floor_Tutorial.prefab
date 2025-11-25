@@ -29608,6 +29608,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897607983489757147, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897607983489757147, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
       propertyPath: isInitialElevator
       value: 1
       objectReference: {fileID: 0}
@@ -29657,10 +29661,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2054489347518670388}
+      addedObject: {fileID: 4548109759714167598}
     - targetCorrespondingSourceObject: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4548109759714167598}
+      addedObject: {fileID: 914035370364071777}
   m_SourcePrefab: {fileID: 100100000, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
 --- !u!4 &1108342673472767312 stripped
 Transform:
@@ -29682,7 +29686,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6776811790308741670, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
   m_PrefabInstance: {fileID: 355332654953357970}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2054489347518670388
+--- !u!114 &4548109759714167598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29691,11 +29695,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 6548927932639703220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a9505770de01344f8533f2c81fcc592, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Floor1ElevatorLobby
-  _onePlayerEntered: 0
-  OnAllPlayersEntered:
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &914035370364071777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548927932639703220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383bed8ec598df549af897cc5b9a3765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PressurePlateTwoPeople
+  _pvList: []
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 914035370364071777}
+        m_TargetAssemblyTypeName: PressurePlateTwoPeople, Assembly-CSharp
+        m_MethodName: DetectPlayers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUnclick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAllPlayersClicking:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3736290333468684925}
@@ -29722,28 +29766,29 @@ MonoBehaviour:
           m_StringArgument: Bem vindos ao Piso 1
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4548109759714167598
+      - m_Target: {fileID: 9193186572990762313}
+        m_TargetAssemblyTypeName: ElevatorObj, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bem vindos ao Piso 1
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &9193186572990762313 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8897607983489757147, guid: a7ae74121593f654bbd754a0f9dbf703, type: 3}
+  m_PrefabInstance: {fileID: 355332654953357970}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6548927932639703220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a4cde04c4aeadb4f8cc50a7f257d964, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
+  m_EditorClassIdentifier: 
 --- !u!1001 &462876252612603512
 PrefabInstance:
   m_ObjectHideFlags: 0
