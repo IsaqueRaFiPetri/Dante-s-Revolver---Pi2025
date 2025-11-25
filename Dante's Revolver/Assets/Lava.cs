@@ -7,6 +7,7 @@ public class Lava : MonoBehaviour
     [SerializeField] int _lavaDamage;
     [SerializeField] bool _isTeleportLava;
     [SerializeField] Transform _revivePoint;
+    Collision _collision;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +15,9 @@ public class Lava : MonoBehaviour
         {
             if (_isTeleportLava)
             {
-                _rb.transform.DOMove(_revivePoint.position, .25f).SetEase(Ease.InCubic);
+                collision.collider.enabled = false;
+                _collision = collision;
+                _rb.DOMove(_revivePoint.position, .25f).SetEase(Ease.InCubic).OnComplete(ActiveCollision);
             }
             else
             {
@@ -25,5 +28,10 @@ public class Lava : MonoBehaviour
                 }
             }
         }
+    }
+    void ActiveCollision()
+    {
+        _collision.collider.enabled = true;
+        _collision = null;
     }
 }
