@@ -37,6 +37,7 @@ public class Revive : MonoBehaviour
         if(_isPlayerIn && _isSoulIn)
         {
             _phantomPlayer.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }
