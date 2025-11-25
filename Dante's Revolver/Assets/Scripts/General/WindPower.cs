@@ -7,7 +7,7 @@ public class WindPower : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.TryGetComponent(out Rigidbody _rb))
+        if (other.TryGetComponent(out Rigidbody _rb))
         {
             _rb.AddForce(transform.forward * windForce, ForceMode.Acceleration);
         }
