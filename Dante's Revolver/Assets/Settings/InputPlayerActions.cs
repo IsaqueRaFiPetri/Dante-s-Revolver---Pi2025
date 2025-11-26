@@ -433,7 +433,7 @@ namespace InputPlayer
                 {
                     ""name"": """",
                     ""id"": ""fea97d1a-f21c-4f70-893d-cf7f3ee62bfb"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

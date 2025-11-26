@@ -9,11 +9,18 @@ public class ElevatorObj : MonoBehaviour
     [SerializeField] List<Rigidbody> _objInsideElevator;
     [SerializeField] List<PlayerMovementAdvanced> _players;
     [SerializeField] UnityEvent OnStart, OnCloseElevatorDoor;
+    private void OnEnable()
+    {
+        if (isInitialElevator)
+        {
+            gameObject.SetActive(true);
+        }
+    }
     private void OnBecameInvisible()
     {
         if (isInitialElevator)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     private void Start()
