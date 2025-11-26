@@ -35,14 +35,14 @@ public class Revive : MonoBehaviourPunCallbacks
         }
     }
     [PunRPC]
-    public bool SetBoolTrue(bool _bool)
+    public bool SetSoul(bool _soul)
     {
-        return _bool = true;
+        return _isSoulIn = _soul;
     }
     [PunRPC]
-    public bool SetBoolFalse(bool _bool)
+    public bool SetHuman(bool _human)
     {
-        return _bool = false;
+        return _isPlayerIn = _human;
     }
 
     void DetectPlayers()
