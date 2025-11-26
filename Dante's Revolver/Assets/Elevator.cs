@@ -30,7 +30,9 @@ public class Elevator : MonoBehaviour, IKillable
         print("teleported");
         for (int i = 0; i < _elevatorObj.GetPlayers().Count; i++)
         {
+            _elevatorObj.GetPlayers()[i].GetComponent<Collider>().enabled = false;
             _elevatorObj.GetPlayers()[i].MovePosition(new Vector3 (_elevatorObj.GetPlayers()[i].transform.position.x + _teleportPos.x, _elevatorObj.GetPlayers()[i].transform.position.y, _elevatorObj.GetPlayers()[i].transform.position.z + _teleportPos.y));
+            _elevatorObj.GetPlayers()[i].GetComponent<Collider>().enabled = true;
         }
     }
 }
