@@ -12,13 +12,13 @@ public class Revive : MonoBehaviourPunCallbacks
         if(other.TryGetComponent(out PhantomMode _playerPhantom))
         {
             _phantomPlayer = _playerPhantom;
-            photonView.RPC("SetBoolTrue", RpcTarget.AllBuffered, _isSoulIn);
+            photonView.RPC("SetSoul", RpcTarget.AllBuffered, true);
             print("AAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
         if(other.TryGetComponent(out PlayerController _playerObj))
         {
             _isPlayerIn = true;
-            photonView.RPC("SetBoolTrue", RpcTarget.AllBuffered, _isPlayerIn);
+            photonView.RPC("SetHuman", RpcTarget.AllBuffered, true);
         }
         DetectPlayers();
     }
@@ -27,11 +27,11 @@ public class Revive : MonoBehaviourPunCallbacks
         if (other.TryGetComponent(out PhantomMode _playerPhantom))
         {
             _phantomPlayer = null;
-            photonView.RPC("SetBoolFalse", RpcTarget.AllBuffered, _isSoulIn);
+            photonView.RPC("SetSoul", RpcTarget.AllBuffered, false);
         }
         if (other.TryGetComponent(out PlayerController _playerObj))
         {
-            photonView.RPC("SetBoolFalse", RpcTarget.AllBuffered,_isPlayerIn);
+            photonView.RPC("SetHuman", RpcTarget.AllBuffered, false);
         }
     }
     [PunRPC]
