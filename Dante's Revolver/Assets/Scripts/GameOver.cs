@@ -17,6 +17,8 @@ public class GameOver : MonoBehaviourPunCallbacks
         if (_isOneDead)
         {
             OnGameOver.Invoke();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==================================================");
         }
         else
