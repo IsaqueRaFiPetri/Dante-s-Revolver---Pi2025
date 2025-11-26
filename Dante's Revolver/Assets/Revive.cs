@@ -13,6 +13,7 @@ public class Revive : MonoBehaviourPunCallbacks
         {
             _phantomPlayer = _playerPhantom;
             photonView.RPC("SetBoolTrue", RpcTarget.AllBuffered, _isSoulIn);
+            print("AAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
         if(other.TryGetComponent(out PlayerController _playerObj))
         {
