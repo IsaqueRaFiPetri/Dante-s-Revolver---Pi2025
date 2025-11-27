@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoleCounter
   layerToFind: 8
+  _layerManager: {fileID: 0}
   OnEnemyEntered:
     m_PersistentCalls:
       m_Calls:
@@ -29373,6 +29374,8 @@ GameObject:
   - component: {fileID: 2406080806097787960}
   - component: {fileID: 8001004070900746862}
   - component: {fileID: 5689531521087972620}
+  - component: {fileID: 2552155278952625759}
+  - component: {fileID: 6930809155461366053}
   m_Layer: 0
   m_Name: GlassJail
   m_TagString: Untagged
@@ -29496,6 +29499,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2552155278952625759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598984464334330287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonAnimatorView
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &6930809155461366053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598984464334330287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2552155278952625759}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6668454860790509089
 GameObject:
   m_ObjectHideFlags: 0
@@ -30742,6 +30786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoleCounter
   layerToFind: 8
+  _layerManager: {fileID: 0}
   OnEnemyEntered:
     m_PersistentCalls:
       m_Calls:
@@ -34048,6 +34093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoleCounter
   layerToFind: 8
+  _layerManager: {fileID: 0}
   OnEnemyEntered:
     m_PersistentCalls:
       m_Calls:
@@ -34430,6 +34476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448578597033038984}
+  - component: {fileID: 9073260350563395543}
   m_Layer: 0
   m_Name: ActiveElevator
   m_TagString: Untagged
@@ -34454,6 +34501,28 @@ Transform:
   - {fileID: 2247945232631688536}
   m_Father: {fileID: 110128826350918431}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9073260350563395543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400102279307107598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8416152774473765705
 GameObject:
   m_ObjectHideFlags: 0
