@@ -26,21 +26,23 @@ public class BossController : MonoBehaviourPunCallbacks, IKillable, ILifeable
 
     private void Start()
     {
-        DoAction();
+        photonView.RPC("DoAction", RpcTarget.AllBuffered);
     }
+    [PunRPC]
     public void DoAction()
     {
         switch (bossPhase)
         {
             case BossPhase.OnMoveset:
-                DoMoveset();
+                photonView.RPC("DoMoveset", RpcTarget.AllBuffered);
                 break;
             case BossPhase.OnSleeping:
                 StartCoroutine(Sleeping());
                 break;
         }
     }
-    void DoMoveset()
+    [PunRPC]
+    public void DoMoveset()
     {
         if(lastMoveset != null)
         {

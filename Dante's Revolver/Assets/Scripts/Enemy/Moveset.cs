@@ -39,7 +39,7 @@ public class Moveset : MonoBehaviour
     }
     public void SetMoveAnimation()
     {
-        transform.DOLocalMove(_startPos, _animationTime).onComplete = SetActive;
+        transform.DOLocalMove(_startPos, _animationTime).OnComplete(SetActive);
     }
     void SetActive()
     {

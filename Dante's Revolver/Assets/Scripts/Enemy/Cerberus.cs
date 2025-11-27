@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using Photon.Pun;
 public class Cerberus : BossController
 {
     public enum Appearing
@@ -11,6 +11,7 @@ public class Cerberus : BossController
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Transform[] _positions;
     [SerializeField] UnityEvent OnAppear, OnDisappear;
+    [PunRPC]
     public void DetectPhase()
     {
         switch (bossPhase)
@@ -24,29 +25,31 @@ public class Cerberus : BossController
                 OnAppear.Invoke();
                 break;
         }
-        SetIsAppearing();
+        photonView.RPC("SetIsAppearing", RpcTarget.AllBuffered);
     }
+    [PunRPC]
     public void InvertState()
     {
-        ChangeBossPhase();
+        photonView.RPC("ChangeBossPhase", RpcTarget.AllBuffered);
         lastMoveset = null;
-        DetectPhase();
-        DoAction();
+        photonView.RPC("DetectPhase", RpcTarget.AllBuffered);
+        photonView.RPC("DoAction", RpcTarget.AllBuffered);
     }
-    void SetIsAppearing()
+    [PunRPC]
+    public void SetIsAppearing()
     {
         switch (appearing)
         {
             case Appearing.IsAppearing:
-
-                SetRandomPos();
+                photonView.RPC("SetRandomPos", RpcTarget.AllBuffered);
                 break;
             case Appearing.IsNotAppearing:
 
                 break;
         }
     }
-    void SetRandomPos()
+    [PunRPC]
+    public void SetRandomPos()
     {
         transform.position = _positions[Random.Range(0, _positions.Length)].position;
     }
