@@ -540,6 +540,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4115146914947283487, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: _layerManager
+      value: 
+      objectReference: {fileID: 743976423}
+    - target: {fileID: 4115146914947283487, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: OnEnemyEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4164944052664977796, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -623,6 +631,22 @@ PrefabInstance:
     - target: {fileID: 5369637737075933630, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: sceneViewId
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434787900446381868, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: _layerManager
+      value: 
+      objectReference: {fileID: 743976423}
+    - target: {fileID: 5434787900446381868, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: OnEnemyEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442543741647390907, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: _layerManager
+      value: 
+      objectReference: {fileID: 743976423}
+    - target: {fileID: 6442543741647390907, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      propertyPath: OnEnemyEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6665137495858634827, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       propertyPath: m_AnchorMax.y
@@ -772,6 +796,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3712553091520256093, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 743976422}
     - targetCorrespondingSourceObject: {fileID: 741984285478702881, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -788,6 +815,44 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+--- !u!1 &743976421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3712553091520256093, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+  m_PrefabInstance: {fileID: 743976420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &743976422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743976421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 23
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &743976423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6612107396356293296, guid: 7f0b757774161ea408b15613b3a40557, type: 3}
+  m_PrefabInstance: {fileID: 743976420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743976421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2715328a1aec59b40b64885e1ace0081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Layer2Manager
 --- !u!1001 &8201141419935544226
 PrefabInstance:
   m_ObjectHideFlags: 0
