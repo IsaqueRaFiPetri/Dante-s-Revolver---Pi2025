@@ -6,6 +6,7 @@ public class Cage : DamageInteraction
 {
     bool canFall;
     [SerializeField] UnityEvent OnExitTrigger;
+    [SerializeField] Rigidbody _rb;
     Vector3 _startPos;
     [SerializeField] Vector3 _finalPos;
     private void Start()
@@ -33,11 +34,11 @@ public class Cage : DamageInteraction
     }
     public void Fall()
     {
-        transform.DOMoveY(_finalPos.y, .25f).SetEase(Ease.InQuart).onComplete = GetUp;
+        _rb.DOMoveY(_finalPos.y, .25f).SetEase(Ease.InQuart).onComplete = GetUp;
     }
     void GetUp()
     {
-        transform.DOMoveY(_startPos.y, 4f).SetEase(Ease.Linear);
+        _rb.DOMoveY(_startPos.y, 4f).SetEase(Ease.Linear);
     }
     void DetectCanFall()
     {
