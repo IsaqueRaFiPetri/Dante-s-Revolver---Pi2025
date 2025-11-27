@@ -14,6 +14,8 @@ public class InquisitorEnemy : EnemyController, ILauncher
     [SerializeField] List<Material> _materials;
     [SerializeField] Transform _headTransform;
     [SerializeField] List<IPlayable> _players;
+
+    [SerializeField] AudioSource audioSource;
     bool canContinue = true;
 
     void Awake()
@@ -73,6 +75,7 @@ public class InquisitorEnemy : EnemyController, ILauncher
             {
                 GameObject _lastInstantiatedEnemy = PhotonNetwork.Instantiate(enemyToSpawn, shuffledPoints[i].position, Quaternion.identity);
                 print(_lastInstantiatedEnemy);
+                audioSource.Play();
                 InquisitorFollower _lastInquitiorFollower = _lastInstantiatedEnemy.AddComponent<InquisitorFollower>();
                 print(_lastInquitiorFollower);
                 _lastInquitiorFollower._transformList[1] = _headTransform;
