@@ -7,6 +7,8 @@ public class Revive : MonoBehaviourPunCallbacks
     [SerializeField] bool _isPlayerIn;
     [SerializeField] bool _isSoulIn;
     PhantomMode _phantomPlayer;
+
+    [SerializeField] AudioSource audioSource;
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out PhantomMode _playerPhantom))
@@ -52,6 +54,7 @@ public class Revive : MonoBehaviourPunCallbacks
             _phantomPlayer.isInReviveArea(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z));
             _phantomPlayer = null;
             PhotonNetwork.Destroy(gameObject);
+            audioSource.Play();
         }
     }
 }
