@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -1830913598173337026}
   - component: {fileID: 2185242230607234534}
   - component: {fileID: 1140561317201400898}
+  - component: {fileID: 5808950754321821973}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -154,12 +155,36 @@ MonoBehaviour:
           m_StringArgument: Demon_Attack
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2185242230607234534}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 153b22bb8c61bd644a295f700848300c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Demon_Attack
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDamageTake:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2185242230607234534}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: de381a3c00a42c74ab41ad2d00763a3c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cooldown: 2
   anim: {fileID: 3783514361073407474}
 --- !u!114 &2040057050751780873
@@ -277,7 +302,7 @@ AudioSource:
   m_Resource: {fileID: 8300000, guid: 2594e019090bafe4e892ed665ec96c95, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 3
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -372,6 +397,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307a0a91cbb1a7d478945682be6c3c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &5808950754321821973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807114093112960381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d7e28b16e019b44b61e6ddb68cd530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  minPitch: 0.5
+  maxPitch: 1.5
+  audioSource: {fileID: 2185242230607234534}
+  changeInterval: 3
 --- !u!1 &5364663452507588005
 GameObject:
   m_ObjectHideFlags: 0
