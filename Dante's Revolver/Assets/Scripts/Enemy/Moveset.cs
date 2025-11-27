@@ -35,11 +35,6 @@ public class Moveset : MonoBehaviour
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         transform.position += _startPos;
         _childGameObject.SetActive(true);
-        transform.DOMove(_endPos, _animationTime);
-    }
-    public void SetMoveAnimation()
-    {
-        transform.DOLocalMove(_startPos, _animationTime).onComplete = SetActive;
     }
     void SetActive()
     {
