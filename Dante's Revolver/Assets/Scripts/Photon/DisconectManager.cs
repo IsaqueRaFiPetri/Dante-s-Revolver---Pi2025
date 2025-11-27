@@ -59,21 +59,19 @@ public class DisconectManager : MonoBehaviourPunCallbacks
     public void Disconnect(string sceneName)
     {
         RegisterPlayerAsDeadInRoom();
-        PhotonNetwork.Disconnect();
-        SceneManager.LoadScene(sceneName);
+        photonView.RPC("KickAllPlayersToMenu", RpcTarget.AllBuffered, sceneName);
     }
 
     public void LeaveRoom(string sceneName)
     {
         RegisterPlayerAsDeadInRoom();
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(sceneName);
+        photonView.RPC("KickAllPlayersToLobby", RpcTarget.AllBuffered, sceneName);
     }
 
     public void DisconnectAndQuit()
     {
         RegisterPlayerAsDeadInRoom();
-        PhotonNetwork.Disconnect();
+        photonView.RPC("KickAllPlayersToMenu", RpcTarget.AllBuffered, "menu");
         Application.Quit();
     }
 
@@ -88,6 +86,18 @@ public class DisconectManager : MonoBehaviourPunCallbacks
 
             intentionallyLeftPlayers[roomName].Add(PhotonNetwork.LocalPlayer.ActorNumber);
         }
+    }
+    [PunRPC]
+    public void KickAllPlayersToMenu(string sceneName)
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene(sceneName);
+    }
+    [PunRPC]
+    public void KickAllPlayersToLobby(string sceneName)
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(sceneName);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
